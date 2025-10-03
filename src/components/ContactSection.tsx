@@ -22,9 +22,11 @@ export const ContactSection = () => {
             <p className="text-muted-foreground mb-6">
               Book a 30-minute call to discuss investment opportunities or product strategy
             </p>
-            <Button variant="outline" className="w-full">
-              Schedule Call
-              <ArrowRight className="w-4 h-4 ml-2" />
+            <Button variant="outline" className="w-full" asChild>
+              <a href="https://calendly.com/jaskay" target="_blank" rel="noopener noreferrer">
+                Schedule Call
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
             </Button>
           </Card>
 
@@ -34,9 +36,11 @@ export const ContactSection = () => {
             <p className="text-muted-foreground mb-6">
               Connect for investment opportunities, advisory roles, or strategic partnerships
             </p>
-            <Button variant="outline" className="w-full">
-              Send Email
-              <ArrowRight className="w-4 h-4 ml-2" />
+            <Button variant="outline" className="w-full" asChild>
+              <a href="mailto:iamjasanyakay@gmail.com">
+                Send Email
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
             </Button>
           </Card>
 
@@ -46,9 +50,11 @@ export const ContactSection = () => {
             <p className="text-muted-foreground mb-6">
               Connect for industry insights, thought leadership, and professional opportunities
             </p>
-            <Button variant="outline" className="w-full">
-              Connect
-              <ArrowRight className="w-4 h-4 ml-2" />
+            <Button variant="outline" className="w-full" asChild>
+              <a href="https://www.linkedin.com/in/jaskay/" target="_blank" rel="noopener noreferrer">
+                Connect
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
             </Button>
           </Card>
         </div>
