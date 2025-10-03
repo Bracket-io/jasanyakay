@@ -1,8 +1,8 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
-import { ProgramOverview } from "@/components/ProgramOverview";
-import { CommunitySection } from "@/components/CommunitySection";
-import { ApplicationSection } from "@/components/ApplicationSection";
+import { AboutSection } from "@/components/AboutSection";
+import { RecognitionSection } from "@/components/RecognitionSection";
+import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -11,14 +11,14 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <section id="overview">
-          <ProgramOverview />
+        <section id="about">
+          <AboutSection />
         </section>
-        <section id="community">
-          <CommunitySection />
+        <section id="recognition">
+          <RecognitionSection />
         </section>
-        <section id="apply">
-          <ApplicationSection />
+        <section id="contact">
+          <ContactSection />
         </section>
       </main>
       <Footer />

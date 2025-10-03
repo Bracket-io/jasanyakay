@@ -1,98 +1,77 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Calendar, MapPin, Users } from "lucide-react";
-import heroImage from "@/assets/hero-driving.jpg";
+import { Linkedin, Github, Mail, ArrowDown } from "lucide-react";
 
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-black/20"></div>
+      {/* Decorative circles */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-40 right-20 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
       
       {/* Hero content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
-          <div className="text-center lg:text-left">
-            <div className="mb-6">
-              <div className="inline-flex items-center gap-2 bg-secondary/90 text-secondary-foreground px-4 py-2 rounded-full font-medium mb-4">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-                Summer 2025 Program
-              </div>
-              <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                Oasis Driving
-                <span className="block bg-gradient-secondary bg-clip-text text-transparent">
-                  Bootcamp
-                </span>
-              </h1>
-              <p className="text-xl text-white/90 mb-8 max-w-2xl">
-                Professional driving education program in Charm City. Master safe driving skills 
-                with expert instructors in a supportive community environment.
-              </p>
-            </div>
-
-            {/* Program highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-4 text-center">
-                <Calendar className="w-6 h-6 text-secondary mx-auto mb-2" />
-                <p className="text-white font-medium">June - August</p>
-                <p className="text-white/80 text-sm">3 Month Program</p>
-              </Card>
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-4 text-center">
-                <MapPin className="w-6 h-6 text-secondary mx-auto mb-2" />
-                <p className="text-white font-medium">Charm City</p>
-                <p className="text-white/80 text-sm">Local Training</p>
-              </Card>
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-4 text-center">
-                <Users className="w-6 h-6 text-secondary mx-auto mb-2" />
-                <p className="text-white font-medium">Expert Team</p>
-                <p className="text-white/80 text-sm">Certified Instructors</p>
-              </Card>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-6">
-                Apply Now
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10">
-                Learn More
-              </Button>
-            </div>
+      <div className="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center">
+        <div className="mb-8">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full font-medium mb-6">
+            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+            Product Leader & Data Strategist
           </div>
-
-          {/* Right content - Image */}
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-elegant">
-              <img 
-                src={heroImage} 
-                alt="Professional driving instruction" 
-                className="w-full h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-            </div>
-            
-            {/* Floating card */}
-            <Card className="absolute -bottom-6 -left-6 bg-white p-6 shadow-glow">
-              <div className="text-center">
-                <p className="text-3xl font-bold text-primary mb-1">100%</p>
-                <p className="text-sm text-muted-foreground">Success Rate</p>
-              </div>
-            </Card>
+          
+          <h1 className="text-6xl lg:text-8xl font-bold mb-4 leading-tight">
+            Kay <span className="text-primary">Jasanya</span>
+          </h1>
+          
+          <div className="flex flex-wrap justify-center gap-3 text-muted-foreground mb-8">
+            <span>Venture Capital</span>
+            <span>•</span>
+            <span>Product Strategy</span>
+            <span>•</span>
+            <span>Data Science</span>
+            <span>•</span>
+            <span>Startup Advisory</span>
           </div>
+          
+          <p className="text-xl text-foreground/80 mb-10 max-w-3xl mx-auto leading-relaxed">
+            Transforming startups through data-driven product strategies and strategic investments. 
+            I help founders build products that scale, leveraging deep analytics and market insights 
+            to drive exceptional growth and user engagement.
+          </p>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <Button size="lg" className="text-lg px-8 py-6">
+            <Mail className="w-5 h-5 mr-2" />
+            Partner With Me
+          </Button>
+          <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+            View Portfolio
+          </Button>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex gap-4 justify-center mb-16">
+          <Button variant="ghost" size="icon" className="rounded-full">
+            <Linkedin className="w-5 h-5" />
+          </Button>
+          <Button variant="ghost" size="icon" className="rounded-full">
+            <Github className="w-5 h-5" />
+          </Button>
+          <Button variant="ghost" size="icon" className="rounded-full">
+            <Mail className="w-5 h-5" />
+          </Button>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="animate-bounce">
+          <ArrowDown className="w-6 h-6 mx-auto text-muted-foreground" />
         </div>
       </div>
 
-      {/* Directors info */}
-      <div className="absolute bottom-8 left-8 right-8">
-        <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-4">
-          <p className="text-white/80 text-sm mb-2">Program Directors:</p>
-          <div className="flex flex-wrap gap-4">
-            <p className="text-white font-medium">James Lambert</p>
-            <p className="text-white font-medium">Aminatu Abdullai</p>
-          </div>
-        </Card>
-      </div>
+      {/* Profile image floating card - optional */}
+      <Card className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white p-2 shadow-glow hidden lg:block">
+        <div className="w-24 h-24 bg-primary/10 rounded-full"></div>
+      </Card>
     </section>
   );
 };

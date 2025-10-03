@@ -6,10 +6,9 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigationItems = [
-    { label: "Overview", href: "#overview" },
-    { label: "Program", href: "#program" },
-    { label: "Community", href: "#community" },
-    { label: "Apply", href: "#apply" },
+    { label: "Work", href: "#work" },
+    { label: "Thoughts", href: "#thoughts" },
+    { label: "Cases", href: "#cases" },
   ];
 
   return (
@@ -17,14 +16,8 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">O</span>
-            </div>
-            <div>
-              <h1 className="font-bold text-lg">Oasis Driving</h1>
-              <p className="text-xs text-muted-foreground -mt-1">Bootcamp</p>
-            </div>
+          <div className="flex items-center">
+            <h1 className="font-bold text-xl text-primary">Kay Jasanya</h1>
           </div>
 
           {/* Desktop Navigation */}
@@ -42,11 +35,8 @@ export const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
+            <Button size="sm">
               Contact
-            </Button>
-            <Button variant="cta" size="sm">
-              Apply Now
             </Button>
           </div>
 
@@ -75,12 +65,9 @@ export const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <div className="px-4 pt-4 space-y-2">
-                <Button variant="ghost" className="w-full justify-start" size="sm">
+              <div className="px-4 pt-4">
+                <Button className="w-full" size="sm">
                   Contact
-                </Button>
-                <Button variant="cta" className="w-full" size="sm">
-                  Apply Now
                 </Button>
               </div>
             </nav>
