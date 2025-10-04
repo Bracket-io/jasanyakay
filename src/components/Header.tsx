@@ -1,14 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigationItems = [
-    { label: "Work", href: "#work" },
-    { label: "Thoughts", href: "#thoughts" },
-    { label: "Cases", href: "#cases" },
+    { label: "Work", href: "/work" },
+    { label: "Thoughts", href: "/thoughts" },
+    { label: "Cases", href: "/case-studies" },
   ];
 
   return (
@@ -16,28 +17,30 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <h1 className="font-bold text-xl text-primary">Kay Jasanya</h1>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navigationItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 className="text-sm font-medium hover:text-primary transition-smooth"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button size="sm">
-              Contact
-            </Button>
+            <a href="https://calendly.com/jaskay">
+              <Button size="sm">
+                Contact
+              </Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -56,19 +59,21 @@ export const Header = () => {
           <div className="md:hidden border-t border-border bg-white/95 backdrop-blur-sm">
             <nav className="py-4 space-y-2">
               {navigationItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   className="block px-4 py-2 text-sm font-medium hover:bg-muted rounded-md transition-smooth"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               <div className="px-4 pt-4">
-                <Button className="w-full" size="sm">
-                  Contact
-                </Button>
+                <a href="https://calendly.com/jaskay" className="block">
+                  <Button className="w-full" size="sm">
+                    Contact
+                  </Button>
+                </a>
               </div>
             </nav>
           </div>
