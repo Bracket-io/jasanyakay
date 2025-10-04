@@ -13,53 +13,75 @@ const Thoughts = () => {
 
   const featuredArticles = [
     {
-      category: "Product Strategy",
-      date: "1/14/2024",
-      title: "The Future of Product-Led Growth in B2B SaaS",
-      description: "Exploring how data-driven product strategies are reshaping customer acquisition and retention in enterprise software.",
-      readTime: "8 min read",
+      category: "Venture Capital",
+      date: "12/19/2023",
+      title: "Investment Thesis — Vertical SaaS",
+      description: "Deep dive into the vertical SaaS landscape, exploring market opportunities and investment strategies in specialized software solutions.",
+      readTime: "10 min read",
+      link: "https://jaskay.medium.com/investment-thesis-vertical-saas-7f3ad770873c",
     },
     {
-      category: "Venture Capital",
-      date: "1/9/2024",
-      title: "Venture Capital in the Age of AI",
-      description: "How artificial intelligence is transforming investment decisions and due diligence processes in venture capital.",
-      readTime: "12 min read",
+      category: "Product Strategy",
+      date: "1/15/2023",
+      title: "Product Review #3: Masterclass",
+      description: "Analyzing Masterclass's product strategy, user experience, and how they've created a premium learning platform.",
+      readTime: "8 min read",
+      link: "https://jaskay.medium.com/product-review-3-masterclass-b9daee74b5ad",
     },
   ];
 
   const recentArticles = [
     {
-      category: "Leadership",
-      date: "1/4/2024",
-      title: "Building Inclusive Tech Teams",
-      description: "Practical strategies for creating diverse, high-performing teams in the technology sector.",
-      readTime: "6 min read",
-    },
-    {
-      category: "Data Science",
-      date: "12/19/2023",
-      title: "Data Governance in Startup Environments",
-      description: "Implementing robust data practices without slowing down innovation in early-stage companies.",
-      readTime: "10 min read",
+      category: "Impact",
+      date: "11/30/2023",
+      title: "Project GiiV — Revolutionizing Charity Giving in Nigeria",
+      description: "Building a platform to transform how people give back, combining technology with social impact to revolutionize charitable donations.",
+      readTime: "7 min read",
+      link: "https://jaskay.medium.com/project-giiv-revolutionizing-charity-giving-in-nigeria-f6f1fbc07377",
     },
     {
       category: "Product Strategy",
-      date: "12/14/2023",
-      title: "The Product Manager's Guide to Technical Debt",
-      description: "Balancing feature development with technical debt management for sustainable product growth.",
-      readTime: "7 min read",
+      date: "10/1/2022",
+      title: "Exploring Ruttl: A Deep Dive into User Experience and Features",
+      description: "Product review analyzing Ruttl's approach to design collaboration and website feedback tools.",
+      readTime: "8 min read",
+      link: "https://jaskay.medium.com/product-review-2-ruttl-19eab887f7eb",
     },
     {
-      category: "Analytics",
-      date: "12/9/2023",
-      title: "Metrics That Matter: Beyond Vanity KPIs",
-      description: "Identifying and tracking the metrics that truly drive business value and product success.",
+      category: "Venture Capital",
+      date: "10/22/2022",
+      title: "Startup Categories #1: Intro",
+      description: "Introduction to understanding different startup categories and frameworks for evaluating early-stage companies.",
+      readTime: "6 min read",
+      link: "https://jaskay.medium.com/startup-categories-1-intro-b0941ae14e45",
+    },
+    {
+      category: "Leadership",
+      date: "11/30/2023",
+      title: "Bob Iger Teaches Business Strategy and Leadership",
+      description: "Key insights from Bob Iger's Masterclass on building Disney into a global entertainment powerhouse through strategic vision.",
       readTime: "9 min read",
+      link: "https://jaskay.medium.com/bob-iger-teaches-business-strategy-and-leadership-12d7c9ea00a0",
+    },
+    {
+      category: "Product Strategy",
+      date: "1/4/2022",
+      title: "KPCB '22 Product Challenge Response",
+      description: "Tackling a strategic product challenge from Kleiner Perkins, exploring product thinking and user-centered design.",
+      readTime: "10 min read",
+      link: "https://jaskay.medium.com/kpcb-22-product-challenge-response-972cb76247e6",
+    },
+    {
+      category: "Product Strategy",
+      date: "9/24/2022",
+      title: "Product Review #1: Mailscribe",
+      description: "Analysis of Mailscribe's email productivity features and their approach to solving email overload challenges.",
+      readTime: "6 min read",
+      link: "https://jaskay.medium.com/product-review-1-mailscribe-abf59b32804",
     },
   ];
 
-  const filters = ["All", "Product Strategy", "Venture Capital", "Data Science", "Leadership", "Analytics"];
+  const filters = ["All", "Product Strategy", "Venture Capital", "Leadership", "Impact"];
 
   const allArticles = [...featuredArticles, ...recentArticles];
   const filteredArticles = activeFilter === "All" 
@@ -121,9 +143,16 @@ const Thoughts = () => {
                       <Clock className="w-4 h-4" />
                       {article.readTime}
                     </div>
-                    <Button variant="ghost" size="sm" className="gap-2">
-                      Read More
-                      <ArrowRight className="w-4 h-4" />
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="gap-2"
+                      asChild
+                    >
+                      <a href={article.link} target="_blank" rel="noopener noreferrer">
+                        Read More
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
@@ -137,7 +166,11 @@ const Thoughts = () => {
           <h2 className="text-3xl font-bold mb-6">Recent Articles</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {filteredArticles.map((article, index) => (
-              <Card key={index} className="hover:shadow-glow transition-all cursor-pointer">
+              <Card 
+                key={index} 
+                className="hover:shadow-glow transition-all cursor-pointer"
+                onClick={() => window.open(article.link, '_blank')}
+              >
                 <CardHeader>
                   <Badge variant="outline" className="w-fit mb-2">{article.category}</Badge>
                   <CardTitle className="text-xl">{article.title}</CardTitle>
