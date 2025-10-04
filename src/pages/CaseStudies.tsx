@@ -9,6 +9,50 @@ import { Link } from "react-router-dom";
 const CaseStudies = () => {
   const caseStudies = [
     {
+      role: "Product Strategist",
+      duration: "2024",
+      title: "WeSolv Marketing & Communications Strategy",
+      subtitle: "Winning case competition on diverse candidate engagement",
+      company: "WeSolv (Case Competition Winner)",
+      challenge: "WeSolv needed to expand their company partnerships and develop new marketing strategies to engage diverse candidates across 20+ universities. The challenge required evaluating user base demographics and devising creative engagement strategies for WeSolv's target market.",
+      solution: "Conducted comprehensive research on WeSolv's target demographics and stakeholder needs. Developed creative marketing recommendations that demonstrated deep research insights and proposed realistic, implementable solutions. Collaborated with teammate Katie Jang to create data-driven strategies for engaging diverse talent through innovative channels.",
+      results: [
+        { icon: Award, value: "1st Place", label: "Competition Rank" },
+        { icon: DollarSign, value: "$1,000", label: "Prize Award" },
+        { icon: Users, value: "20+", label: "Universities Analyzed" },
+        { icon: Target, value: "100%", label: "Judge Approval" },
+      ],
+      technologies: ["Market Research", "User Demographics", "Marketing Strategy", "Stakeholder Analysis"],
+      testimonial: {
+        quote: "This team not only had a keen eye for WeSolv's Marketing opportunities, but they also made creative recommendations that showed the depth of their research as well as their ability to think outside the box and propose realistic solutions that WeSolv can employ.",
+        author: "WeSolv Evaluation Team",
+        title: "Case Challenge Judges",
+      },
+      link: "https://wesolv.com/meet-the-winners-of-wesolvs-latest-case-challenge/2856/",
+    },
+    {
+      role: "Product Strategist",
+      duration: "2020",
+      title: "KeyBank Diversity & Inclusion Strategy",
+      subtitle: "Developing strategies to appeal to diverse audiences",
+      company: "KeyBank (Case Competition - 4th Place)",
+      challenge: "KeyBank needed to develop comprehensive strategies to appeal to increasingly diverse customer segments. The financial services industry was rapidly evolving, and KeyBank sought innovative approaches to connect with multicultural audiences while maintaining brand authenticity and trust.",
+      solution: "Analyzed KeyBank's current market positioning and demographic trends. Developed multi-channel engagement strategies incorporating cultural insights, inclusive messaging frameworks, and product offerings tailored to diverse communities. Created actionable recommendations for enhancing brand perception across different demographic segments.",
+      results: [
+        { icon: Award, value: "4th Place", label: "Competition Rank" },
+        { icon: Users, value: "5+", label: "Demographic Segments" },
+        { icon: Target, value: "10+", label: "Strategic Initiatives" },
+        { icon: Lightbulb, value: "15+", label: "Key Insights" },
+      ],
+      technologies: ["Market Analysis", "Diversity Strategy", "Consumer Insights", "Financial Services"],
+      testimonial: {
+        quote: "The team demonstrated strong analytical capabilities and cultural awareness in developing strategies to connect KeyBank with diverse audiences.",
+        author: "Competition Judges",
+        title: "MBA Exchange KeyBank Case Competition",
+      },
+      link: "https://www.mba-exchange.com/candidates/mba-jobs-competitions.php?mcpId=73&mcpId=73",
+    },
+    {
       role: "Product Consultant",
       duration: "2021",
       title: "Dynata Scope Change Process Optimization",
