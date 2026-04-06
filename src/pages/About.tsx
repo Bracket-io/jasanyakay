@@ -5,10 +5,32 @@ const About = () => {
     <Layout>
       <h1 className="text-3xl font-bold tracking-tight mb-8">About</h1>
 
-      <p className="text-base leading-relaxed mb-10 max-w-[600px]">
-        I'm Kay Jasanya, a Data Product Manager focused on building systems that
-        turn data into decisions.
-      </p>
+      <div className="space-y-6 text-sm leading-relaxed max-w-[600px] mb-14">
+        <p>
+          Kay Jasanya is a Data Product Manager focused on building systems that
+          improve decision-making across finance, public infrastructure, and
+          digital products.
+        </p>
+        <p>
+          His work spans fintech, civic analytics, and early-stage venture
+          ecosystems, combining data, product strategy, and operational thinking
+          to design scalable solutions.
+        </p>
+        <p>
+          He has contributed to projects impacting thousands of users and
+          large-scale systems, including city-wide analytics platforms and
+          financial decision tools.
+        </p>
+        <p>
+          Currently, he is building Bracket, a platform focused on helping users
+          make better financial decisions through structured, data-driven
+          workflows.
+        </p>
+        <p>
+          His interests include decision systems, financial behavior, and the
+          intersection of data and product design.
+        </p>
+      </div>
 
       <section className="mb-10">
         <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
