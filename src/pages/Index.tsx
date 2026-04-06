@@ -27,6 +27,7 @@ const Index = () => {
           <span>Morgan State University</span>
           <span>Oracle</span>
           <span>VMware</span>
+          <span>Oasis Inc.</span>
         </div>
       </section>
 
@@ -74,7 +75,10 @@ const Index = () => {
           <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground">
             Thoughts
           </p>
-          <Link to="/thoughts" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+          <Link
+            to="/thoughts"
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+          >
             View all →
           </Link>
         </div>
@@ -87,8 +91,12 @@ const Index = () => {
               rel="noopener noreferrer"
               className="block group border-b border-border pb-6 last:border-0"
             >
-              <p className="text-xs text-muted-foreground mb-1">{post.date} · {post.category}</p>
-              <h3 className="text-sm font-bold group-hover:underline">{post.title}</h3>
+              <p className="text-xs text-muted-foreground mb-1">
+                {post.date} · {post.category}
+              </p>
+              <h3 className="text-sm font-bold group-hover:underline">
+                {post.title}
+              </h3>
             </a>
           ))}
         </div>
@@ -100,18 +108,21 @@ const Index = () => {
           <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground">
             Bookmarks
           </p>
-          <Link to="/bookmarks" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+          <Link
+            to="/bookmarks"
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+          >
             View all →
           </Link>
         </div>
         <div className="flex flex-wrap gap-3">
-          {Object.keys(bookmarks).map((category) => (
+          {bookmarks.map((folder) => (
             <Link
-              key={category}
+              key={folder.label}
               to="/bookmarks"
               className="text-sm border border-border px-3 py-1.5 hover:bg-accent transition-colors"
             >
-              {category}
+              {folder.label}
             </Link>
           ))}
         </div>

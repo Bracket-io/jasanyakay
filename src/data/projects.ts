@@ -345,18 +345,18 @@ export const selectedWork = projects.slice(0, 3);
 
 export const thoughts = [
   {
+    title: "Homecoming, Mentorship, and the Power of HBCU Connections",
+    description: "HBCU mentorship and the power of giving back through connection and community.",
+    date: "Oct 2025",
+    link: "https://jaskay.medium.com/homecoming-mentorship-and-the-power-of-hbcu-connections-db51a3d5ea08",
+    category: "Impact",
+  },
+  {
     title: "Investment Thesis — Vertical SaaS",
     description: "Deep dive into the vertical SaaS landscape, exploring market opportunities and investment strategies.",
     date: "Dec 2023",
     link: "https://jaskay.medium.com/investment-thesis-vertical-saas-7f3ad770873c",
     category: "Venture Capital",
-  },
-  {
-    title: "Product Review: Masterclass",
-    description: "Analyzing Masterclass's product strategy and how they've created a premium learning platform.",
-    date: "Jan 2023",
-    link: "https://jaskay.medium.com/product-review-3-masterclass-b9daee74b5ad",
-    category: "Product Strategy",
   },
   {
     title: "Project GiiV — Revolutionizing Charity Giving in Nigeria",
@@ -366,11 +366,25 @@ export const thoughts = [
     category: "Impact",
   },
   {
+    title: "Product Review #3: Masterclass",
+    description: "Analyzing Masterclass's product strategy and how they've created a premium learning platform.",
+    date: "Jan 2023",
+    link: "https://jaskay.medium.com/product-review-3-masterclass-b9daee74b5ad",
+    category: "Product Strategy",
+  },
+  {
     title: "Bob Iger Teaches Business Strategy and Leadership",
     description: "Key insights from Bob Iger's Masterclass on building Disney through strategic vision.",
     date: "Nov 2023",
     link: "https://jaskay.medium.com/bob-iger-teaches-business-strategy-and-leadership-12d7c9ea00a0",
     category: "Leadership",
+  },
+  {
+    title: "Startup Categories #1: Intro",
+    description: "Introduction to understanding different startup categories and evaluation frameworks.",
+    date: "Oct 2022",
+    link: "https://jaskay.medium.com/startup-categories-1-intro-b0941ae14e45",
+    category: "Venture Capital",
   },
   {
     title: "Exploring Ruttl: A Deep Dive into UX and Features",
@@ -380,37 +394,125 @@ export const thoughts = [
     category: "Product Strategy",
   },
   {
-    title: "Startup Categories #1: Intro",
-    description: "Introduction to understanding different startup categories and evaluation frameworks.",
-    date: "Oct 2022",
-    link: "https://jaskay.medium.com/startup-categories-1-intro-b0941ae14e45",
-    category: "Venture Capital",
+    title: "Product Review #1: Mailscribe",
+    description: "Review of Mailscribe's email productivity tool, covering UX and product positioning.",
+    date: "Sep 2022",
+    link: "https://jaskay.medium.com/product-review-1-mailscribe-abf59b32804",
+    category: "Product Strategy",
+  },
+  {
+    title: "KPCB '22 Product Challenge Response",
+    description: "My response to the Kleiner Perkins product design challenge for the 2022 fellowship.",
+    date: "Jan 2022",
+    link: "https://jaskay.medium.com/kpcb-22-product-challenge-response-972cb76247e6",
+    category: "Product Strategy",
+  },
+  {
+    title: "Design4US Experience",
+    description: "Reflections on a defining week in my design journey through the Design4US program.",
+    date: "Apr 2021",
+    link: "https://jaskay.medium.com/design4us-experience-1093bfd6799a",
+    category: "Design",
   },
 ];
 
-export const bookmarks = {
-  "Case Competitions": [
-    "Techsgiving Finalist",
-    "NBMBAA Finalist",
-    "Blackstone Launchpad Winner",
-  ],
-  "Certifications": [
-    "PSPO II",
-    "PSM",
-    "Aha! Product",
-  ],
-  "Mentorship": [
-    "Johns Hopkins Super Mentor",
-    "Technovation Mentor",
-  ],
-  "Volunteer": [
-    "BisonHacks",
-    "SproutHacks",
-    "DECA Evaluator",
-  ],
-  "Publications": [
-    "Articles",
-    "Whitepapers",
-    "Research",
-  ],
-};
+export interface BookmarkItem {
+  title: string;
+  year?: string;
+  link?: string;
+}
+
+export interface BookmarkFolder {
+  label: string;
+  items: BookmarkItem[];
+}
+
+export const bookmarks: BookmarkFolder[] = [
+  {
+    label: "Recognition",
+    items: [
+      { title: "DECA Inc. — SBE Evaluator", year: "2025" },
+      { title: "Venture Institute — Venture Fellow", year: "2024" },
+      { title: "VC Partners — Venture Capital Associate", year: "2024" },
+      { title: "Harvard University — AWS NextGen Fellowship", year: "2023" },
+      { title: "Johns Hopkins — Hopstart Pitch Competition Winner", year: "2023" },
+      { title: "Blackstone — LaunchPad Winner", year: "2023" },
+      { title: "WeSolv — Case Competition Winner", year: "2022" },
+      { title: "KeyBank — 4th Position, Case Competition", year: "2022" },
+      { title: "NBMBAA — Finalist, MBA Pitch Competition", year: "2022" },
+      { title: "HBCUvc — Fellow, Cohort 5", year: "2021" },
+      { title: "Stanford University — University Innovation Fellow", year: "2017" },
+    ],
+  },
+  {
+    label: "Certifications",
+    items: [
+      { title: "Venture Partner Fellowship", year: "2024" },
+      { title: "Aha! Product Management Professional", year: "2023" },
+      { title: "Program Management for IT Professionals", year: "2023" },
+      { title: "Succeeding as a First Time Tech Manager", year: "2023" },
+      { title: "Product Management: Building a Product Strategy", year: "2023" },
+      { title: "Professional Scrum Master (PSM)", year: "2021" },
+      { title: "Scrum: Advanced", year: "2021" },
+      { title: "Lean Six Sigma White Belt", year: "2021" },
+      { title: "Bloomberg Marketing Certification", year: "2021" },
+      { title: "Foundation of Project Management (Google)", year: "2021" },
+      { title: "Project Management Essential Certified", year: "2020" },
+    ],
+  },
+  {
+    label: "Papers",
+    items: [
+      { title: "Multi-Objective Genetic Algorithm Optimization for Energy Access Policy Design in Sub-Saharan Africa", year: "2025" },
+      { title: "Gender, Location, and Energy Access Intersectionality in Sub-Saharan Africa", year: "2025" },
+      { title: "Urban Energy Transition Patterns and Sustainable Development", year: "2025" },
+      { title: "Machine Learning Applications in Analyzing Socioeconomic Determinants of Urban Clean Energy Adoption", year: "2025" },
+      { title: "Socioeconomic Determinants and Machine Learning Insights into Clean Energy Transition", year: "2025" },
+      { title: "Evaluating the Impact of Policy Interventions on CO2 Emissions in Sub-Saharan Africa", year: "2024" },
+      { title: "The Impact of Embedded Finance on Financial Inclusion in Sub-Saharan Africa", year: "2024", link: "https://www.researchgate.net/publication/386144935_Unveiling_Fintech's_Frontier_The_Power_of_Embedded_Finance_and_FinSaaS" },
+    ],
+  },
+  {
+    label: "Press",
+    items: [
+      { title: "NSF I-Corps Hub Mid-Atlantic Region", year: "2024", link: "https://www.mtech.umd.edu/news/nsf-i-corps-hub-mid-atlantic-region-partners-host-black-founders-in-i-corps-event" },
+      { title: "EducatorsTalk Podcast", year: "2023", link: "https://podcasters.spotify.com/pod/show/educatorstalk/episodes/Academic-Excellence-is-for-you-NOT-geniuses-e1vvjr6" },
+      { title: "Johns Hopkins Technology Ventures", year: "2023" },
+      { title: "Harvard iLab / AWS NextGen", year: "2023", link: "https://innovationlabs.harvard.edu/about/news/25-black-led-startups-selected-for-inaugural-nextgen-accelerator-program/" },
+      { title: "Johns Hopkins Hopstart", year: "2023", link: "https://engineering.jhu.edu/cle/hopstart/" },
+      { title: "Technically Baltimore", year: "2022" },
+      { title: "WeSolv Case Winner", year: "2022", link: "https://medium.com/wesolv/meet-the-winners-of-wesolvs-latest-case-challenge-7b3c0f02bfa0" },
+      { title: "HBCUvc Fellowship", year: "2021", link: "https://blog.hbcu.vc/hbcuvc-welcomes-its-fifth-and-largest-class-of-venture-capital-fellows-5cade19616ff" },
+      { title: "Honda Quiz Bowl", year: "2018", link: "https://themsuspokesman.com/6929/campus-news/morgan-state-in-the-honda-campus-all-star-challenge/" },
+      { title: "Honda Quiz Bowl", year: "2017", link: "https://themsuspokesman.com/6929/campus-news/morgan-state-in-the-honda-campus-all-star-challenge/" },
+      { title: "Morgan Means Business", year: "2017", link: "https://www.morgan.edu/news/student-entrepreneurs-show-why-morgan-means-business" },
+    ],
+  },
+  {
+    label: "Venture Capital",
+    items: [
+      { title: "Venture Institute — Training for emerging VC associates", year: "2025" },
+      { title: "VC Partners — 6-month fellowship for fund associates and managers", year: "2024" },
+      { title: "Oregon Sport Angels — Portfolio monitoring for 31 companies", year: "2023 – 2024" },
+      { title: "GenZScout — Global VC program with 250+ members", year: "2023" },
+      { title: "SupplyChange Capital — Due diligence analyst", year: "2022" },
+      { title: "MotivateVC — Due diligence and investment teasers", year: "2022" },
+      { title: "HBCUvc — VC Fellowship, Cohort 5", year: "2021 – Present" },
+    ],
+  },
+  {
+    label: "Mentorship",
+    items: [
+      { title: "Johns Hopkins Super Mentor" },
+      { title: "Technovation Mentor" },
+    ],
+  },
+  {
+    label: "Volunteer",
+    items: [
+      { title: "BisonHacks" },
+      { title: "SproutHacks" },
+      { title: "DECA Evaluator" },
+    ],
+  },
+];
