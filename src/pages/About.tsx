@@ -34,12 +34,34 @@ const About = () => {
 
       <section className="mb-10">
         <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
+          Education
+        </h2>
+        <ul className="space-y-2 text-sm">
+          <li>
+            <span className="font-bold">Morgan State University</span>
+            <span className="text-muted-foreground"> — M.S. Data Science</span>
+          </li>
+          <li>
+            <span className="font-bold">Johns Hopkins University</span>
+            <span className="text-muted-foreground"> — M.S. Information Systems</span>
+          </li>
+          <li>
+            <span className="font-bold">Morgan State University</span>
+            <span className="text-muted-foreground"> — B.S. Information Science & Systems</span>
+          </li>
+        </ul>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
           What I Do
         </h2>
         <ul className="space-y-2 text-sm">
           <li>Product strategy for data-driven systems</li>
           <li>Design of analytics and decision tools</li>
           <li>Turning complex data into intuitive product experiences</li>
+          <li>Geospatial analysis and civic data platforms</li>
+          <li>Venture capital due diligence and investment analysis</li>
         </ul>
       </section>
 
@@ -50,19 +72,37 @@ const About = () => {
         <p className="text-sm leading-relaxed max-w-[600px]">
           I've worked across product, analytics, and operations to improve
           decision-making systems at organizations including the City of
-          Baltimore, Oracle, Morgan Stanley, and VMware.
+          Baltimore, Oracle, Morgan Stanley, VMware, and Oasis Inc.
         </p>
+      </section>
+
+      <section className="mb-10">
+        <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
+          Tools & Skills
+        </h2>
+        <div className="grid grid-cols-2 gap-x-12 gap-y-1 text-sm text-muted-foreground">
+          <span>SQL</span>
+          <span>ArcGIS</span>
+          <span>Power BI</span>
+          <span>Product Analytics</span>
+          <span>Excel & Automation</span>
+          <span>Figma</span>
+          <span>Airtable</span>
+          <span>Grafana</span>
+          <span>Python</span>
+          <span>APEX</span>
+        </div>
       </section>
 
       <section>
         <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
-          Tools
+          Languages
         </h2>
         <ul className="space-y-1 text-sm text-muted-foreground">
-          <li>SQL</li>
-          <li>Product analytics tools</li>
-          <li>Excel & automation</li>
-          <li>Figma</li>
+          <li>English — Native</li>
+          <li>French — Limited</li>
+          <li>Spanish — Limited</li>
+          <li>Yoruba — Conversational</li>
         </ul>
       </section>
     </Layout>
