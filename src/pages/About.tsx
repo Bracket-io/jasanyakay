@@ -47,7 +47,19 @@ const About = () => {
           </li>
           <li>
             <span className="font-bold">Morgan State University</span>
+            <span className="text-muted-foreground"> — MBA</span>
+          </li>
+          <li>
+            <span className="font-bold">Morgan State University</span>
+            <span className="text-muted-foreground"> — M.S. Engineering Management</span>
+          </li>
+          <li>
+            <span className="font-bold">Morgan State University</span>
             <span className="text-muted-foreground"> — B.S. Information Science & Systems</span>
+          </li>
+          <li>
+            <span className="font-bold">Morgan State University</span>
+            <span className="text-muted-foreground"> — B.S. Electrical Engineering</span>
           </li>
         </ul>
       </section>
@@ -72,7 +84,7 @@ const About = () => {
         <p className="text-sm leading-relaxed max-w-[600px]">
           I've worked across product, analytics, and operations to improve
           decision-making systems at organizations including the City of
-          Baltimore, Oracle, Morgan Stanley, VMware, and Oasis Inc.
+          Baltimore, Morgan Stanley, Johns Hopkins Hospital, Oracle, Morgan State University, VMware, and Oasis Inc.
         </p>
       </section>
 
