@@ -16,6 +16,7 @@ export interface Project {
   learnings: string[];
   externalLink?: string;
   status?: string;
+  category?: string;
 }
 
 export const projects: Project[] = [
@@ -27,6 +28,7 @@ export const projects: Project[] = [
     role: "Data Product Manager",
     scope: "Product Strategy, Data Systems, Decision Design",
     timeline: "2025",
+    category: "Fintech",
     overview:
       "Bracket is a platform designed to help users make better financial decisions through structured, data-driven flows. It combines behavioral nudges with clear decision frameworks.",
     problem:
@@ -67,6 +69,7 @@ export const projects: Project[] = [
     role: "Data Product Analyst",
     scope: "Data Analytics, AI/ML, Smart Cities",
     timeline: "2024 – 2025",
+    category: "Civic Tech",
     overview:
       "An analytics initiative leveraging Baltimore's CitiWatch camera network and Google AI/ML to detect and reduce illegal dumping incidents city-wide.",
     problem:
@@ -107,6 +110,7 @@ export const projects: Project[] = [
     role: "Data Product Analyst",
     scope: "Data Analysis, Policy Impact, Environmental Justice",
     timeline: "2023 – 2024",
+    category: "Civic Tech",
     overview:
       "Led data analysis for the Redlining and Justice40 initiatives, delivering insights that drove equitable policy decisions impacting thousands of homes across 153 cities.",
     problem:
@@ -147,6 +151,7 @@ export const projects: Project[] = [
     role: "Data Product Analyst",
     scope: "Product Development, Data Visualization, Gov Tech",
     timeline: "2024 – 2025",
+    category: "Civic Tech",
     overview:
       "Launched a Quarto-powered website to centralize CitiStat updates for Baltimore's Office of Performance and Innovation.",
     problem:
@@ -187,6 +192,7 @@ export const projects: Project[] = [
     role: "Data Product Analyst",
     scope: "Data Analysis, Process Improvement, KPIs",
     timeline: "2024 – 2025",
+    category: "Civic Tech",
     overview:
       "Used data analysis and cross-agency coordination to optimize 311 service request SLAs, improving completion rates from under 50% to 75%.",
     problem:
@@ -220,6 +226,48 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "arcgis-dashboard",
+    title: "ArcGIS Analytics Dashboard",
+    subtitle: "Geospatial dashboard for urban data analysis at Morgan State University",
+    year: "2024",
+    role: "Data Analyst",
+    scope: "ArcGIS, Geospatial Analysis, Data Visualization",
+    timeline: "2024",
+    category: "Data & Analytics",
+    overview:
+      "Built an interactive ArcGIS dashboard for geospatial data analysis, supporting urban research and policy decisions.",
+    problem:
+      "Urban research data lacked spatial visualization, making it difficult to identify geographic patterns and inform location-based policy.",
+    context:
+      "Morgan State University needed interactive geospatial tools to support urban analytics research and community impact assessment.",
+    approach: [
+      "Designed geospatial data models for urban metrics",
+      "Built interactive map layers with filterable dimensions",
+      "Created dashboard views for stakeholder presentations",
+    ],
+    productThinking: [
+      "Prioritized intuitive map interactions over complex GIS workflows",
+      "Designed for non-technical stakeholders to explore data independently",
+      "Chose ArcGIS for institutional compatibility and scalability",
+    ],
+    execution: [
+      "Deployed interactive ArcGIS dashboard",
+      "Integrated multiple urban data sources",
+      "Built presentation-ready visualizations",
+    ],
+    outcome: [
+      "Enabled spatial analysis for urban research initiatives",
+      "Improved stakeholder understanding of geographic patterns",
+      "Supported data-driven policy recommendations",
+    ],
+    learnings: [
+      "Geospatial visualization makes abstract data tangible",
+      "Interactive dashboards drive deeper stakeholder engagement",
+      "Institutional tools require balancing capability with usability",
+    ],
+    externalLink: "https://morganstate.maps.arcgis.com/apps/dashboards/472fa40666aa4f8687c06a90f72252cf",
+  },
+  {
     slug: "oracle-dashboards",
     title: "Real-Time KPI Dashboards",
     subtitle: "SQL-driven dashboards for operational visibility at Oracle",
@@ -227,6 +275,7 @@ export const projects: Project[] = [
     role: "Product Management Intern",
     scope: "SQL, APEX, Grafana, Business Intelligence",
     timeline: "Summer 2021",
+    category: "Data & Analytics",
     overview:
       "Developed and deployed 5 SQL-driven dashboards in APEX and Grafana for real-time KPI tracking across Oracle teams.",
     problem:
@@ -267,6 +316,7 @@ export const projects: Project[] = [
     role: "Technology Analyst Intern",
     scope: "Java, Spring Boot, Kafka, AngularJS",
     timeline: "Summer 2019",
+    category: "Engineering",
     overview:
       "Built a responsive, data-driven health-monitoring website for Morgan Stanley's server infrastructure, ensuring compliance across 3 departments.",
     problem:
@@ -307,6 +357,7 @@ export const projects: Project[] = [
     role: "Venture Capital Analyst",
     scope: "Investment Analysis, Due Diligence, Deal Flow",
     timeline: "2021 – 2023",
+    category: "Venture Capital",
     overview:
       "Presented 20+ investment memos and teasers for pipeline companies to Supply Change Capital, evaluating opportunities across diverse sectors.",
     problem:
@@ -408,6 +459,13 @@ export const thoughts = [
     category: "Product Strategy",
   },
   {
+    title: "How Design Thinking Can Help You on Your Journey to College",
+    description: "Applying design thinking principles to the college application process.",
+    date: "Jul 2021",
+    link: "https://jaskay.medium.com/how-design-thinking-can-help-you-on-your-journey-to-college-and-life-fe68c9fed48e",
+    category: "Design",
+  },
+  {
     title: "Design4US Experience",
     description: "Reflections on a defining week in my design journey through the Design4US program.",
     date: "Apr 2021",
@@ -491,6 +549,7 @@ export const bookmarks: BookmarkFolder[] = [
   {
     label: "Venture Capital",
     items: [
+      { title: "Mikal Ventures — Venture Capital", year: "2024" },
       { title: "Venture Institute — Training for emerging VC associates", year: "2025" },
       { title: "VC Partners — 6-month fellowship for fund associates and managers", year: "2024" },
       { title: "Oregon Sport Angels — Portfolio monitoring for 31 companies", year: "2023 – 2024" },
@@ -501,10 +560,27 @@ export const bookmarks: BookmarkFolder[] = [
     ],
   },
   {
+    label: "Consulting",
+    items: [
+      { title: "The Butterfly Effect", year: "2024" },
+      { title: "Lights Back On", year: "2024" },
+      { title: "Brightly", year: "2023" },
+      { title: "Johns Hopkins Hospital", year: "2022" },
+      { title: "Dynata", year: "2022" },
+    ],
+  },
+  {
     label: "Mentorship",
     items: [
       { title: "Johns Hopkins Super Mentor" },
-      { title: "Technovation Mentor" },
+      { title: "Morgan State University" },
+      { title: "Coppin State University" },
+      { title: "iMentor" },
+      { title: "DECA" },
+      { title: "Technovation" },
+      { title: "Trubel" },
+      { title: "TMCF" },
+      { title: "Maryland Science Olympiad" },
     ],
   },
   {
