@@ -17,7 +17,7 @@ export const Layout = ({ children }: LayoutProps) => {
           <p className="text-xs text-muted-foreground">© 2026 Kay Jasanya</p>
           <div className="flex items-center gap-4">
             <a
-              href="https://linkedin.com/in/kayjasanya"
+              href="https://www.linkedin.com/in/jaskay"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -26,7 +26,7 @@ export const Layout = ({ children }: LayoutProps) => {
               <Linkedin className="w-4 h-4" />
             </a>
             <a
-              href="https://x.com/jaborejasanya"
+              href="https://x.com/JasanyaKayode"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"

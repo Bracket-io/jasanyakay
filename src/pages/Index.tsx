@@ -24,9 +24,11 @@ const Index = () => {
         </p>
         <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm">
           <span>City of Baltimore</span>
+          <span>Morgan Stanley</span>
           <span>Morgan State University</span>
           <span>Oracle</span>
           <span>VMware</span>
+          <span>Johns Hopkins Hospital</span>
           <span>Oasis Inc.</span>
         </div>
       </section>
