@@ -39,23 +39,11 @@ const About = () => {
         <ul className="space-y-2 text-sm">
           <li>
             <span className="font-bold">Morgan State University</span>
-            <span className="text-muted-foreground"> — M.S. Data Science</span>
-          </li>
-          <li>
-            <span className="font-bold">Johns Hopkins University</span>
-            <span className="text-muted-foreground"> — M.S. Information Systems</span>
-          </li>
-          <li>
-            <span className="font-bold">Morgan State University</span>
             <span className="text-muted-foreground"> — MBA</span>
           </li>
           <li>
             <span className="font-bold">Johns Hopkins University</span>
             <span className="text-muted-foreground"> — M.S. Engineering Management</span>
-          </li>
-          <li>
-            <span className="font-bold">Morgan State University</span>
-            <span className="text-muted-foreground"> — B.S. Information Science & Systems</span>
           </li>
           <li>
             <span className="font-bold">Morgan State University</span>
