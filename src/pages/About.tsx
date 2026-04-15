@@ -50,7 +50,7 @@ const About = () => {
             <span className="text-muted-foreground"> — MBA</span>
           </li>
           <li>
-            <span className="font-bold">Morgan State University</span>
+            <span className="font-bold">Johns Hopkins University</span>
             <span className="text-muted-foreground"> — M.S. Engineering Management</span>
           </li>
           <li>
