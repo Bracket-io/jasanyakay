@@ -60,6 +60,26 @@ export const projects: Project[] = [
       "Decision confidence is a more meaningful metric than page views",
       "Behavioral design principles outperform feature-heavy approaches",
     ],
+    externalLink: "https://bracketos.lovable.app/",
+  },
+  {
+    slug: "ede",
+    title: "Ede",
+    subtitle: "African NLP space for low-resource language understanding",
+    year: "2025",
+    role: "Builder",
+    scope: "NLP, AI, African Languages",
+    timeline: "2025",
+    category: "AI & NLP",
+    overview: "Ede is an NLP effort focused on African languages, exploring low-resource language understanding and generation.",
+    problem: "African languages are underrepresented in modern NLP systems.",
+    context: "Most foundation models underperform on African languages due to limited training data and evaluation benchmarks.",
+    approach: ["Curated African language datasets", "Experimented with fine-tuning small models", "Built a public Hugging Face space"],
+    productThinking: ["Prioritized accessibility via a public demo", "Focused on practical use cases over benchmarks"],
+    execution: ["Deployed a Hugging Face Space", "Iterated on prompts and model choice"],
+    outcome: ["Public demo for African NLP experimentation"],
+    learnings: ["Data curation is the hardest part of low-resource NLP"],
+    externalLink: "https://huggingface.co/spaces/jaskay/ede-african-nlp",
   },
   {
     slug: "citiwatch",
@@ -392,7 +412,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const selectedWork = projects.slice(0, 3);
+export const selectedWork = projects.filter((p) => p.slug === "bracket" || p.slug === "ede");
 
 export const thoughts = [
   {
@@ -521,15 +541,18 @@ export const bookmarks: BookmarkFolder[] = [
   {
     label: "Papers",
     items: [
-      { title: "Multi-Objective Genetic Algorithm Optimization for Energy Access Policy Design in Sub-Saharan Africa", year: "2025" },
-      { title: "Gender, Location, and Energy Access Intersectionality in Sub-Saharan Africa", year: "2025" },
-      { title: "Urban Energy Transition Patterns and Sustainable Development", year: "2025" },
-      { title: "Machine Learning Applications in Analyzing Socioeconomic Determinants of Urban Clean Energy Adoption", year: "2025" },
-      { title: "Socioeconomic Determinants and Machine Learning Insights into Clean Energy Transition", year: "2025" },
+      { title: "Health infrastructure lags behind climate-driven health risks across global cities (Under Review)", year: "2026" },
+      { title: "Sectoral Decoupling or Structural Lock-in? Global Decomposition of Urban Emissions Drivers (Under Review)", year: "2026" },
+      { title: "Multi-Objective Genetic Algorithm Optimization for Energy Access Policy Design in Sub-Saharan Africa (Under Review)", year: "2025" },
+      { title: "Gender, Location, and Energy Access Intersectionality in Sub-Saharan Africa (Under Review)", year: "2025" },
+      { title: "Urban Energy Transition Patterns and Sustainable Development (Under Review)", year: "2025" },
+      { title: "Machine Learning Applications in Analyzing Socioeconomic Determinants of Urban Clean Energy Adoption (Under Review)", year: "2025" },
+      { title: "Socioeconomic Determinants and Machine Learning Insights into Clean Energy Transition (Under Review)", year: "2025" },
       { title: "Eyes on Baltimore: Leveraging Surveillance and Community Engagement to Reduce Illegal Dumping", year: "2024", link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uiJ5BM4AAAAJ&citation_for_view=uiJ5BM4AAAAJ:UeHWp8X0CEIC" },
       { title: "Evaluating the Impact of Policy Interventions on CO2 Emissions in Sub-Saharan Africa", year: "2024", link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uiJ5BM4AAAAJ&citation_for_view=uiJ5BM4AAAAJ:zYLM7Y9cAGgC" },
       { title: "Efficiency of Blockchain Technology on Financial Security: Beyond Online Transaction", year: "2024", link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uiJ5BM4AAAAJ&citation_for_view=uiJ5BM4AAAAJ:IjCSPb-OGe4C" },
-      { title: "The Impact of Embedded Finance on Financial Inclusion in Sub-Saharan Africa", year: "2024", link: "https://www.researchgate.net/publication/386144935_Unveiling_Fintech's_Frontier_The_Power_of_Embedded_Finance_and_FinSaaS" },
+      { title: "Unveiling Fintech's Frontier: The Power of Embedded Finance and FinSaaS", year: "2024", link: "https://www.researchgate.net/publication/386144935_Unveiling_Fintech's_Frontier_The_Power_of_Embedded_Finance_and_FinSaaS" },
+      { title: "SSRN Working Paper", year: "2024", link: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6016134" },
     ],
   },
   {
@@ -551,14 +574,14 @@ export const bookmarks: BookmarkFolder[] = [
   {
     label: "Venture Capital",
     items: [
-      { title: "Mikal Ventures — Venture Capital", year: "2023" },
       { title: "Venture Institute — Training for emerging VC associates", year: "2025" },
       { title: "VC Partners — 6-month fellowship for fund associates and managers", year: "2024" },
       { title: "Oregon Sport Angels — Portfolio monitoring for 31 companies", year: "2023 – 2024" },
+      { title: "Mikal Ventures — Venture Capital", year: "2023" },
       { title: "GenZScout — Global VC program with 250+ members", year: "2023" },
       { title: "SupplyChange Capital — Due diligence analyst", year: "2022" },
       { title: "MotivateVC — Due diligence and investment teasers", year: "2022" },
-      { title: "HBCUvc — VC Fellowship, Cohort 5", year: "2021 – Present" },
+      { title: "HBCUvc — VC Fellowship, Cohort 5", year: "2021 – Present", link: "https://blog.hbcu.vc/hbcuvc-welcomes-its-fifth-and-largest-class-of-venture-capital-fellows-5cade19616ff?gi=bb1fbf6275ab" },
     ],
   },
   {

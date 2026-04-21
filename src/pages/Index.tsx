@@ -39,20 +39,38 @@ const Index = () => {
           Selected Work
         </p>
         <div className="space-y-8">
-          {selectedWork.map((project) => (
-            <Link
-              key={project.slug}
-              to={`/project/${project.slug}`}
-              className="block group border-b border-border pb-8 last:border-0"
-            >
-              <h3 className="text-base font-bold group-hover:underline mb-1">
-                {project.title}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {project.subtitle}
-              </p>
-            </Link>
-          ))}
+          {selectedWork.map((project) =>
+            project.externalLink ? (
+              <a
+                key={project.slug}
+                href={project.externalLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group border-b border-border pb-8 last:border-0"
+              >
+                <h3 className="text-base font-bold group-hover:underline mb-1 inline-flex items-center gap-1">
+                  {project.title}
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {project.subtitle}
+                </p>
+              </a>
+            ) : (
+              <Link
+                key={project.slug}
+                to={`/project/${project.slug}`}
+                className="block group border-b border-border pb-8 last:border-0"
+              >
+                <h3 className="text-base font-bold group-hover:underline mb-1">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {project.subtitle}
+                </p>
+              </Link>
+            )
+          )}
           <a
             href="https://www.figma.com/proto/qRgEiQswJ6Sch40Kws4ngJ/UX-Case-Study?type=design&node-id=3-10&t=LKQ3RoeyvxoVVcAm-0&scaling=contain&page-id=3%3A3"
             target="_blank"

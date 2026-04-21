@@ -27,8 +27,9 @@ const About = () => {
           workflows.
         </p>
         <p>
-          His interests include decision systems, financial behavior, and the
-          intersection of data and product design.
+          His interests sit at the intersection of civic systems, product,
+          fintech, data, AI, NLP, and language — essentially a civic + product
+          + fintech + data + language guy.
         </p>
       </div>
 
@@ -80,7 +81,7 @@ const About = () => {
         <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
           Tools & Skills
         </h2>
-        <div className="grid grid-cols-2 gap-x-12 gap-y-1 text-sm text-muted-foreground">
+        <div className="grid grid-cols-2 gap-x-12 gap-y-1 text-sm text-foreground">
           <span>SQL</span>
           <span>ArcGIS</span>
           <span>Power BI</span>
@@ -91,6 +92,8 @@ const About = () => {
           <span>Grafana</span>
           <span>Python</span>
           <span>APEX</span>
+          <span>NLP / AI</span>
+          <span>Hugging Face</span>
         </div>
       </section>
 
@@ -98,7 +101,7 @@ const About = () => {
         <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
           Languages
         </h2>
-        <ul className="space-y-1 text-sm text-muted-foreground">
+        <ul className="space-y-1 text-sm text-foreground">
           <li>English — Native</li>
           <li>French — Limited</li>
           <li>Spanish — Limited</li>
