@@ -101,7 +101,7 @@ const About = () => {
         <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
           Languages
         </h2>
-        <ul className="space-y-1 text-sm text-muted-foreground">
+        <ul className="space-y-1 text-sm text-foreground">
           <li>English — Native</li>
           <li>French — Limited</li>
           <li>Spanish — Limited</li>
