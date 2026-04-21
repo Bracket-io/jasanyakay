@@ -423,7 +423,7 @@ export const thoughts = [
     category: "Impact",
   },
   {
-    title: "Investment Thesis — Vertical SaaS",
+    title: "Decoding Success: A Comprehensive Investment Thesis on Vertical SaaS",
     description: "Deep dive into the vertical SaaS landscape, exploring market opportunities and investment strategies.",
     date: "Dec 2023",
     link: "https://jaskay.medium.com/investment-thesis-vertical-saas-7f3ad770873c",
@@ -548,11 +548,10 @@ export const bookmarks: BookmarkFolder[] = [
       { title: "Urban Energy Transition Patterns and Sustainable Development (Under Review)", year: "2025" },
       { title: "Machine Learning Applications in Analyzing Socioeconomic Determinants of Urban Clean Energy Adoption (Under Review)", year: "2025" },
       { title: "Socioeconomic Determinants and Machine Learning Insights into Clean Energy Transition (Under Review)", year: "2025" },
-      { title: "Eyes on Baltimore: Leveraging Surveillance and Community Engagement to Reduce Illegal Dumping", year: "2024", link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uiJ5BM4AAAAJ&citation_for_view=uiJ5BM4AAAAJ:UeHWp8X0CEIC" },
+      { title: "Eyes on Baltimore: Leveraging Surveillance and Community Engagement to Reduce Illegal Dumping", year: "2025", link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uiJ5BM4AAAAJ&citation_for_view=uiJ5BM4AAAAJ:UeHWp8X0CEIC" },
       { title: "Evaluating the Impact of Policy Interventions on CO2 Emissions in Sub-Saharan Africa", year: "2024", link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uiJ5BM4AAAAJ&citation_for_view=uiJ5BM4AAAAJ:zYLM7Y9cAGgC" },
       { title: "Efficiency of Blockchain Technology on Financial Security: Beyond Online Transaction", year: "2024", link: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uiJ5BM4AAAAJ&citation_for_view=uiJ5BM4AAAAJ:IjCSPb-OGe4C" },
       { title: "Unveiling Fintech's Frontier: The Power of Embedded Finance and FinSaaS", year: "2024", link: "https://www.researchgate.net/publication/386144935_Unveiling_Fintech's_Frontier_The_Power_of_Embedded_Finance_and_FinSaaS" },
-      { title: "SSRN Working Paper", year: "2024", link: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6016134" },
     ],
   },
   {

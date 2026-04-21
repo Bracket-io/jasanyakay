@@ -27,9 +27,9 @@ const About = () => {
           workflows.
         </p>
         <p>
-          His interests sit at the intersection of civic systems, product,
-          fintech, data, AI, NLP, and language — essentially a civic + product
-          + fintech + data + language guy.
+          His work sits at the intersection of civic systems, product, fintech,
+          data, AI, NLP, and language, a builder focused on where these domains
+          converge.
         </p>
       </div>
 
@@ -39,12 +39,12 @@ const About = () => {
         </h2>
         <ul className="space-y-2 text-sm">
           <li>
-            <span className="font-bold">Morgan State University</span>
-            <span className="text-muted-foreground"> — MBA</span>
-          </li>
-          <li>
             <span className="font-bold">Johns Hopkins University</span>
             <span className="text-muted-foreground"> — M.S. Engineering Management</span>
+          </li>
+          <li>
+            <span className="font-bold">Morgan State University</span>
+            <span className="text-muted-foreground"> — MBA</span>
           </li>
           <li>
             <span className="font-bold">Morgan State University</span>
@@ -105,7 +105,7 @@ const About = () => {
           <li>English — Native</li>
           <li>French — Limited</li>
           <li>Spanish — Limited</li>
-          <li>Yoruba — Conversational</li>
+          <li>Yoruba — Native</li>
         </ul>
       </section>
     </Layout>
