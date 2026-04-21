@@ -27,8 +27,9 @@ const About = () => {
           workflows.
         </p>
         <p>
-          His interests include decision systems, financial behavior, and the
-          intersection of data and product design.
+          His interests sit at the intersection of civic systems, product,
+          fintech, data, AI, NLP, and language — essentially a civic + product
+          + fintech + data + language guy.
         </p>
       </div>
 
