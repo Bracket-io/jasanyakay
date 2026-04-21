@@ -412,7 +412,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const selectedWork = projects.slice(0, 3);
+export const selectedWork = projects.filter((p) => p.slug === "bracket" || p.slug === "ede");
 
 export const thoughts = [
   {
