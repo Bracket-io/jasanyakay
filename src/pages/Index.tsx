@@ -78,13 +78,12 @@ const Index = () => {
             className="block group border-b border-border pb-8"
           >
             <h3 className="text-base font-bold group-hover:underline mb-1 inline-flex items-center gap-1">
-              Decision-Based UX System
+              Brightly WorxHub redesign
               <ArrowUpRight className="w-3.5 h-3.5" />
             </h3>
             <p className="text-sm text-muted-foreground">
               Product UX case study
             </p>
-            <span className="text-xs text-muted-foreground">In Progress</span>
           </a>
         </div>
       </section>
