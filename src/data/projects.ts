@@ -574,14 +574,14 @@ export const bookmarks: BookmarkFolder[] = [
   {
     label: "Venture Capital",
     items: [
-      { title: "Mikal Ventures — Venture Capital", year: "2023" },
       { title: "Venture Institute — Training for emerging VC associates", year: "2025" },
       { title: "VC Partners — 6-month fellowship for fund associates and managers", year: "2024" },
       { title: "Oregon Sport Angels — Portfolio monitoring for 31 companies", year: "2023 – 2024" },
+      { title: "Mikal Ventures — Venture Capital", year: "2023" },
       { title: "GenZScout — Global VC program with 250+ members", year: "2023" },
       { title: "SupplyChange Capital — Due diligence analyst", year: "2022" },
       { title: "MotivateVC — Due diligence and investment teasers", year: "2022" },
-      { title: "HBCUvc — VC Fellowship, Cohort 5", year: "2021 – Present" },
+      { title: "HBCUvc — VC Fellowship, Cohort 5", year: "2021 – Present", link: "https://blog.hbcu.vc/hbcuvc-welcomes-its-fifth-and-largest-class-of-venture-capital-fellows-5cade19616ff?gi=bb1fbf6275ab" },
     ],
   },
   {
