@@ -81,7 +81,7 @@ const About = () => {
         <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
           Tools & Skills
         </h2>
-        <div className="grid grid-cols-2 gap-x-12 gap-y-1 text-sm text-muted-foreground">
+        <div className="grid grid-cols-2 gap-x-12 gap-y-1 text-sm text-foreground">
           <span>SQL</span>
           <span>ArcGIS</span>
           <span>Power BI</span>
@@ -92,6 +92,8 @@ const About = () => {
           <span>Grafana</span>
           <span>Python</span>
           <span>APEX</span>
+          <span>NLP / AI</span>
+          <span>Hugging Face</span>
         </div>
       </section>
 
