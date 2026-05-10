@@ -103,7 +103,7 @@ const About = () => {
         </h2>
         <ul className="space-y-1 text-sm text-foreground">
           <li>English — Native</li>
-          <li>French — Limited</li>
+          <li>French — Conversational</li>
           <li>Spanish — Limited</li>
           <li>Yoruba — Native</li>
         </ul>
