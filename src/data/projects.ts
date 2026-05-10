@@ -431,7 +431,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const selectedWork = projects.filter((p) => p.slug === "bracket" || p.slug === "ede");
+export const selectedWork = projects.filter((p) => p.slug === "quantlens" || p.slug === "bracket" || p.slug === "ede");
 
 export const thoughts = [
   {
