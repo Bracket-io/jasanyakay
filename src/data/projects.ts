@@ -563,6 +563,7 @@ export const bookmarks: BookmarkFolder[] = [
   {
     label: "Papers",
     items: [
+      { title: "Green Deficits in a Warming World: Urban Greenness Loss, Heat Exposure, and Health Vulnerability across Global Cities (Under Review)", year: "2026" },
       { title: "Health infrastructure lags behind climate-driven health risks across global cities (Under Review)", year: "2026" },
       { title: "Sectoral Decoupling or Structural Lock-in? Global Decomposition of Urban Emissions Drivers (Under Review)", year: "2026" },
       { title: "Multi-Objective Genetic Algorithm Optimization for Energy Access Policy Design in Sub-Saharan Africa (Under Review)", year: "2025" },
