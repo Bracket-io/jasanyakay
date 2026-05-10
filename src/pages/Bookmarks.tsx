@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Layout } from "@/components/Layout";
 import { bookmarks } from "@/data/projects";
 import { ChevronRight } from "lucide-react";
@@ -10,6 +10,27 @@ const Bookmarks = () => {
     setOpenFolder((prev) => (prev === label ? null : label));
   };
 
+  const sortedBookmarks = useMemo(() => {
+    const extractYear = (yearStr?: string) => {
+      if (!yearStr) return 0;
+      const match = yearStr.match(/(\d{4})/);
+      return match ? parseInt(match[1], 10) : 0;
+    };
+
+    const folders = [...bookmarks].sort((a, b) =>
+      a.label.localeCompare(b.label)
+    );
+
+    return folders.map((folder) => ({
+      ...folder,
+      items: [...folder.items].sort((a, b) => {
+        const yearA = extractYear(a.year);
+        const yearB = extractYear(b.year);
+        return yearB - yearA;
+      }),
+    }));
+  }, []);
+
   return (
     <Layout>
       <h1 className="text-3xl font-bold tracking-tight mb-2">Bookmarks</h1>
@@ -18,7 +39,7 @@ const Bookmarks = () => {
       </p>
 
       <div className="space-y-1">
-        {bookmarks.map((folder) => (
+        {sortedBookmarks.map((folder) => (
           <div key={folder.label}>
             <button
               onClick={() => toggle(folder.label)}
