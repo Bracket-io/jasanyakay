@@ -638,4 +638,15 @@ export const bookmarks: BookmarkFolder[] = [
       { title: "DECA Evaluator", year: "2025" },
     ],
   },
+  {
+    label: "Teaching",
+    items: [
+      { title: "Morgan State University | Econ 211 — Principles of Macroeconomics", year: "2024 – Present" },
+      { title: "Morgan State University | Econ 310 — Economic Activity in the Black Community", year: "2024" },
+      { title: "Morgan State University | Econ 323 — Economics of Developing Nations", year: "2025" },
+      { title: "Morgan State University | Econ 325 — Labor Economics", year: "2026" },
+      { title: "Johns Hopkins University | Professional Presentation", year: "2022" },
+      { title: "Johns Hopkins University | Professional Writing and Communication for Engineering Students", year: "2023" },
+    ],
+  },
 ];
