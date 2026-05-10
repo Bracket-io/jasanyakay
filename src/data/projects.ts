@@ -82,6 +82,25 @@ export const projects: Project[] = [
     externalLink: "https://huggingface.co/spaces/jaskay/ede-african-nlp",
   },
   {
+    slug: "quantlens",
+    title: "QuantLens",
+    subtitle: "Quantitative analytics lens for market data exploration",
+    year: "2025",
+    role: "Builder",
+    scope: "Quant, Analytics, Data",
+    timeline: "2025",
+    category: "Data & Analytics",
+    overview: "QuantLens is a quantitative analytics tool for exploring and visualizing market data.",
+    problem: "Market data is dense and hard to interpret without structured tooling.",
+    context: "Built to make quantitative exploration accessible through a simple lens-based UI.",
+    approach: ["Designed visualization-first analytics flows", "Focused on rapid market data exploration"],
+    productThinking: ["Prioritized clarity over feature breadth", "Made quant insight accessible to non-quants"],
+    execution: ["Deployed via Vercel", "Iterated on visualization patterns"],
+    outcome: ["Public tool for market data exploration"],
+    learnings: ["Visualization is the entry point to quantitative thinking"],
+    externalLink: "https://quantlens-iota.vercel.app/",
+  },
+  {
     slug: "citiwatch",
     title: "CitiWatch Analytics",
     subtitle: "City-scale analytics system designed to reduce illegal dumping using data",
@@ -412,7 +431,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const selectedWork = projects.filter((p) => p.slug === "bracket" || p.slug === "ede");
+export const selectedWork = projects.filter((p) => p.slug === "quantlens" || p.slug === "bracket" || p.slug === "ede");
 
 export const thoughts = [
   {
@@ -525,6 +544,9 @@ export const bookmarks: BookmarkFolder[] = [
   {
     label: "Certifications",
     items: [
+      { title: "Anthropic AI Fluency Framework & Foundations", year: "2026" },
+      { title: "Anthropic AI Capabilities and Limitations", year: "2026" },
+      { title: "Anthropic Claude, Claude Code, Cowork", year: "2026" },
       { title: "Venture Partner Fellowship", year: "2024" },
       { title: "Aha! Product Management Professional", year: "2023" },
       { title: "Program Management for IT Professionals", year: "2023" },
@@ -541,6 +563,7 @@ export const bookmarks: BookmarkFolder[] = [
   {
     label: "Papers",
     items: [
+      { title: "Green Deficits in a Warming World: Urban Greenness Loss, Heat Exposure, and Health Vulnerability across Global Cities (Under Review)", year: "2026" },
       { title: "Health infrastructure lags behind climate-driven health risks across global cities (Under Review)", year: "2026" },
       { title: "Sectoral Decoupling or Structural Lock-in? Global Decomposition of Urban Emissions Drivers (Under Review)", year: "2026" },
       { title: "Multi-Objective Genetic Algorithm Optimization for Energy Access Policy Design in Sub-Saharan Africa (Under Review)", year: "2025" },
@@ -613,6 +636,17 @@ export const bookmarks: BookmarkFolder[] = [
       { title: "BisonHacks", year: "2025" },
       { title: "SproutHacks", year: "2025" },
       { title: "DECA Evaluator", year: "2025" },
+    ],
+  },
+  {
+    label: "Teaching",
+    items: [
+      { title: "Morgan State University | Econ 211 — Principles of Macroeconomics", year: "2024 – Present" },
+      { title: "Morgan State University | Econ 310 — Economic Activity in the Black Community", year: "2024" },
+      { title: "Morgan State University | Econ 323 — Economics of Developing Nations", year: "2025" },
+      { title: "Morgan State University | Econ 325 — Labor Economics", year: "2026" },
+      { title: "Johns Hopkins University | Professional Presentation", year: "2022" },
+      { title: "Johns Hopkins University | Professional Writing and Communication for Engineering Students", year: "2023" },
     ],
   },
 ];
