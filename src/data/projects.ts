@@ -544,6 +544,9 @@ export const bookmarks: BookmarkFolder[] = [
   {
     label: "Certifications",
     items: [
+      { title: "Anthropic AI Fluency Framework & Foundations", year: "2026" },
+      { title: "Anthropic AI Capabilities and Limitations", year: "2026" },
+      { title: "Anthropic Claude, Claude Code, Cowork", year: "2026" },
       { title: "Venture Partner Fellowship", year: "2024" },
       { title: "Aha! Product Management Professional", year: "2023" },
       { title: "Program Management for IT Professionals", year: "2023" },
