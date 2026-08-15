@@ -1,108 +1,227 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
-import { selectedWork, thoughts, bookmarks } from "@/data/projects";
+import {
+  selectedWork,
+  thoughts,
+  impactMetrics,
+  howIWork,
+  experience,
+  bookmarks,
+} from "@/data/projects";
 import { ArrowUpRight } from "lucide-react";
+
+const recognition =
+  bookmarks.find((b) => b.label === "Recognition")?.items.slice(0, 6) ?? [];
 
 const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="mb-20">
+      <section className="mb-24">
         <h1 className="text-4xl font-bold tracking-tight mb-2">Kay Jasanya</h1>
-        <p className="text-lg text-muted-foreground mb-6">
-          Data Product Manager building data-driven systems and decision tools.
+        <p className="text-lg mb-6">Product Leader</p>
+        <p className="text-base leading-relaxed max-w-[600px] mb-6">
+          I build and scale digital products that turn complex problems into
+          simple, useful experiences.
         </p>
-        <p className="text-sm text-muted-foreground">
-          Focused on fintech, civic systems, and scalable product design.
-        </p>
-      </section>
-
-      {/* Employers */}
-      <section className="mb-20">
-        <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
-          Experience
-        </p>
-        <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm">
-          <span>City of Baltimore</span>
-          <span>Morgan Stanley</span>
-          <span>Morgan State University</span>
-          <span>Oracle</span>
-          <span>VMware</span>
-          <span>Johns Hopkins Hospital</span>
-          <span>Oasis Inc.</span>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+          <Link to="/work" className="text-foreground hover:underline">
+            View selected work
+          </Link>
+          <a
+            href="mailto:iamjasanyakay@gmail.com"
+            className="hover:text-foreground transition-colors"
+          >
+            Get in touch
+          </a>
         </div>
       </section>
 
-      {/* Selected Work */}
-      <section className="mb-20">
+      {/* Impact Snapshot */}
+      <section className="mb-24">
         <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-8">
-          Selected Work
+          Impact Snapshot
         </p>
-        <div className="space-y-8">
-          {selectedWork.map((project) =>
-            project.externalLink ? (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
+          {impactMetrics.map((metric) => (
+            <div key={metric.label} className="border-t border-border pt-4">
+              <p className="text-2xl font-bold tracking-tight mb-1">
+                {metric.value}
+              </p>
+              <p className="text-sm font-bold mb-1">{metric.label}</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                {metric.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Selected Product Work */}
+      <section className="mb-24">
+        <div className="flex items-center justify-between mb-8">
+          <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground">
+            Selected Product Work
+          </p>
+          <Link
+            to="/work"
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+          >
+            View all →
+          </Link>
+        </div>
+
+        <div className="space-y-10">
+          {selectedWork.map((project) => {
+            const body = (
+              <>
+                <p className="text-xs text-muted-foreground mb-2">
+                  {project.role} · {project.timeline} · {project.category}
+                </p>
+                <h3 className="text-base font-bold group-hover:underline mb-2 inline-flex items-center gap-1">
+                  {project.title}
+                  {project.externalLink && (
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  )}
+                </h3>
+                <dl className="space-y-2 text-sm max-w-[640px]">
+                  <div>
+                    <dt className="text-xs uppercase tracking-widest text-muted-foreground">
+                      Problem
+                    </dt>
+                    <dd className="text-muted-foreground">{project.problem}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs uppercase tracking-widest text-muted-foreground">
+                      What I did
+                    </dt>
+                    <dd className="text-muted-foreground">
+                      {project.approach[0]}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs uppercase tracking-widest text-muted-foreground">
+                      Outcome
+                    </dt>
+                    <dd>{project.outcome[0]}</dd>
+                  </div>
+                </dl>
+              </>
+            );
+
+            return project.externalLink ? (
               <a
                 key={project.slug}
                 href={project.externalLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block group border-b border-border pb-8 last:border-0"
+                className="block group border-b border-border pb-10 last:border-0"
               >
-                <h3 className="text-base font-bold group-hover:underline mb-1 inline-flex items-center gap-1">
-                  {project.title}
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {project.subtitle}
-                </p>
+                {body}
               </a>
             ) : (
               <Link
                 key={project.slug}
                 to={`/project/${project.slug}`}
-                className="block group border-b border-border pb-8 last:border-0"
+                className="block group border-b border-border pb-10 last:border-0"
               >
-                <h3 className="text-base font-bold group-hover:underline mb-1">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {project.subtitle}
-                </p>
+                {body}
               </Link>
-            )
-          )}
-          <a
-            href="https://www.figma.com/proto/qRgEiQswJ6Sch40Kws4ngJ/UX-Case-Study?type=design&node-id=3-10&t=LKQ3RoeyvxoVVcAm-0&scaling=contain&page-id=3%3A3"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group border-b border-border pb-8"
-          >
-            <h3 className="text-base font-bold group-hover:underline mb-1 inline-flex items-center gap-1">
-              Brightly WorxHub redesign
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Product UX case study
-            </p>
-          </a>
+            );
+          })}
         </div>
       </section>
 
-      {/* Thoughts Preview */}
-      <section className="mb-20">
+      {/* How I Work */}
+      <section className="mb-24">
+        <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-8">
+          How I Work
+        </p>
+        <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8">
+          {howIWork.map((principle) => (
+            <div key={principle.title}>
+              <h3 className="text-sm font-bold mb-2">{principle.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {principle.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Experience */}
+      <section className="mb-24">
+        <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-8">
+          Experience
+        </p>
+        <div className="space-y-8">
+          {experience.map((role) => (
+            <div
+              key={role.company}
+              className="border-b border-border pb-8 last:border-0"
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
+                <h3 className="text-sm font-bold">{role.company}</h3>
+                <span className="text-xs text-muted-foreground">
+                  {role.period}
+                </span>
+              </div>
+              <p className="text-sm text-muted-foreground mb-3">{role.role}</p>
+              <ul className="space-y-1.5 text-sm max-w-[640px]">
+                {role.highlights.map((h) => (
+                  <li key={h} className="text-muted-foreground">
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Recognition */}
+      <section className="mb-24">
         <div className="flex items-center justify-between mb-8">
           <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground">
-            Thoughts
+            Recognition
           </p>
           <Link
-            to="/thoughts"
+            to="/recognition"
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+          >
+            View all →
+          </Link>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-x-12 gap-y-2">
+          {recognition.map((item) => (
+            <div
+              key={item.title}
+              className="flex items-baseline justify-between gap-4 text-sm"
+            >
+              <span>{item.title}</span>
+              <span className="text-xs text-muted-foreground whitespace-nowrap">
+                {item.year}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Thinking in Public */}
+      <section className="mb-24">
+        <div className="flex items-center justify-between mb-8">
+          <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground">
+            Thinking in Public
+          </p>
+          <Link
+            to="/thinking"
             className="text-xs text-muted-foreground hover:text-foreground transition-colors"
           >
             View all →
           </Link>
         </div>
         <div className="space-y-6">
-          {thoughts.slice(0, 3).map((post, i) => (
+          {thoughts.slice(0, 4).map((post, i) => (
             <a
               key={i}
               href={post.link}
@@ -121,29 +240,33 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Bookmarks Preview */}
+      {/* Contact */}
       <section>
-        <div className="flex items-center justify-between mb-8">
-          <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground">
-            Bookmarks
-          </p>
-          <Link
-            to="/bookmarks"
-            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+        <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-6">
+          Contact
+        </p>
+        <h2 className="text-2xl font-bold tracking-tight mb-4">
+          Building something interesting? Let's talk.
+        </h2>
+        <p className="text-sm text-muted-foreground max-w-[600px] mb-6 leading-relaxed">
+          Open to senior product roles, advisory work, and conversations about
+          data products, civic systems, and fintech.
+        </p>
+        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <a
+            href="mailto:iamjasanyakay@gmail.com"
+            className="underline hover:text-muted-foreground"
           >
-            View all →
-          </Link>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          {bookmarks.map((folder) => (
-            <Link
-              key={folder.label}
-              to="/bookmarks"
-              className="text-sm border border-border px-3 py-1.5 hover:bg-accent transition-colors"
-            >
-              {folder.label}
-            </Link>
-          ))}
+            iamjasanyakay@gmail.com
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jaskay"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-muted-foreground"
+          >
+            LinkedIn
+          </a>
         </div>
       </section>
     </Layout>
