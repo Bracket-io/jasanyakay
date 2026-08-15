@@ -431,7 +431,18 @@ export const projects: Project[] = [
   },
 ];
 
-export const selectedWork = projects.filter((p) => p.slug === "quantlens" || p.slug === "bracket" || p.slug === "ede");
+const selectedSlugs = [
+  "quantlens",
+  "bracket",
+  "ede",
+  "citistat",
+  "environmental-justice",
+  "311-sla",
+];
+
+export const selectedWork = selectedSlugs
+  .map((slug) => projects.find((p) => p.slug === slug)!)
+  .filter(Boolean);
 
 export const thoughts = [
   {
@@ -647,6 +658,136 @@ export const bookmarks: BookmarkFolder[] = [
       { title: "Morgan State University | Econ 325 — Labor Economics", year: "2026" },
       { title: "Johns Hopkins University | Professional Presentation", year: "2022" },
       { title: "Johns Hopkins University | Professional Writing and Communication for Engineering Students", year: "2023" },
+    ],
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Product leadership content
+// ---------------------------------------------------------------------------
+
+export interface ImpactMetric {
+  value: string;
+  label: string;
+  detail: string;
+}
+
+export const impactMetrics: ImpactMetric[] = [
+  {
+    value: "7,600+",
+    label: "Households impacted",
+    detail: "Environmental justice data systems across 153 cities",
+  },
+  {
+    value: "15+",
+    label: "Agencies served",
+    detail: "Centralized performance platform for city-wide reporting",
+  },
+  {
+    value: "50% → 75%",
+    label: "Service completion rate",
+    detail: "311 SLA redesign and cross-agency accountability",
+  },
+  {
+    value: "30% / 40%",
+    label: "Reporting effort down, engagement up",
+    detail: "CitiStat Performance Hub adoption",
+  },
+  {
+    value: "6+ years",
+    label: "Across product, data, and engineering",
+    detail: "Morgan Stanley, Oracle, City of Baltimore, and independent products",
+  },
+];
+
+export interface LeadershipPrinciple {
+  title: string;
+  description: string;
+}
+
+export const howIWork: LeadershipPrinciple[] = [
+  {
+    title: "Frame the problem",
+    description:
+      "Start with the decision a user or organization is trying to make, not the feature request. Define the problem precisely enough that the wrong solutions become obvious.",
+  },
+  {
+    title: "Build product conviction",
+    description:
+      "Use data, user evidence, and system constraints to form a defensible point of view — then write it down so the team can argue with it and improve it.",
+  },
+  {
+    title: "Align and lead",
+    description:
+      "Bring engineering, analytics, and non-technical stakeholders to a shared narrative. In government and enterprise contexts, alignment is the real bottleneck, not code.",
+  },
+  {
+    title: "Ship and learn",
+    description:
+      "Release the smallest useful version, instrument it, and let adoption and outcome metrics decide what comes next. Standardize what works so it scales.",
+  },
+];
+
+export interface ExperienceRole {
+  company: string;
+  role: string;
+  period: string;
+  highlights: string[];
+}
+
+export const experience: ExperienceRole[] = [
+  {
+    company: "City of Baltimore",
+    role: "Data Product Analyst — Office of Performance & Innovation",
+    period: "2023 – Present",
+    highlights: [
+      "Owned data products supporting policy decisions across 153 cities and 7,600+ households",
+      "Launched the CitiStat performance hub used by 15+ agencies, cutting reporting effort by 30%",
+      "Led 311 SLA redesign that lifted service completion rates from under 50% to 75%",
+    ],
+  },
+  {
+    company: "Morgan State University",
+    role: "Instructor & Data Analyst",
+    period: "2020 – Present",
+    highlights: [
+      "Teach economics courses while building geospatial dashboards for urban research",
+      "Translate research data into interactive tools for non-technical stakeholders",
+    ],
+  },
+  {
+    company: "Oracle",
+    role: "Product Management Intern",
+    period: "2021",
+    highlights: [
+      "Shipped 5 SQL-driven KPI dashboards in APEX and Grafana for real-time operational visibility",
+      "Prioritized the highest-leverage metrics over comprehensive coverage to drive adoption",
+    ],
+  },
+  {
+    company: "Morgan Stanley",
+    role: "Technology Analyst Intern",
+    period: "2019",
+    highlights: [
+      "Built a full-stack server health monitoring platform used for compliance across 3 departments",
+      "Delivered executive reporting for Wealth Management leadership",
+    ],
+  },
+  {
+    company: "Johns Hopkins Hospital",
+    role: "Consultant / Instructor",
+    period: "2022 – 2023",
+    highlights: [
+      "Advised on operational analytics and process improvement",
+      "Taught professional communication for engineering students",
+    ],
+  },
+  {
+    company: "VMware · Oasis Inc.",
+    role: "Analyst & Operations",
+    period: "Earlier",
+    highlights: [
+      "Early experience across enterprise technology and operations that shaped a systems-first approach to product",
     ],
   },
 ];

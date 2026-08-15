@@ -1,46 +1,151 @@
 import { Layout } from "@/components/Layout";
 
+const capabilities = [
+  {
+    title: "Product Strategy",
+    items: [
+      "Problem framing and product definition",
+      "Roadmapping and prioritization",
+      "Positioning and product narrative",
+    ],
+  },
+  {
+    title: "Data & Analytics",
+    items: [
+      "Metric design and instrumentation",
+      "SQL, Python, and analytics engineering",
+      "Geospatial analysis and visualization",
+    ],
+  },
+  {
+    title: "Product Discovery",
+    items: [
+      "User research and stakeholder interviews",
+      "Decision-flow and UX design",
+      "Experimentation and validation",
+    ],
+  },
+  {
+    title: "Execution & Delivery",
+    items: [
+      "Working with engineering and design",
+      "Shipping in regulated and public-sector contexts",
+      "Process and workflow redesign",
+    ],
+  },
+  {
+    title: "Leadership & Influence",
+    items: [
+      "Cross-agency and cross-functional alignment",
+      "Executive communication",
+      "Mentoring and teaching",
+    ],
+  },
+  {
+    title: "AI & Emerging Tech",
+    items: [
+      "Applied AI and NLP for low-resource languages",
+      "ML-assisted detection and forecasting",
+      "AI-enabled product workflows",
+    ],
+  },
+];
+
+const tools = [
+  "SQL",
+  "Python",
+  "Power BI",
+  "ArcGIS",
+  "Grafana",
+  "APEX",
+  "Figma",
+  "Airtable",
+  "Quarto",
+  "Hugging Face",
+  "Excel & Automation",
+  "Product Analytics",
+];
+
 const About = () => {
   return (
     <Layout>
       <h1 className="text-3xl font-bold tracking-tight mb-8">About</h1>
 
-      <div className="space-y-6 text-sm leading-relaxed max-w-[600px] mb-14">
+      <div className="space-y-6 text-sm leading-relaxed max-w-[600px] mb-16">
         <p>
-          Kay Jasanya is a Data Product Manager focused on building systems that
-          improve decision-making across finance, public infrastructure, and
-          digital products.
+          I'm a product leader who builds systems that improve how people and
+          institutions make decisions. My path ran from engineering to data to
+          product, and each step added a layer: how systems are built, how
+          evidence is produced, and how both turn into products people actually
+          use.
         </p>
         <p>
-          His work spans fintech, civic analytics, and early-stage venture
-          ecosystems, combining data, product strategy, and operational thinking
-          to design scalable solutions.
+          I started in electrical engineering and enterprise technology, working
+          on infrastructure and monitoring systems at Morgan Stanley and
+          dashboards at Oracle. That taught me how large systems fail and how
+          much of product work is really about clarity under constraint.
         </p>
         <p>
-          He has contributed to projects impacting thousands of users and
-          large-scale systems, including city-wide analytics platforms and
-          financial decision tools.
+          Data became the next layer. At the City of Baltimore I owned analytics
+          and data products across environmental justice, performance
+          management, and city services — work that touched 153 cities, 7,600+
+          households, and 15+ agencies. Impact came from redesigning how
+          decisions were made, not just from reporting on them.
         </p>
         <p>
-          Currently, he is building Bracket, a platform focused on helping users
-          make better financial decisions through structured, data-driven
-          workflows.
+          Today I work as a product leader across fintech, civic systems, and
+          applied AI, building products like Bracket, QuantLens, and Ede. My
+          work sits at the intersection of civic systems, product, fintech,
+          data, AI, NLP, and language — a builder focused on where these
+          domains converge.
         </p>
         <p>
-          His work sits at the intersection of civic systems, product, fintech,
-          data, AI, NLP, and language, a builder focused on where these domains
-          converge.
+          Alongside product work, I teach economics and professional
+          communication, mentor students across HBCUs and youth programs, and
+          publish research on urban systems, energy access, and fintech.
         </p>
       </div>
 
-      <section className="mb-10">
+      <section className="mb-14">
+        <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-6">
+          Capabilities
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8">
+          {capabilities.map((group) => (
+            <div key={group.title}>
+              <h3 className="text-sm font-bold mb-2">{group.title}</h3>
+              <ul className="space-y-1 text-sm text-muted-foreground">
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-14">
+        <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
+          Tools
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-12 gap-y-1 text-sm text-foreground">
+          {tools.map((tool) => (
+            <span key={tool}>{tool}</span>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-14">
         <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
           Education
         </h2>
         <ul className="space-y-2 text-sm">
           <li>
             <span className="font-bold">Johns Hopkins University</span>
-            <span className="text-muted-foreground"> — M.S. Engineering Management</span>
+            <span className="text-muted-foreground">
+              {" "}
+              — M.S. Engineering Management
+            </span>
           </li>
           <li>
             <span className="font-bold">Morgan State University</span>
@@ -48,53 +153,12 @@ const About = () => {
           </li>
           <li>
             <span className="font-bold">Morgan State University</span>
-            <span className="text-muted-foreground"> — B.S. Electrical Engineering</span>
+            <span className="text-muted-foreground">
+              {" "}
+              — B.S. Electrical Engineering
+            </span>
           </li>
         </ul>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
-          What I Do
-        </h2>
-        <ul className="space-y-2 text-sm">
-          <li>Product strategy for data-driven systems</li>
-          <li>Design of analytics and decision tools</li>
-          <li>Turning complex data into intuitive product experiences</li>
-          <li>Geospatial analysis and civic data platforms</li>
-          <li>Venture capital due diligence and investment analysis</li>
-        </ul>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
-          Experience
-        </h2>
-        <p className="text-sm leading-relaxed max-w-[600px]">
-          I've worked across product, analytics, and operations to improve
-          decision-making systems at organizations including the City of
-          Baltimore, Morgan Stanley, Johns Hopkins Hospital, Oracle, Morgan State University, VMware, and Oasis Inc.
-        </p>
-      </section>
-
-      <section className="mb-10">
-        <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-4">
-          Tools & Skills
-        </h2>
-        <div className="grid grid-cols-2 gap-x-12 gap-y-1 text-sm text-foreground">
-          <span>SQL</span>
-          <span>ArcGIS</span>
-          <span>Power BI</span>
-          <span>Product Analytics</span>
-          <span>Excel & Automation</span>
-          <span>Figma</span>
-          <span>Airtable</span>
-          <span>Grafana</span>
-          <span>Python</span>
-          <span>APEX</span>
-          <span>NLP / AI</span>
-          <span>Hugging Face</span>
-        </div>
       </section>
 
       <section>
