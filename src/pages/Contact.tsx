@@ -1,42 +1,37 @@
 import { Layout } from "@/components/Layout";
 
+const links = [
+  { label: "Email", value: "iamjasanyakay@gmail.com", href: "mailto:iamjasanyakay@gmail.com" },
+  { label: "LinkedIn", value: "linkedin.com/in/jaskay", href: "https://www.linkedin.com/in/jaskay" },
+  { label: "X", value: "x.com/JasanyaKayode", href: "https://x.com/JasanyaKayode" },
+  { label: "Medium", value: "jaskay.medium.com", href: "https://jaskay.medium.com" },
+];
+
 const Contact = () => {
   return (
     <Layout>
-      <h1 className="text-3xl font-bold tracking-tight mb-8">Let's connect.</h1>
+      <h1 className="text-3xl font-bold tracking-tight mb-4">
+        Building something interesting? Let's talk.
+      </h1>
+      <p className="text-sm text-muted-foreground leading-relaxed max-w-[600px] mb-12">
+        I'm open to senior product roles, advisory work, and conversations about
+        data products, civic systems, fintech, and applied AI.
+      </p>
 
       <div className="space-y-4 text-sm">
-        <p>
-          <span className="text-muted-foreground">Email: </span>
-          <a
-            href="mailto:jaskay@example.com"
-            className="underline hover:text-muted-foreground"
-          >
-            jaskay@example.com
-          </a>
-        </p>
-        <p>
-          <span className="text-muted-foreground">LinkedIn: </span>
-          <a
-            href="https://linkedin.com/in/kayjasanya"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-muted-foreground"
-          >
-            linkedin.com/in/kayjasanya
-          </a>
-        </p>
-        <p>
-          <span className="text-muted-foreground">Calendly: </span>
-          <a
-            href="https://calendly.com/jaskay"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-muted-foreground"
-          >
-            calendly.com/jaskay
-          </a>
-        </p>
+        {links.map((l) => (
+          <p key={l.label}>
+            <span className="text-muted-foreground">{l.label}: </span>
+            <a
+              href={l.href}
+              target={l.href.startsWith("mailto:") ? undefined : "_blank"}
+              rel={l.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+              className="underline hover:text-muted-foreground"
+            >
+              {l.value}
+            </a>
+          </p>
+        ))}
       </div>
     </Layout>
   );
