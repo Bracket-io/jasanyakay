@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Header } from "./Header";
 import { Linkedin, Twitter, BookOpen, PenLine } from "lucide-react";
 
@@ -6,12 +8,19 @@ interface LayoutProps {
 }
 
 export const Layout = ({ children }: LayoutProps) => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1 max-w-[900px] w-full mx-auto px-6 py-16">
         {children}
       </main>
+
       <footer className="border-t border-border">
         <div className="max-w-[900px] mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">© 2026 Kay Jasanya</p>
