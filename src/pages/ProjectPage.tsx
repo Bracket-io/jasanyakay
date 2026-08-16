@@ -110,8 +110,20 @@ const ProjectPage = () => {
           ))}
         </ul>
       </Section>
+
+      <nav className="border-t border-border pt-8 flex flex-wrap items-baseline justify-between gap-4">
+        <Link to="/work" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+          ← All work
+        </Link>
+        {next && next.slug !== project.slug && (
+          <Link to={`/project/${next.slug}`} className="text-sm font-bold hover:underline">
+            Next: {next.title} →
+          </Link>
+        )}
+      </nav>
     </Layout>
   );
 };
+
 
 export default ProjectPage;
