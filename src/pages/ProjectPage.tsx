@@ -13,14 +13,16 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 
 const ProjectPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const project = projects.find((p) => p.slug === slug);
+  const index = projects.findIndex((p) => p.slug === slug);
+  const project = projects[index];
+  const next = projects[(index + 1) % projects.length];
 
   if (!project) {
     return (
       <Layout>
         <p className="text-muted-foreground">Project not found.</p>
-        <Link to="/portfolio" className="text-sm underline mt-4 inline-block">
-          ← Back to Portfolio
+        <Link to="/work" className="text-sm underline mt-4 inline-block">
+          ← Back to work
         </Link>
       </Layout>
     );
@@ -29,13 +31,17 @@ const ProjectPage = () => {
   return (
     <Layout>
       <Link
-        to="/portfolio"
+        to="/work"
         className="text-xs text-muted-foreground hover:text-foreground transition-colors mb-10 inline-block"
       >
-        ← Back to Portfolio
+        ← Back to work
       </Link>
 
-      <h1 className="text-2xl font-bold tracking-tight mb-6">{project.title}</h1>
+      <h1 className="text-2xl font-bold tracking-tight mb-2">{project.title}</h1>
+      <p className="text-sm text-muted-foreground mb-6 max-w-[640px] leading-relaxed">
+        {project.subtitle}
+      </p>
+
 
       {/* Metadata */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 text-sm border-t border-b border-border py-6">
@@ -104,8 +110,20 @@ const ProjectPage = () => {
           ))}
         </ul>
       </Section>
+
+      <nav className="border-t border-border pt-8 flex flex-wrap items-baseline justify-between gap-4">
+        <Link to="/work" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+          ← All work
+        </Link>
+        {next && next.slug !== project.slug && (
+          <Link to={`/project/${next.slug}`} className="text-sm font-bold hover:underline">
+            Next: {next.title} →
+          </Link>
+        )}
+      </nav>
     </Layout>
   );
 };
+
 
 export default ProjectPage;

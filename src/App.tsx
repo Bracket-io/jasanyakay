@@ -27,9 +27,12 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/thoughts" element={<Thoughts />} />
+          <Route path="/thinking" element={<Thoughts />} />
           <Route path="/bookmarks" element={<Bookmarks />} />
+          <Route path="/recognition" element={<Bookmarks />} />
           <Route path="/project/:slug" element={<ProjectPage />} />
           <Route path="*" element={<NotFound />} />
+
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

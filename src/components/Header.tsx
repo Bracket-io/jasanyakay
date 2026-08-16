@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@/hooks/useTheme";
 import { Sun, Moon, Monitor, Menu, X } from "lucide-react";
 
 export const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { pathname } = useLocation();
 
   const themeIcon =
     theme === "light" ? (
@@ -17,19 +18,20 @@ export const Header = () => {
     );
 
   const navLinks = [
-    { to: "/portfolio", label: "Portfolio" },
-    { to: "/thoughts", label: "Thoughts" },
-    { to: "/bookmarks", label: "Bookmarks" },
+    { to: "/work", label: "Work" },
+    { to: "/thinking", label: "Thinking" },
+    { to: "/recognition", label: "Recognition" },
     { to: "/about", label: "About" },
+    { to: "/contact", label: "Contact" },
   ];
+
+  const isActive = (to: string) =>
+    pathname === to || (to === "/work" && pathname.startsWith("/project"));
 
   return (
     <header className="w-full border-b border-border">
       <div className="max-w-[900px] mx-auto px-6 py-5 flex items-center justify-between">
-        <Link
-          to="/"
-          className="text-sm font-bold tracking-tight hover:underline"
-        >
+        <Link to="/" className="text-sm font-bold tracking-tight hover:underline">
           Kay Jasanya
         </Link>
 
@@ -39,7 +41,11 @@ export const Header = () => {
             <Link
               key={l.to}
               to={l.to}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className={`text-sm transition-colors ${
+                isActive(l.to)
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {l.label}
             </Link>
@@ -48,6 +54,7 @@ export const Header = () => {
             onClick={toggleTheme}
             className="text-muted-foreground hover:text-foreground transition-colors"
             title={`Theme: ${theme}`}
+            aria-label="Toggle theme"
           >
             {themeIcon}
           </button>
@@ -59,12 +66,15 @@ export const Header = () => {
             onClick={toggleTheme}
             className="text-muted-foreground hover:text-foreground transition-colors"
             title={`Theme: ${theme}`}
+            aria-label="Toggle theme"
           >
             {themeIcon}
           </button>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="text-foreground"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -80,7 +90,11 @@ export const Header = () => {
                 key={l.to}
                 to={l.to}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className={`text-sm transition-colors ${
+                  isActive(l.to)
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {l.label}
               </Link>

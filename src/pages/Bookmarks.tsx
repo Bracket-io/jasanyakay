@@ -33,10 +33,11 @@ const Bookmarks = () => {
 
   return (
     <Layout>
-      <h1 className="text-3xl font-bold tracking-tight mb-2">Bookmarks</h1>
-      <p className="text-muted-foreground mb-12">
-        Competitions, certifications, mentorship, and more.
+      <h1 className="text-3xl font-bold tracking-tight mb-2">Recognition</h1>
+      <p className="text-muted-foreground mb-12 text-sm leading-relaxed max-w-[600px]">
+        Awards, fellowships, publications, press, teaching, and mentorship.
       </p>
+
 
       <div className="space-y-1">
         {sortedBookmarks.map((folder) => (
