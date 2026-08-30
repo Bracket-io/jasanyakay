@@ -1,3 +1,9 @@
+export interface TradeoffOption {
+  label: string;
+  pros: string;
+  cons: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -17,7 +23,24 @@ export interface Project {
   externalLink?: string;
   status?: string;
   category?: string;
+  /** Outcome-first headline used on cards ("Turned X into Y") */
+  headline?: string;
+  /** Product-language category shown on cards, e.g. "Data Product · Automation" */
+  productCategory?: string;
+  /** Senior-PM capabilities demonstrated */
+  capabilities?: string[];
+  /** Independent / founder work — labelled explicitly so it is not read as company experience */
+  independent?: boolean;
+  /** Case-study depth (sections 03–08) */
+  discovery?: string[];
+  keyInsight?: string;
+  options?: TradeoffOption[];
+  decision?: string;
+  notBuilt?: string;
+  owned?: string[];
+  collaborated?: string[];
 }
+
 
 export const projects: Project[] = [
   {
