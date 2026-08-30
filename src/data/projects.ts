@@ -1,3 +1,9 @@
+export interface TradeoffOption {
+  label: string;
+  pros: string;
+  cons: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -17,7 +23,24 @@ export interface Project {
   externalLink?: string;
   status?: string;
   category?: string;
+  /** Outcome-first headline used on cards ("Turned X into Y") */
+  headline?: string;
+  /** Product-language category shown on cards, e.g. "Data Product · Automation" */
+  productCategory?: string;
+  /** Senior-PM capabilities demonstrated */
+  capabilities?: string[];
+  /** Independent / founder work — labelled explicitly so it is not read as company experience */
+  independent?: boolean;
+  /** Case-study depth (sections 03–08) */
+  discovery?: string[];
+  keyInsight?: string;
+  options?: TradeoffOption[];
+  decision?: string;
+  notBuilt?: string;
+  owned?: string[];
+  collaborated?: string[];
 }
+
 
 export const projects: Project[] = [
   {
@@ -60,7 +83,52 @@ export const projects: Project[] = [
       "Decision confidence is a more meaningful metric than page views",
       "Behavioral design principles outperform feature-heavy approaches",
     ],
+    headline:
+      "Turned scattered financial information into guided decisions users could act on.",
+    productCategory: "0→1 · Product Strategy · Fintech",
+    capabilities: [
+      "0→1 product definition",
+      "Prioritization under ambiguity",
+      "Decision & behavioral design",
+      "Analytics instrumentation",
+    ],
+    independent: true,
+    discovery: [
+      "Reviewed how existing financial literacy tools present information and where users drop off",
+      "[Add specific user research: who you spoke to, how many, what you asked]",
+      "[Add evidence that this problem was real — data, interviews, or observed behavior]",
+    ],
+    keyInsight:
+      "The blocker was not access to information but the absence of a decision path — so the product had to reduce choices rather than add content.",
+    options: [
+      {
+        label: "Option A — Content library with search",
+        pros: "Fast to build, broad coverage of topics",
+        cons: "Leaves the decision entirely to the user; repeats what existing tools already do",
+      },
+      {
+        label: "Option B — Guided decision flows",
+        pros: "Moves users toward a concrete next action; measurable per-step confidence",
+        cons: "Narrower coverage; each flow must be designed and maintained",
+      },
+      {
+        label: "Option C — Full account aggregation and automation",
+        pros: "Highest long-term value and defensibility",
+        cons: "Heavy integration and compliance burden before any learning is possible",
+      },
+    ],
+    decision:
+      "Chose Option B: a small set of guided decision flows, instrumented for confidence per step, so the core assumption could be tested before investing in integrations.",
+    notBuilt:
+      "Deliberately did not build account aggregation, automated transfers, or a broad content library — none were required to test whether guided decisions changed user behavior.",
+    owned: [
+      "Product definition, scope, and release sequencing",
+      "Decision-flow design and data model",
+      "Analytics definition for decision confidence",
+    ],
+    collaborated: ["[Add collaborators, if any — design, engineering, advisors]"],
     externalLink: "https://bracketos.lovable.app/",
+
   },
   {
     slug: "ede",
@@ -79,7 +147,51 @@ export const projects: Project[] = [
     execution: ["Deployed a Hugging Face Space", "Iterated on prompts and model choice"],
     outcome: ["Public demo for African NLP experimentation"],
     learnings: ["Data curation is the hardest part of low-resource NLP"],
+    headline:
+      "Made African languages usable in an NLP product where general models underperform.",
+    productCategory: "AI / LLM Product · 0→1 · Independent",
+    capabilities: [
+      "AI/LLM product development",
+      "Dataset and evaluation strategy",
+      "Technical product decisions",
+      "Scoping for low-resource constraints",
+    ],
+    independent: true,
+    discovery: [
+      "Tested general-purpose models on African language inputs to establish a baseline of failure modes",
+      "Reviewed available open datasets and their coverage gaps",
+      "[Add evaluation detail: languages tested, tasks, how quality was judged]",
+    ],
+    keyInsight:
+      "Model choice mattered less than data coverage and evaluation — without a usable evaluation signal, no amount of tuning could be judged as progress.",
+    options: [
+      {
+        label: "Option A — Fine-tune a large model",
+        pros: "Highest ceiling on quality",
+        cons: "Compute cost and data volume far beyond what was available",
+      },
+      {
+        label: "Option B — Small model plus curated data and prompting",
+        pros: "Cheap to iterate, publicly demoable, learning per cycle is fast",
+        cons: "Quality ceiling is lower; some tasks remain out of reach",
+      },
+      {
+        label: "Option C — API-only wrapper on a frontier model",
+        pros: "Fastest to ship",
+        cons: "No control over the underlying language coverage gap — the actual problem",
+      },
+    ],
+    decision:
+      "Chose Option B and shipped a public space, so quality could be judged by real usage instead of internal benchmarks alone.",
+    notBuilt:
+      "Did not build a training pipeline for large models or a proprietary annotation platform — both would have delayed any external signal.",
+    owned: [
+      "Problem framing, scope, and evaluation approach",
+      "Dataset curation and model selection",
+      "Public release and iteration",
+    ],
     externalLink: "https://huggingface.co/spaces/jaskay/ede-african-nlp",
+
   },
   {
     slug: "quantlens",
@@ -98,6 +210,11 @@ export const projects: Project[] = [
     execution: ["Deployed via Vercel", "Iterated on visualization patterns"],
     outcome: ["Public tool for market data exploration"],
     learnings: ["Visualization is the entry point to quantitative thinking"],
+    headline:
+      "Made dense market data explorable for people who are not quants.",
+    productCategory: "Data Product · Analytics · Independent",
+    capabilities: ["Data product design", "Analytics UX", "Scoping and prioritization"],
+    independent: true,
     externalLink: "https://quantlens-iota.vercel.app/",
   },
   {
@@ -180,6 +297,53 @@ export const projects: Project[] = [
       "Standardization is the key to scaling analysis across geographies",
       "Policy impact requires translating data into narrative",
       "Automation frees analysts to focus on insight, not data wrangling",
+    ],
+    headline:
+      "Replaced manual, error-prone multi-city analysis with a repeatable data product — cutting the loop from weeks to days.",
+    productCategory: "Data Product · Automation · Operational Impact",
+    capabilities: [
+      "Data product management",
+      "Workflow analysis and automation",
+      "Stakeholder alignment",
+      "Reproducible analytics systems",
+    ],
+    discovery: [
+      "Mapped the existing analysis workflow end to end across 153 cities to find where time was actually lost",
+      "Reviewed error and rework patterns in manual grant data processing",
+      "Worked with policy stakeholders to identify which metrics actually drove decisions",
+      "[Add specific evidence: baseline cycle time, error rate, or stakeholder interview detail]",
+    ],
+    keyInsight:
+      "The bottleneck was not analytical capability but non-standard inputs — once data collection was standardized across cities, the analysis itself became cheap and repeatable.",
+    options: [
+      {
+        label: "Option A — Add analyst capacity",
+        pros: "No new tooling; immediate relief",
+        cons: "Cost scales linearly with cities; error rate unchanged",
+      },
+      {
+        label: "Option B — Standardize inputs, then automate the pipeline",
+        pros: "Scales to new cities at near-zero marginal cost; removes a whole class of manual errors",
+        cons: "Requires upfront agreement on a shared schema across many stakeholders",
+      },
+      {
+        label: "Option C — Buy a commercial analytics platform",
+        pros: "Vendor-supported, faster initial setup",
+        cons: "Procurement time, cost, and poor fit for policy-specific metrics",
+      },
+    ],
+    decision:
+      "Chose Option B. Standardization was the hard part politically but the only option that made every additional city cheaper rather than more expensive.",
+    notBuilt:
+      "Did not build a general-purpose dashboarding platform or expand data collection beyond the metrics stakeholders actually used in decisions.",
+    owned: [
+      "Framing the work as a reusable data product rather than a one-off analysis",
+      "Standardized schema and automated processing workflow",
+      "Policy-ready reporting templates and stakeholder communication",
+    ],
+    collaborated: [
+      "Policy and program stakeholders on metric definitions and decision needs",
+      "[Add engineering / analytics collaborators and how work was divided]",
     ],
   },
   {
@@ -346,6 +510,51 @@ export const projects: Project[] = [
       "Real-time data is only useful if it's actionable",
       "Dashboard adoption requires training, not just deployment",
     ],
+    headline:
+      "Replaced manual reporting with real-time KPI visibility for enterprise teams that needed different views of the same data.",
+    productCategory: "Enterprise · Analytics · Product Strategy",
+    capabilities: [
+      "Enterprise product management",
+      "Stakeholder requirements and alignment",
+      "Product analytics and KPI definition",
+      "Technical product development (SQL, BI tooling)",
+    ],
+    discovery: [
+      "Interviewed engineering and business stakeholders to collect and reconcile KPI requirements",
+      "Analyzed the existing manual reporting cycle to identify where decisions were being delayed",
+      "[Add evidence: number of stakeholders, baseline reporting turnaround, requested metric count]",
+    ],
+    keyInsight:
+      "Engineering and business stakeholders wanted the same underlying metrics but would not adopt the same interface — so the product decision was about surfaces, not data.",
+    options: [
+      {
+        label: "Option A — One unified dashboard for all teams",
+        pros: "Single source of truth, lowest maintenance",
+        cons: "Fits neither audience well; risks low adoption from both",
+      },
+      {
+        label: "Option B — Shared data layer, two purpose-built surfaces",
+        pros: "Each audience gets a familiar tool; metrics stay consistent underneath",
+        cons: "Two surfaces to build and maintain",
+      },
+      {
+        label: "Option C — Cover every requested KPI",
+        pros: "Satisfies all stakeholder requests up front",
+        cons: "Dilutes focus and delays delivery of the metrics that drive decisions",
+      },
+    ],
+    decision:
+      "Chose Option B with a deliberately narrow metric set — five high-leverage KPIs on a shared data layer, exposed through Grafana for engineering and APEX for business stakeholders.",
+    notBuilt:
+      "Did not build the long tail of requested KPIs, and did not attempt a single unified interface.",
+    owned: [
+      "KPI prioritization and requirements reconciliation",
+      "Dashboard specification and rollout",
+    ],
+    collaborated: [
+      "Engineering and business stakeholders across teams",
+      "[Add specifics on team structure and what the team delivered vs. what you led]",
+    ],
   },
   {
     slug: "morgan-stanley",
@@ -432,12 +641,10 @@ export const projects: Project[] = [
 ];
 
 const selectedSlugs = [
-  "quantlens",
+  "environmental-justice",
+  "oracle-dashboards",
   "bracket",
   "ede",
-  "citistat",
-  "environmental-justice",
-  "311-sla",
 ];
 
 export const selectedWork = selectedSlugs
@@ -791,3 +998,73 @@ export const experience: ExperienceRole[] = [
     ],
   },
 ];
+
+
+// ---------------------------------------------------------------------------
+// Product capabilities (grouped for Senior PM relevance)
+// ---------------------------------------------------------------------------
+
+export interface CapabilityGroup {
+  title: string;
+  items: string[];
+  tools?: string;
+}
+
+export const capabilityGroups: CapabilityGroup[] = [
+  {
+    title: "Product Strategy",
+    items: [
+      "Product discovery",
+      "Strategy",
+      "Roadmapping",
+      "Prioritization",
+      "Product planning",
+    ],
+    tools: "Aha!, Jira, Notion, Figma",
+  },
+  {
+    title: "Data & AI",
+    items: [
+      "Product analytics",
+      "Data products",
+      "Workflow automation",
+      "AI / LLM products",
+    ],
+    tools: "SQL, Python, Power BI, ArcGIS, Grafana, Hugging Face",
+  },
+  {
+    title: "Technical",
+    items: [
+      "APIs",
+      "Databases",
+      "Web applications",
+      "Technical product development",
+    ],
+    tools: "PostgreSQL, React, Java, Kafka, Quarto",
+  },
+  {
+    title: "Leadership",
+    items: [
+      "Cross-functional leadership",
+      "Stakeholder alignment",
+      "0→1 execution",
+      "Ambiguous problem solving",
+    ],
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Site-level links
+// ---------------------------------------------------------------------------
+
+export const siteLinks = {
+  email: "iamjasanyakay@gmail.com",
+  linkedin: "https://www.linkedin.com/in/jaskay",
+  x: "https://x.com/JasanyaKayode",
+  medium: "https://jaskay.medium.com",
+  github: "https://github.com/jaskay",
+  newsletter: "https://www.linkedin.com/newsletters/6979264804028829696/",
+  /** Replace with the published PDF once uploaded to /public */
+  resume: "/kay-jasanya-senior-product-manager-resume.pdf",
+  resumeLabel: "Kay Jasanya — Senior Product Manager Résumé",
+};
