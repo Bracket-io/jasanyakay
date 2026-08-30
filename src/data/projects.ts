@@ -147,7 +147,51 @@ export const projects: Project[] = [
     execution: ["Deployed a Hugging Face Space", "Iterated on prompts and model choice"],
     outcome: ["Public demo for African NLP experimentation"],
     learnings: ["Data curation is the hardest part of low-resource NLP"],
+    headline:
+      "Made African languages usable in an NLP product where general models underperform.",
+    productCategory: "AI / LLM Product · 0→1 · Independent",
+    capabilities: [
+      "AI/LLM product development",
+      "Dataset and evaluation strategy",
+      "Technical product decisions",
+      "Scoping for low-resource constraints",
+    ],
+    independent: true,
+    discovery: [
+      "Tested general-purpose models on African language inputs to establish a baseline of failure modes",
+      "Reviewed available open datasets and their coverage gaps",
+      "[Add evaluation detail: languages tested, tasks, how quality was judged]",
+    ],
+    keyInsight:
+      "Model choice mattered less than data coverage and evaluation — without a usable evaluation signal, no amount of tuning could be judged as progress.",
+    options: [
+      {
+        label: "Option A — Fine-tune a large model",
+        pros: "Highest ceiling on quality",
+        cons: "Compute cost and data volume far beyond what was available",
+      },
+      {
+        label: "Option B — Small model plus curated data and prompting",
+        pros: "Cheap to iterate, publicly demoable, learning per cycle is fast",
+        cons: "Quality ceiling is lower; some tasks remain out of reach",
+      },
+      {
+        label: "Option C — API-only wrapper on a frontier model",
+        pros: "Fastest to ship",
+        cons: "No control over the underlying language coverage gap — the actual problem",
+      },
+    ],
+    decision:
+      "Chose Option B and shipped a public space, so quality could be judged by real usage instead of internal benchmarks alone.",
+    notBuilt:
+      "Did not build a training pipeline for large models or a proprietary annotation platform — both would have delayed any external signal.",
+    owned: [
+      "Problem framing, scope, and evaluation approach",
+      "Dataset curation and model selection",
+      "Public release and iteration",
+    ],
     externalLink: "https://huggingface.co/spaces/jaskay/ede-african-nlp",
+
   },
   {
     slug: "quantlens",
