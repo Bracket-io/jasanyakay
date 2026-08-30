@@ -641,12 +641,10 @@ export const projects: Project[] = [
 ];
 
 const selectedSlugs = [
-  "quantlens",
+  "environmental-justice",
+  "oracle-dashboards",
   "bracket",
   "ede",
-  "citistat",
-  "environmental-justice",
-  "311-sla",
 ];
 
 export const selectedWork = selectedSlugs
@@ -1000,3 +998,73 @@ export const experience: ExperienceRole[] = [
     ],
   },
 ];
+
+
+// ---------------------------------------------------------------------------
+// Product capabilities (grouped for Senior PM relevance)
+// ---------------------------------------------------------------------------
+
+export interface CapabilityGroup {
+  title: string;
+  items: string[];
+  tools?: string;
+}
+
+export const capabilityGroups: CapabilityGroup[] = [
+  {
+    title: "Product Strategy",
+    items: [
+      "Product discovery",
+      "Strategy",
+      "Roadmapping",
+      "Prioritization",
+      "Product planning",
+    ],
+    tools: "Aha!, Jira, Notion, Figma",
+  },
+  {
+    title: "Data & AI",
+    items: [
+      "Product analytics",
+      "Data products",
+      "Workflow automation",
+      "AI / LLM products",
+    ],
+    tools: "SQL, Python, Power BI, ArcGIS, Grafana, Hugging Face",
+  },
+  {
+    title: "Technical",
+    items: [
+      "APIs",
+      "Databases",
+      "Web applications",
+      "Technical product development",
+    ],
+    tools: "PostgreSQL, React, Java, Kafka, Quarto",
+  },
+  {
+    title: "Leadership",
+    items: [
+      "Cross-functional leadership",
+      "Stakeholder alignment",
+      "0→1 execution",
+      "Ambiguous problem solving",
+    ],
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Site-level links
+// ---------------------------------------------------------------------------
+
+export const siteLinks = {
+  email: "iamjasanyakay@gmail.com",
+  linkedin: "https://www.linkedin.com/in/jaskay",
+  x: "https://x.com/JasanyaKayode",
+  medium: "https://jaskay.medium.com",
+  github: "https://github.com/jaskay",
+  newsletter: "https://www.linkedin.com/newsletters/6979264804028829696/",
+  /** Replace with the published PDF once uploaded to /public */
+  resume: "/kay-jasanya-senior-product-manager-resume.pdf",
+  resumeLabel: "Kay Jasanya — Senior Product Manager Résumé",
+};
