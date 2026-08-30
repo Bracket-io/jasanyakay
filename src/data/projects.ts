@@ -83,7 +83,52 @@ export const projects: Project[] = [
       "Decision confidence is a more meaningful metric than page views",
       "Behavioral design principles outperform feature-heavy approaches",
     ],
+    headline:
+      "Turned scattered financial information into guided decisions users could act on.",
+    productCategory: "0→1 · Product Strategy · Fintech",
+    capabilities: [
+      "0→1 product definition",
+      "Prioritization under ambiguity",
+      "Decision & behavioral design",
+      "Analytics instrumentation",
+    ],
+    independent: true,
+    discovery: [
+      "Reviewed how existing financial literacy tools present information and where users drop off",
+      "[Add specific user research: who you spoke to, how many, what you asked]",
+      "[Add evidence that this problem was real — data, interviews, or observed behavior]",
+    ],
+    keyInsight:
+      "The blocker was not access to information but the absence of a decision path — so the product had to reduce choices rather than add content.",
+    options: [
+      {
+        label: "Option A — Content library with search",
+        pros: "Fast to build, broad coverage of topics",
+        cons: "Leaves the decision entirely to the user; repeats what existing tools already do",
+      },
+      {
+        label: "Option B — Guided decision flows",
+        pros: "Moves users toward a concrete next action; measurable per-step confidence",
+        cons: "Narrower coverage; each flow must be designed and maintained",
+      },
+      {
+        label: "Option C — Full account aggregation and automation",
+        pros: "Highest long-term value and defensibility",
+        cons: "Heavy integration and compliance burden before any learning is possible",
+      },
+    ],
+    decision:
+      "Chose Option B: a small set of guided decision flows, instrumented for confidence per step, so the core assumption could be tested before investing in integrations.",
+    notBuilt:
+      "Deliberately did not build account aggregation, automated transfers, or a broad content library — none were required to test whether guided decisions changed user behavior.",
+    owned: [
+      "Product definition, scope, and release sequencing",
+      "Decision-flow design and data model",
+      "Analytics definition for decision confidence",
+    ],
+    collaborated: ["[Add collaborators, if any — design, engineering, advisors]"],
     externalLink: "https://bracketos.lovable.app/",
+
   },
   {
     slug: "ede",
