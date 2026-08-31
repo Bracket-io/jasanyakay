@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@/hooks/useTheme";
+import { siteLinks } from "@/data/projects";
 import { Sun, Moon, Monitor, Menu, X } from "lucide-react";
 
 export const Header = () => {
@@ -18,15 +19,16 @@ export const Header = () => {
     );
 
   const navLinks = [
+    { to: "/", label: "Home" },
     { to: "/work", label: "Work" },
-    { to: "/thinking", label: "Thinking" },
-    { to: "/recognition", label: "Recognition" },
+    { to: "/experience", label: "Experience" },
     { to: "/about", label: "About" },
-    { to: "/contact", label: "Contact" },
   ];
 
   const isActive = (to: string) =>
-    pathname === to || (to === "/work" && pathname.startsWith("/project"));
+    to === "/"
+      ? pathname === "/"
+      : pathname === to || (to === "/work" && pathname.startsWith("/project"));
 
   return (
     <header className="w-full border-b border-border">
@@ -50,6 +52,14 @@ export const Header = () => {
               {l.label}
             </Link>
           ))}
+          <a
+            href={siteLinks.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Résumé
+          </a>
           <button
             onClick={toggleTheme}
             className="text-muted-foreground hover:text-foreground transition-colors"
@@ -99,6 +109,14 @@ export const Header = () => {
                 {l.label}
               </Link>
             ))}
+            <a
+              href={siteLinks.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Résumé
+            </a>
           </div>
         </nav>
       )}
