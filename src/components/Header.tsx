@@ -19,21 +19,23 @@ export const Header = () => {
     );
 
   const navLinks = [
-    { to: "/", label: "Home" },
     { to: "/work", label: "Work" },
-    { to: "/experience", label: "Experience" },
     { to: "/about", label: "About" },
   ];
 
   const isActive = (to: string) =>
     to === "/"
       ? pathname === "/"
-      : pathname === to || (to === "/work" && pathname.startsWith("/project"));
+      : pathname === to ||
+        (to === "/work" && pathname.startsWith("/project"));
 
   return (
     <header className="w-full border-b border-border">
       <div className="max-w-[900px] mx-auto px-6 py-5 flex items-center justify-between">
-        <Link to="/" className="text-sm font-bold tracking-tight hover:underline">
+        <Link
+          to="/"
+          className="text-sm font-bold tracking-tight hover:underline"
+        >
           Kay Jasanya
         </Link>
 
@@ -52,14 +54,18 @@ export const Header = () => {
               {l.label}
             </Link>
           ))}
-          <a
-            href={siteLinks.resume}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+
+          <Link
+            to="/resume"
+            className={`text-sm transition-colors ${
+              pathname === "/resume"
+                ? "text-foreground"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
           >
             Résumé
-          </a>
+          </Link>
+
           <button
             onClick={toggleTheme}
             className="text-muted-foreground hover:text-foreground transition-colors"
@@ -80,13 +86,18 @@ export const Header = () => {
           >
             {themeIcon}
           </button>
+
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="text-foreground"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
           </button>
         </div>
       </div>
@@ -109,14 +120,18 @@ export const Header = () => {
                 {l.label}
               </Link>
             ))}
-            <a
-              href={siteLinks.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+
+            <Link
+              to="/resume"
+              onClick={() => setMobileOpen(false)}
+              className={`text-sm transition-colors ${
+                pathname === "/resume"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               Résumé
-            </a>
+            </Link>
           </div>
         </nav>
       )}
