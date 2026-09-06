@@ -3,7 +3,7 @@ import { FormEvent, useState } from "react";
 const superprofUrl =
   "https://www.superprof.co.uk/from-johns-hopkins-math-tutor-with-years-experience-secondary-and-higher-education.html";
 
-const tutorEmail = "YOUR-EMAIL-HERE@example.com";
+const tutorEmail = "tutoring@kayjasanya.com";
 
 const Tutoring = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
