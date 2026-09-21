@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
+import { bookmarks } from "@/data/bookmarks";
 import {
   selectedWork,
   impactMetrics,
   howIWork,
-  bookmarks,
   capabilityGroups,
   siteLinks,
 } from "@/data/projects";
@@ -502,15 +502,15 @@ const Index = () => {
             </ul>
           </div>
 
-          {/* Recognition */}
+           {/* Bookmarks */}
           <div>
             <div className="flex items-baseline justify-between gap-4 mb-6">
               <h2 className="text-xs font-bold tracking-widest uppercase text-muted-foreground">
-                Recognition
+                Bookmarks
               </h2>
 
               <Link
-                to="/recognition"
+                to="/bookmarks"
                 className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
                 All →
@@ -518,20 +518,26 @@ const Index = () => {
             </div>
 
             <ul className="space-y-3 text-sm">
-              {recognition.map((item) => (
-                <li
-                  key={item.title}
-                  className="flex items-start justify-between gap-4"
-                >
-                  <span>
-                    {item.title}
-                  </span>
+              {bookmarks
+                .filter((item) => item.category === "Recognition")
+                .sort((a, b) => {
+                  const yearA = Number(a.year?.match(/\d{4}/)?.[0] || 0);
+                  const yearB = Number(b.year?.match(/\d{4}/)?.[0] || 0);
+                  return yearB - yearA;
+                })
+                .slice(0, 6)
+                .map((item) => (
+                  <li
+                    key={item.title}
+                    className="flex items-start justify-between gap-4"
+                  >
+                    <span>{item.title}</span>
 
-                  <span className="text-xs text-muted-foreground whitespace-nowrap">
-                    {item.year}
-                  </span>
-                </li>
-              ))}
+                    <span className="text-xs text-muted-foreground whitespace-nowrap">
+                      {item.year}
+                    </span>
+                  </li>
+                ))}
             </ul>
           </div>
 
