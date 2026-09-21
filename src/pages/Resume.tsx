@@ -139,6 +139,12 @@ const Resume = () => {
                   from Moodle and academic processes to improve visibility,
                   data accuracy, and workflow efficiency.
                 </>,
+                <>
+                  Built a browser extension to reduce manual grade entry and
+                  developed a standardised gradebook template adopted across 
+                  university gradebooks, improving consistency and reducing 
+                  repetitive administrative work across assessment processes.
+                </>,
               ]}
             />
 

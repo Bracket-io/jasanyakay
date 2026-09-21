@@ -218,10 +218,10 @@ const Index = () => {
 
             <ul className="space-y-1.5 text-sm leading-relaxed max-w-[640px]">
               <li>
-                Manage assessment data and operational workflows across
-                Level 4–6 programmes, maintaining accurate records across
-                modules, assessments, submissions, grades, plagiarism
-                results, and student outcomes.
+                Built a browser extension to reduce manual grade entry and developed a 
+                standardised gradebook template adopted across university gradebooks, 
+                improving consistency and reducing repetitive administrative work 
+                across assessment processes.
               </li>
 
               <li>

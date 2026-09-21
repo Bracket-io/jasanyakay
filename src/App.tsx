@@ -16,6 +16,7 @@ import CaseStudy from "./pages/CaseStudy";
 import NotFound from "./pages/NotFound";
 import Tutoring from "./pages/Tutoring";
 import Resume from "./pages/Resume";
+import Building from "./pages/Building";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/recognition" element={<Bookmarks />} />
           <Route path="/tutoring" element={<Tutoring />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/building" element={<Building />} />
 
           {/* Case studies */}
           <Route path="/case-studies" element={<CaseStudies />} />
