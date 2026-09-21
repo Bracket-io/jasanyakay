@@ -742,90 +742,89 @@ export const capabilityGroups = [
    BOOKMARKS
 ========================================================= */
 
-export interface BookmarkItem {
-  title: string;
-  year?: string;
-  description?: string;
-  url?: string;
-}
+// export interface BookmarkItem {
+//   title: string;
+//   year?: string;
+//   description?: string;
+//   url?: string;
+// }
 
-export interface BookmarkGroup {
-  label: string;
-  items: BookmarkItem[];
-}
+// export interface BookmarkGroup {
+//   label: string;
+//   items: BookmarkItem[];
+// }
 
-export const bookmarks: BookmarkGroup[] = [
-  {
-    label: "Recognition",
-    items: [
-      {
-        title: "PSPO II — Professional Scrum Product Owner II",
-        year: "2026",
-      },
-      {
-        title: "Professional Scrum Master I",
-        year: "2021",
-      },
-      {
-        title: "HBCUvc Fellowship",
-        year: "2021",
-      },
-      {
-        title: "Morgan State University — Engineering / Technology Recognition",
-        year: "2020",
-      },
-      {
-        title: "Bloomberg Market Concepts",
-        year: "2023",
-      },
-      {
-        title: "Google Project Management Certificate",
-        year: "2023",
-      },
-    ],
-  },
-  {
-    label: "Reading",
-    items: [
-      {
-        title: "Inspired — Marty Cagan",
-      },
-      {
-        title: "Continuous Discovery Habits — Teresa Torres",
-      },
-      {
-        title: "The Mom Test — Rob Fitzpatrick",
-      },
-    ],
-  },
-  {
-    label: "Tools",
-    items: [
-      {
-        title: "Figma",
-      },
-      {
-        title: "GitHub",
-      },
-      {
-        title: "Supabase",
-      },
-      {
-        title: "Lovable",
-      },
-    ],
-  },
-];
+// export const bookmarks: BookmarkGroup[] = [
+//   {
+//     label: "Recognition",
+//     items: [
+//       {
+//         title: "PSPO II — Professional Scrum Product Owner II",
+//         year: "2026",
+//       },
+//       {
+//         title: "Professional Scrum Master I",
+//         year: "2021",
+//       },
+//       {
+//         title: "HBCUvc Fellowship",
+//         year: "2021",
+//       },
+//       {
+//         title: "Morgan State University — Engineering / Technology Recognition",
+//         year: "2020",
+//       },
+//       {
+//         title: "Bloomberg Market Concepts",
+//         year: "2023",
+//       },
+//       {
+//         title: "Google Project Management Certificate",
+//         year: "2023",
+//       },
+//     ],
+//   },
+//   {
+//     label: "Reading",
+//     items: [
+//       {
+//         title: "Inspired — Marty Cagan",
+//       },
+//       {
+//         title: "Continuous Discovery Habits — Teresa Torres",
+//       },
+//       {
+//         title: "The Mom Test — Rob Fitzpatrick",
+//       },
+//     ],
+//   },
+//   {
+//     label: "Tools",
+//     items: [
+//       {
+//         title: "Figma",
+//       },
+//       {
+//         title: "GitHub",
+//       },
+//       {
+//         title: "Supabase",
+//       },
+//       {
+//         title: "Lovable",
+//       },
+//     ],
+//   },
+// ];
 
 /* =========================================================
    SITE LINKS
 ========================================================= */
 
 export const siteLinks = {
-  email: "hello@jaskay.netlify.app",
+  email: "edoyakproductions@gmail.com",
   linkedin: "https://www.linkedin.com/in/jaskay/",
   github: "https://github.com/JasKay",
-  portfolio: "https://jaskay.netlify.app",
 };
 
 /* =========================================================
