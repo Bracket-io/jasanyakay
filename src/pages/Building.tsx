@@ -44,7 +44,7 @@ const Building = () => {
                       </div>
                     </div>
 
-                    {project.url ? (
+                    {project.url || project.links?.length ? (
                       <ArrowUpRight className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
                     ) : (
                       <span className="text-xs text-muted-foreground">
@@ -53,9 +53,28 @@ const Building = () => {
                     )}
                   </div>
 
-                  <p className="mt-7 text-sm leading-6 text-muted-foreground">
-                    {project.description}
-                  </p>
+                  {project.description && (
+                    <p className="mt-7 text-sm leading-6 text-muted-foreground">
+                      {project.description}
+                    </p>
+                  )}
+
+                  {project.links && (
+                    <div className="mt-5 flex flex-wrap gap-x-4 gap-y-3">
+                      {project.links.map((link) => (
+                        <a
+                          key={link.url}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-medium underline underline-offset-4 hover:text-muted-foreground"
+                        >
+                          {link.label}
+                          <ExternalLink aria-hidden="true" className="h-3.5 w-3.5" />
+                        </a>
+                      ))}
+                    </div>
+                  )}
 
                   <div className="mt-7 flex items-center justify-between">
                     <span className="text-[10px] sm:text-xs font-medium tracking-[0.14em] text-muted-foreground">
@@ -89,7 +108,7 @@ const Building = () => {
               return (
                 <div
                   key={project.name}
-                  className="min-h-[210px] rounded-2xl border border-border p-5 sm:p-6 opacity-75"
+                  className={`min-h-[210px] rounded-2xl border border-border p-5 sm:p-6 ${project.links?.length ? "" : "opacity-75"}`}
                 >
                   {card}
                 </div>
