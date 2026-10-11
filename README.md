@@ -94,8 +94,10 @@ with High Salary left empty. Summaries distinguish published sources, existing
 portfolio claims, and details still needing confirmation. Public artifacts are
 linked at their original hosts; private Notion attachments are not copied.
 Category assignments can be changed in the editor. Percentages are the owner's recorded progress,
-not verified evidence status. The overview introduces the shared narrative across product building, civic
-analytics, and entrepreneurship. Removed baseline entries are hidden even when
+not verified evidence status. Each record includes programme context with direct source citations where the
+event can be identified. Programme-level facts are distinguished from evidence
+of personal participation. Publication titles and private emails remain needed
+where the linked Notion content is inaccessible. Removed baseline entries are hidden even when
 present in old browser drafts, but retained in JSON exports to avoid data loss.
 
 The route and its subpages request no indexing through page metadata and a

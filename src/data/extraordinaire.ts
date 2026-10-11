@@ -24,6 +24,7 @@ export interface EvidenceEntry {
   progress?: number;
   kind?: "Achievement" | "Expert opinion";
   narrative?: string;
+  evidenceContext?: { text: string; label: string; url: string }[];
   artifactNeeded?: string;
   sourceNote?: string;
   sections?: { title: string; body: string }[];
@@ -67,16 +68,6 @@ const selectedEntries: EvidenceEntry[] = [
 export const notionArchiveUrl = "https://app.notion.com/p/2ed694b87d3580788d90fbec4c1a48a7?v=2ed694b87d3580769805000c3a4d7c1c&source=copy_link";
 
 export const retiredEvidenceIds = ["techsgiving", "blackstone-launchpad", "dart-opinion", "leo-opinion", "abbey", "helium-role", "noramay-opinion", "rsis", "jim-opinion", "hadiyah-opinion", "leticia-opinion", "jainaba-opinion", "helium-salary", "lauren-opinion", "linda-opinion"];
-
-export const archiveNarrative = {
-  title: "Turning evidence into better decisions.",
-  summary: "My work connects product development, public-sector analytics, and entrepreneurship. I build tools that help people act on information, translate complex data into operational decisions, and contribute to communities developing the next generation of ventures.",
-  chapters: [
-    { title: "Build", body: "From Bracket’s financial decision tools to Baltimore’s civic analytics, the through-line is making information useful in practice." },
-    { title: "Deliver", body: "The record connects hands-on product discovery with responsibility for workflows, reporting, and coordination across organisations." },
-    { title: "Contribute", body: "Competition results, fellowships, judging, research, and public coverage add context to the work and show how it reaches beyond individual projects." },
-  ],
-};
 
 const entryDetails: Record<string, Partial<EvidenceEntry>> = {
   "aws-nextgen": {
@@ -314,11 +305,146 @@ const entryDetails: Record<string, Partial<EvidenceEntry>> = {
   }
 };
 
+const evidenceResearch: Record<string, NonNullable<EvidenceEntry["evidenceContext"]>> = {
+  "aws-nextgen": [
+    {
+      "text": "Harvard Innovation Labs and AWS selected 25 ventures for the inaugural 2023 accelerator. The programme included founder training, travel support, and AWS credits. Abbey VC is listed; personal admission evidence is needed to establish my role.",
+      "label": "Harvard · 2023 cohort and programme",
+      "url": "https://innovationlabs.harvard.edu/about/news/25-black-led-startups-selected-for-inaugural-nextgen-accelerator-program/"
+    }
+  ],
+  "keybank": [
+    {
+      "text": "The 18th annual competition in 2022 brought together 25 graduate teams from across the US to address an ESG case. Ohio State’s Fisher College of Business administered the event with KeyBank. This report establishes the event’s scope, but does not name me or confirm fourth place.",
+      "label": "Ohio State · 2022 competition report",
+      "url": "https://fisher.osu.edu/news/a-continuing-commitment-diversity-equity-and-inclusion-programs"
+    }
+  ],
+  "nbmbaa": [
+    {
+      "text": "The NBMBAA graduate case competition uses business cases presented to senior executives. My earlier record instead says MBA pitch competition: the invitation or result email must confirm the exact event before these programme details can be attributed to my participation.",
+      "label": "NBMBAA · Case competition (event match pending)",
+      "url": "https://nbmbaa.org/graduate-case-competition/"
+    }
+  ],
+  "wesolv": [
+    {
+      "text": "Candidates from more than 20 universities entered the 2022 challenge. Experts evaluated recommendation decks using a scorecard and invited the top three teams to present. The organiser names Kay Jasanya and Katie Jang as the winning team and records a $1,000 team prize.",
+      "label": "WeSolv · Evaluation process and named winners",
+      "url": "https://medium.com/wesolv/meet-the-winners-of-wesolvs-latest-case-challenge-7b3c0f02bfa0"
+    }
+  ],
+  "hopstart": [
+    {
+      "text": "The 2023 event involved 35 teams, business plans, industry mentorship, and two pitching rounds. Johns Hopkins names Dwell as the General Ventures II winner and lists me on the team. This establishes a team result; the deck and role statement should establish my contribution.",
+      "label": "Johns Hopkins · 2023 competition results",
+      "url": "https://hub.jhu.edu/2023/05/16/hopstart-new-venture-challenge/"
+    }
+  ],
+  "business-intelligence-group": [
+    {
+      "text": "The organiser states that judging committees are assembled for relevant experience and expertise from its panel. This explains the selection approach, but my specific award, year, appointment, and completed reviews still require confirmation.",
+      "label": "Business Intelligence Group · Judging philosophy",
+      "url": "https://www.bintelligence.com/judges"
+    }
+  ],
+  "hbcu-lab": [
+    {
+      "text": "HBCUvc describes the Lab Fund as practical investing experience for training participants and reports non-dilutive funding to 23 Black founders, supported by Google for Startups and the MacArthur Foundation. That establishes fund context, not my individual investment decisions.",
+      "label": "HBCUvc · Lab Fund background",
+      "url": "https://www.hbcu.vc/about"
+    }
+  ],
+  "vthacks": [
+    {
+      "text": "The organiser’s current guide requires project submission and presentation to judges. The event site identifies VTHacks as Virginia Tech’s hackathon. These current pages provide programme context; the invitation must identify the edition and dates I judged.",
+      "label": "VTHacks · Official judging and submission guide",
+      "url": "https://vthacks.com/guide"
+    }
+  ],
+  "bisonhacks": [
+    {
+      "text": "Howard University’s 2025 report describes a 24-hour team hackathon hosted by its Center for Digital Business. It provides contemporaneous institutional context. My invitation, rubric, and completion email should identify my judging work.",
+      "label": "Howard University · 2025 event report",
+      "url": "https://thedig.howard.edu/all-stories/bisonhacks-meccatech-2025-illustrate-howard-universitys-ingenuity"
+    }
+  ],
+  "sprouthacks": [
+    {
+      "text": "The organiser’s website lists the February 28–March 2, 2025 event and welcomes participants across skill levels. A judge appointment and completed-review record are needed to establish my role; no acceptance rate or judge selectivity is asserted.",
+      "label": "SproutHacks · Official event site",
+      "url": "https://www.sprouthacks.ca/"
+    }
+  ],
+  "nsf-icorps": [
+    {
+      "text": "NSF describes I-Corps as entrepreneurial training connecting research with commercialisation. My available evidence is for regional I-Corps and I-Corps Next, so national Teams awards or admission criteria should not be attributed to my participation.",
+      "label": "NSF · Programme overview",
+      "url": "https://www.nsf.gov/funding/initiatives/i-corps"
+    },
+    {
+      "text": "The University of Maryland identifies me as a 2023 regional and I-Corps Next participant in its report on the 2024 Black Founders event. This is a named institutional record of participation.",
+      "label": "University of Maryland · Named participation record",
+      "url": "https://mtechpartnerships.umd.edu/news/nsf-i-corps-hub-mid-atlantic-region-partners-host-black-founders-in-i-corps-event"
+    }
+  ],
+  "hbcuvc": [
+    {
+      "text": "HBCUvc’s 2021 announcement lists 62 fellows from 21 HBCUs and names me in the alumni professional-development track. It establishes cohort membership; the acceptance email and selection criteria can add detail about admission.",
+      "label": "HBCUvc · 2021 cohort roster",
+      "url": "https://blog.hbcu.vc/hbcuvc-welcomes-its-fifth-and-largest-class-of-venture-capital-fellows-5cade19616ff"
+    }
+  ],
+  "uif": [
+    {
+      "text": "Morgan State names me among its four new fellows in 2017. The report places the cohort within 224 selected students from 58 institutions in seven countries and identifies Stanford’s d.school as the programme administrator. It does not provide an applicant denominator or acceptance rate.",
+      "label": "Morgan State · Named selection and cohort scope",
+      "url": "https://www.morgan.edu/news/four-morgan-state-students-named-as-university-innovation-fellows"
+    }
+  ],
+  "nsf-host": [
+    {
+      "text": "The University of Maryland names me as emcee of the February 5, 2024 Black Founders in I-Corps event at Morgan State. The report identifies participating universities and regional innovation organisations. The programme or recording can show what I actually delivered as host.",
+      "label": "University of Maryland · Event and host record",
+      "url": "https://mtechpartnerships.umd.edu/news/nsf-i-corps-hub-mid-atlantic-region-partners-host-black-founders-in-i-corps-event"
+    }
+  ],
+  "technically": [
+    {
+      "text": "The article names me, describes Scribe’s writing-support concept, and records a $1,000 Bear Tank award. It establishes published coverage of my venture and role. No audience reach or circulation figure is claimed without a separate publisher source.",
+      "label": "Technically · Original coverage",
+      "url": "https://technical.ly/startups/morgan-state-inaugural-bear-tank/"
+    }
+  ],
+  "bracket": [
+    {
+      "text": "The existing case study describes interviews, product decisions, launch, and retention lessons. It is a first-person work sample rather than independent validation. Dated analytics, user feedback, and adoption records would substantiate its reported outcomes.",
+      "label": "Portfolio · Product case study",
+      "url": "https://www.kayjasanya.com/project/bracket"
+    }
+  ],
+  "baltimore-contribution": [
+    {
+      "text": "The résumé provides a starting account of responsibilities and reported results. An employer-authored letter and dated work products should establish ownership, organisational reliance, and observed outcomes independently of this self-authored description.",
+      "label": "Portfolio · Existing résumé",
+      "url": "https://www.kayjasanya.com/resume"
+    }
+  ],
+  "baltimore-role": [
+    {
+      "text": "The résumé provides a starting account of responsibilities and reported results. An employer-authored letter and dated work products should establish ownership, organisational reliance, and observed outcomes independently of this self-authored description.",
+      "label": "Portfolio · Existing résumé",
+      "url": "https://www.kayjasanya.com/resume"
+    }
+  ]
+};
+
 export const evidenceEntries: EvidenceEntry[] = selectedEntries.map(entry => {
   const details = entryDetails[entry.id];
   return {
     ...entry,
     ...details,
+    evidenceContext: evidenceResearch[entry.id] ?? [],
     documents: [...(details?.documents ?? []), ...entry.documents],
   };
 });

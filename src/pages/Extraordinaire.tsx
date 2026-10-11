@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, ChevronRight, Download, FolderOpen, Plus, Search } from "lucide-react";
 import { Layout } from "@/components/Layout";
-import { evidenceCategories, evidenceEntries, notionArchiveUrl, archiveNarrative, retiredEvidenceIds, type EvidenceEntry } from "@/data/extraordinaire";
+import { evidenceCategories, evidenceEntries, notionArchiveUrl, retiredEvidenceIds, type EvidenceEntry } from "@/data/extraordinaire";
 
 const storageKey = "jasanyakay.extraordinaire.v1";
 const inputClass = "w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm";
@@ -19,6 +19,7 @@ function isEntry(value: unknown): value is EvidenceEntry {
     (entry.progress === undefined || (typeof entry.progress === "number" && entry.progress >= 0 && entry.progress <= 100)) &&
     (entry.kind === undefined || ["Achievement", "Expert opinion"].includes(entry.kind)) &&
     Array.isArray(entry.documents) && entry.documents.every(document => typeof document?.label === "string" && typeof document?.url === "string" && /^https?:\/\//i.test(document.url)) &&
+    (entry.evidenceContext === undefined || (Array.isArray(entry.evidenceContext) && entry.evidenceContext.every(source => typeof source?.text === "string" && typeof source?.label === "string" && typeof source?.url === "string" && /^https?:\/\//i.test(source.url)))) &&
     (entry.sections === undefined || (Array.isArray(entry.sections) && entry.sections.every(section => typeof section?.title === "string" && typeof section?.body === "string")));
 }
 
@@ -83,7 +84,7 @@ const Extraordinaire = () => {
   const mergedEntries = evidenceEntries.map(base => {
     const draft = activeDrafts.find(item => item.id === base.id);
     if (!draft) return base;
-    return { ...base, ...draft, summary: draft.summary || base.summary,
+    return { ...base, ...draft, evidenceContext: base.evidenceContext, summary: draft.summary || base.summary,
       documents: [...new Map([...base.documents, ...draft.documents].map(document => [document.url, document])).values()] };
   });
   const entries = [...mergedEntries, ...activeDrafts.filter(draft => !evidenceEntries.some(base => base.id === draft.id))];
@@ -137,26 +138,22 @@ const Extraordinaire = () => {
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight break-words">{isNew ? "New entry" : entry?.title ?? category?.title ?? "Extraordinaire."}</h1>
         <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">{entry ? [entry.organization, entry.year].filter(Boolean).join(" · ") : category?.description ?? "A growing collection of my work, recognition, and contributions. Open a category to explore and expand the record."}</p>
       </header>
-      {!category && <section className="mb-10 border-y border-border py-8">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground">The through-line</p>
-        <h2 className="mt-3 text-2xl font-semibold tracking-tight">{archiveNarrative.title}</h2>
-        <p className="mt-4 text-sm leading-7 max-w-2xl text-muted-foreground">{archiveNarrative.summary}</p>
-        <div className="grid sm:grid-cols-3 gap-6 mt-7">{archiveNarrative.chapters.map(chapter => <div key={chapter.title}><h3 className="text-sm font-semibold">{chapter.title}</h3><p className="mt-2 text-xs leading-6 text-muted-foreground">{chapter.body}</p></div>)}</div>
-        <p className="mt-6 text-xs text-muted-foreground">A working evidence narrative for future EB1, EB2, and O1 preparation. Progress notes track collection, not eligibility.</p>
-      </section>}
-      <div className="mb-8 rounded-xl bg-muted/50 p-4 text-xs leading-6 text-muted-foreground">Edits are saved in this browser only. Export a backup to keep a copy or move it to another device. This page is unlisted, not private; keep sensitive originals in private storage.</div>
       {(saved.error || message) && <p role="status" className="mb-6 rounded-lg border border-border p-4 text-sm">{saved.error || message}</p>}
       {(isNew || editing) && category ? <EntryEditor key={entryId} entry={entry ?? { id: crypto.randomUUID(), category: category.id, title: "", status: "Needs elaboration", documents: [], kind: "Achievement" }} onSave={save} onCancel={() => { if (isNew) navigate(`/extraordinaire/${category.id}`); else setEditing(false); }} /> : entry ? <>
         <div className="flex flex-wrap items-center gap-3 mb-8"><button className={buttonClass} onClick={() => setEditing(true)}>Edit entry</button><span className="text-xs text-muted-foreground">{entry.status}</span>{entry.progress !== undefined && <span className="text-xs text-muted-foreground">Recorded progress: {entry.progress}%</span>}</div>
         <div className="space-y-8">
           {[
             { title: "The story", body: entry.summary || "Add the context, what you did, and your contribution." },
-            ...(entry.narrative ? [{ title: "How this fits my story", body: entry.narrative }] : []),
+
             ...(entry.impact ? [{ title: "Impact", body: entry.impact }] : []),
             ...(entry.sections ?? []),
           ].map((section, index) => <section key={index}><h2 className="text-lg font-semibold mb-3">{section.title}</h2><p className="text-sm leading-7 whitespace-pre-wrap break-words text-muted-foreground">{section.body}</p></section>)}
-          <section><h2 className="text-lg font-semibold mb-3">Artifacts & sources</h2>
-            {entry.sourceNote && <p className="mb-4 text-xs leading-6 text-muted-foreground">{entry.sourceNote}</p>}{entry.documents.length ? <ul className="space-y-3">{entry.documents.map((document, index) => <li key={index}><a className="inline-flex items-center gap-2 text-sm underline underline-offset-4 break-all" href={document.url} target="_blank" rel="noopener noreferrer">{document.label}<ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" /></a></li>)}</ul> : <p className="text-sm text-muted-foreground">No documents linked yet.</p>}</section>
+          <section>
+            <h2 className="text-lg font-semibold mb-3">Programme standing & evidence</h2>
+            {entry.evidenceContext?.length ? <div className="space-y-4">{entry.evidenceContext.map(source => <article key={source.url} className="border border-border rounded-xl p-5"><p className="text-sm leading-7 text-muted-foreground">{source.text}</p><a href={source.url} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex gap-2 items-center text-xs underline underline-offset-4">{source.label}<ArrowUpRight aria-hidden="true" className="h-3 w-3 shrink-0" /></a></article>)}</div> : <p className="text-sm leading-7 text-muted-foreground">Exact publication details are needed to identify the right source. Add the paper title, author list, DOI or manuscript, and acceptance email; a publisher’s name alone does not establish the journal’s standing or this paper’s publication status.</p>}
+          </section>
+          <section><h2 className="text-lg font-semibold mb-3">Linked artifacts & personal records</h2>
+            {entry.sourceNote && <p className="mb-4 text-xs leading-6 text-muted-foreground">{entry.sourceNote}</p>}{entry.documents.length ? <ul className="space-y-3">{entry.documents.map((document, index) => <li key={index}><a className="inline-flex items-center gap-2 text-sm underline underline-offset-4 break-all" href={document.url} target="_blank" rel="noopener noreferrer">{document.label === "Notion source" ? "Notion evidence folder · emails and supporting documents" : document.label}<ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" /></a></li>)}</ul> : <p className="text-sm text-muted-foreground">No documents linked yet.</p>}</section>
           <section className="rounded-xl border border-border p-5"><h2 className="text-sm font-semibold mb-2">Evidence to add</h2><p className="text-sm leading-7 whitespace-pre-wrap text-muted-foreground">{entry.nextStep || entry.artifactNeeded || category?.prompt}</p></section>
         </div>
       </> : <>
