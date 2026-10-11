@@ -17,6 +17,7 @@ import NotFound from "./pages/NotFound";
 import Tutoring from "./pages/Tutoring";
 import Resume from "./pages/Resume";
 import Building from "./pages/Building";
+import Extraordinaire from "./pages/Extraordinaire";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,9 @@ const App = () => (
           <Route path="/tutoring" element={<Tutoring />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/building" element={<Building />} />
+          <Route path="/extraordinaire" element={<Extraordinaire />} />
+          <Route path="/extraordinaire/:categoryId" element={<Extraordinaire />} />
+          <Route path="/extraordinaire/:categoryId/:entryId" element={<Extraordinaire />} />
 
           {/* Case studies */}
           <Route path="/case-studies" element={<CaseStudies />} />

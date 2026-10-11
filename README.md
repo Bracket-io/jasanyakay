@@ -71,3 +71,29 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Extraordinaire archive
+
+`/extraordinaire` is an unlisted archive with eight category pages at
+`/extraordinaire/:categoryId` and individual records at
+`/extraordinaire/:categoryId/:entryId`. The main navigation does not link to it.
+
+Open a category, then an entry to edit its story, impact, progress, additional
+sections, and supporting links. Use **Add entry** to create a record. Edits are
+saved in localStorage in the current browser only; they do not update the
+repository, another device, or the deployed site's shared content. Use **Export
+backup** regularly and **Import backup** to transfer JSON records. Import merges
+records by ID and preserves existing local edits on conflicts. Clearing browser
+storage removes local edits. There is no authentication, shared database, or
+file-upload service.
+
+Baseline records live in `src/data/extraordinaire.ts`. The supplied Notion titles,
+percentages, and page IDs have been transcribed; page contents and attachments
+have not been imported. Category assignments follow the supplied grouping and
+can be changed in the editor. Percentages are the owner's recorded progress,
+not verified evidence status. Expert opinions are separate records in each
+relevant category; recommender profile links appear on the archive overview.
+
+The route and its subpages request no indexing through page metadata and a
+Vercel response header. This is not access control: the page and bundled baseline
+records are public. Keep sensitive originals in private storage.
