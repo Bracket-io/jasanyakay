@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, ChevronRight, Download, FolderOpen, Plus, Search } from "lucide-react";
 import { Layout } from "@/components/Layout";
-import { evidenceCategories, evidenceEntries, notionArchiveUrl, recommenderResources, type EvidenceEntry } from "@/data/extraordinaire";
+import { evidenceCategories, evidenceEntries, notionArchiveUrl, archiveNarrative, retiredEvidenceIds, type EvidenceEntry } from "@/data/extraordinaire";
 
 const storageKey = "jasanyakay.extraordinaire.v1";
 const inputClass = "w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm";
@@ -15,7 +15,7 @@ function isEntry(value: unknown): value is EvidenceEntry {
     typeof entry.title === "string" && !!entry.title.trim() &&
     evidenceCategories.some(category => category.id === entry.category) &&
     ["Needs elaboration", "Collecting evidence", "Documented"].includes(entry.status) &&
-    [entry.summary, entry.impact, entry.organization, entry.year, entry.nextStep].every(value => value === undefined || typeof value === "string") &&
+    [entry.summary, entry.impact, entry.organization, entry.year, entry.nextStep, entry.narrative, entry.artifactNeeded, entry.sourceNote].every(value => value === undefined || typeof value === "string") &&
     (entry.progress === undefined || (typeof entry.progress === "number" && entry.progress >= 0 && entry.progress <= 100)) &&
     (entry.kind === undefined || ["Achievement", "Expert opinion"].includes(entry.kind)) &&
     Array.isArray(entry.documents) && entry.documents.every(document => typeof document?.label === "string" && typeof document?.url === "string" && /^https?:\/\//i.test(document.url)) &&
@@ -48,7 +48,7 @@ function EntryEditor({ entry, onSave, onCancel }: { entry: EvidenceEntry; onSave
         <label className="block text-sm font-medium">Category<select value={draft.category} onChange={event => update("category", event.target.value as EvidenceEntry["category"])} className={`${inputClass} mt-2`}>{evidenceCategories.map(category => <option key={category.id} value={category.id}>{category.title}</option>)}</select></label>
         <label className="block text-sm font-medium">Entry type<select value={draft.kind ?? "Achievement"} onChange={event => update("kind", event.target.value as EvidenceEntry["kind"])} className={`${inputClass} mt-2`}><option>Achievement</option><option>Expert opinion</option></select></label>
       </div>
-      {([ ["summary", "The story", "What did you do? Describe the context, your contribution, and what happened."], ["impact", "Impact", "Who benefited? Add outcomes, numbers, and independent references."], ["nextStep", "Next steps", "What still needs to be collected or explained?"] ] as const).map(([key, label, placeholder]) => <label key={key} className="block text-sm font-medium">{label}<textarea rows={key === "summary" ? 8 : 4} value={draft[key] ?? ""} onChange={event => update(key, event.target.value)} placeholder={placeholder} className={`${inputClass} mt-2 leading-7`} /></label>)}
+      {([ ["summary", "The story", "What did you do? Describe the context, your contribution, and what happened."], ["narrative", "How this fits my story", "Explain how this experience connects with the rest of your work."], ["artifactNeeded", "Evidence to add", "Which document would best substantiate this entry?"], ["sourceNote", "Source context", "What do the linked sources establish?"], ["impact", "Impact", "Who benefited? Add outcomes, numbers, and independent references."], ["nextStep", "Next steps", "What still needs to be collected or explained?"] ] as const).map(([key, label, placeholder]) => <label key={key} className="block text-sm font-medium">{label}<textarea rows={key === "summary" ? 8 : 4} value={draft[key] ?? ""} onChange={event => update(key, event.target.value)} placeholder={placeholder} className={`${inputClass} mt-2 leading-7`} /></label>)}
       <fieldset className="space-y-3"><legend className="text-sm font-medium mb-3">Additional sections</legend>
         {draft.sections?.map((section, index) => <div key={index} className="rounded-lg border border-border p-4 space-y-3">
           <input aria-label={`Section ${index + 1} heading`} required value={section.title} onChange={event => update("sections", draft.sections?.map((item, i) => i === index ? { ...item, title: event.target.value } : item))} className={inputClass} placeholder="Section heading" />
@@ -78,7 +78,15 @@ const Extraordinaire = () => {
   const [query, setQuery] = useState("");
   const [editing, setEditing] = useState(false);
   const [message, setMessage] = useState("");
-  const entries = [...new Map([...evidenceEntries, ...saved.entries].map(entry => [entry.id, entry])).values()];
+  // Retired baseline records stay in browser backups but no longer appear in the curated archive.
+  const activeDrafts = saved.entries.filter(entry => !retiredEvidenceIds.includes(entry.id));
+  const mergedEntries = evidenceEntries.map(base => {
+    const draft = activeDrafts.find(item => item.id === base.id);
+    if (!draft) return base;
+    return { ...base, ...draft, summary: draft.summary || base.summary,
+      documents: [...new Map([...base.documents, ...draft.documents].map(document => [document.url, document])).values()] };
+  });
+  const entries = [...mergedEntries, ...activeDrafts.filter(draft => !evidenceEntries.some(base => base.id === draft.id))];
   const category = evidenceCategories.find(item => item.id === categoryId);
   const entry = entries.find(item => item.id === entryId && item.category === categoryId);
   const isNew = entryId === "new";
@@ -110,7 +118,7 @@ const Extraordinaire = () => {
     }
   };
   const exportArchive = () => {
-    const url = URL.createObjectURL(new Blob([JSON.stringify(entries, null, 2)], { type: "application/json" }));
+    const url = URL.createObjectURL(new Blob([JSON.stringify([...entries, ...saved.entries.filter(entry => retiredEvidenceIds.includes(entry.id))], null, 2)], { type: "application/json" }));
     const anchor = document.createElement("a"); anchor.href = url; anchor.download = "extraordinaire-backup.json"; anchor.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
@@ -129,6 +137,13 @@ const Extraordinaire = () => {
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight break-words">{isNew ? "New entry" : entry?.title ?? category?.title ?? "Extraordinaire."}</h1>
         <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">{entry ? [entry.organization, entry.year].filter(Boolean).join(" · ") : category?.description ?? "A growing collection of my work, recognition, and contributions. Open a category to explore and expand the record."}</p>
       </header>
+      {!category && <section className="mb-10 border-y border-border py-8">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">The through-line</p>
+        <h2 className="mt-3 text-2xl font-semibold tracking-tight">{archiveNarrative.title}</h2>
+        <p className="mt-4 text-sm leading-7 max-w-2xl text-muted-foreground">{archiveNarrative.summary}</p>
+        <div className="grid sm:grid-cols-3 gap-6 mt-7">{archiveNarrative.chapters.map(chapter => <div key={chapter.title}><h3 className="text-sm font-semibold">{chapter.title}</h3><p className="mt-2 text-xs leading-6 text-muted-foreground">{chapter.body}</p></div>)}</div>
+        <p className="mt-6 text-xs text-muted-foreground">A working evidence narrative for future EB1, EB2, and O1 preparation. Progress notes track collection, not eligibility.</p>
+      </section>}
       <div className="mb-8 rounded-xl bg-muted/50 p-4 text-xs leading-6 text-muted-foreground">Edits are saved in this browser only. Export a backup to keep a copy or move it to another device. This page is unlisted, not private; keep sensitive originals in private storage.</div>
       {(saved.error || message) && <p role="status" className="mb-6 rounded-lg border border-border p-4 text-sm">{saved.error || message}</p>}
       {(isNew || editing) && category ? <EntryEditor key={entryId} entry={entry ?? { id: crypto.randomUUID(), category: category.id, title: "", status: "Needs elaboration", documents: [], kind: "Achievement" }} onSave={save} onCancel={() => { if (isNew) navigate(`/extraordinaire/${category.id}`); else setEditing(false); }} /> : entry ? <>
@@ -136,11 +151,13 @@ const Extraordinaire = () => {
         <div className="space-y-8">
           {[
             { title: "The story", body: entry.summary || "Add the context, what you did, and your contribution." },
-            { title: "Impact", body: entry.impact || "Add outcomes, who benefited, and supporting references." },
+            ...(entry.narrative ? [{ title: "How this fits my story", body: entry.narrative }] : []),
+            ...(entry.impact ? [{ title: "Impact", body: entry.impact }] : []),
             ...(entry.sections ?? []),
           ].map((section, index) => <section key={index}><h2 className="text-lg font-semibold mb-3">{section.title}</h2><p className="text-sm leading-7 whitespace-pre-wrap break-words text-muted-foreground">{section.body}</p></section>)}
-          <section><h2 className="text-lg font-semibold mb-3">Supporting material</h2>{entry.documents.length ? <ul className="space-y-3">{entry.documents.map((document, index) => <li key={index}><a className="inline-flex items-center gap-2 text-sm underline underline-offset-4 break-all" href={document.url} target="_blank" rel="noopener noreferrer">{document.label}<ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" /></a></li>)}</ul> : <p className="text-sm text-muted-foreground">No documents linked yet.</p>}</section>
-          <section className="rounded-xl border border-border p-5"><h2 className="text-sm font-semibold mb-2">Next steps</h2><p className="text-sm leading-7 whitespace-pre-wrap text-muted-foreground">{entry.nextStep || category?.prompt}</p></section>
+          <section><h2 className="text-lg font-semibold mb-3">Artifacts & sources</h2>
+            {entry.sourceNote && <p className="mb-4 text-xs leading-6 text-muted-foreground">{entry.sourceNote}</p>}{entry.documents.length ? <ul className="space-y-3">{entry.documents.map((document, index) => <li key={index}><a className="inline-flex items-center gap-2 text-sm underline underline-offset-4 break-all" href={document.url} target="_blank" rel="noopener noreferrer">{document.label}<ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" /></a></li>)}</ul> : <p className="text-sm text-muted-foreground">No documents linked yet.</p>}</section>
+          <section className="rounded-xl border border-border p-5"><h2 className="text-sm font-semibold mb-2">Evidence to add</h2><p className="text-sm leading-7 whitespace-pre-wrap text-muted-foreground">{entry.nextStep || entry.artifactNeeded || category?.prompt}</p></section>
         </div>
       </> : <>
         <div className="flex flex-wrap gap-3 mb-8">
@@ -161,9 +178,8 @@ const Extraordinaire = () => {
         {!category && !search ? <div className="grid sm:grid-cols-2 gap-4">{evidenceCategories.map((item, index) => {
           const count = entries.filter(entry => entry.category === item.id).length;
           return <Link key={item.id} to={`/extraordinaire/${item.id}`} className="group rounded-xl border border-border p-6 hover:bg-muted/40 transition-colors"><div className="flex justify-between text-muted-foreground"><FolderOpen className="h-5 w-5" aria-hidden="true" /><span className="text-xs">{String(index + 1).padStart(2, "0")}</span></div><h2 className="mt-6 text-lg font-semibold">{item.title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{item.description}</p><div className="mt-6 flex justify-between items-center text-xs"><span className="text-muted-foreground">{count} entries</span><span className="inline-flex items-center gap-1">Open category<ChevronRight className="h-4 w-4" aria-hidden="true" /></span></div></Link>;
-        })}</div> : <div className="space-y-3">{matching.map(item => <Link key={item.id} to={`/extraordinaire/${item.category}/${item.id}`} className="flex items-center gap-4 rounded-xl border border-border p-5 hover:bg-muted/40"><div className="flex-1 min-w-0"><h2 className="text-sm font-semibold">{item.title}</h2><p className="mt-2 text-xs text-muted-foreground">{item.kind ?? "Achievement"} · {item.status}</p></div>{item.progress !== undefined && <span className="text-xs text-muted-foreground">{item.progress}%</span>}<ChevronRight className="h-4 w-4 shrink-0" aria-hidden="true" /></Link>)}{!matching.length && <p role="status" className="py-8 text-sm text-muted-foreground">{search ? "No matching entries. Try another search." : "No entries yet. Add the first story in this category."}</p>}</div>}
+        })}</div> : <div className="space-y-3">{matching.map(item => <Link key={item.id} to={`/extraordinaire/${item.category}/${item.id}`} className="flex items-center gap-4 rounded-xl border border-border p-5 hover:bg-muted/40"><div className="flex-1 min-w-0"><h2 className="text-sm font-semibold">{item.title}</h2>{item.summary && <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.summary}</p>}<p className="mt-2 text-xs text-muted-foreground">{item.kind ?? "Achievement"} · {item.status}</p></div>{item.progress !== undefined && <span className="text-xs text-muted-foreground">{item.progress}%</span>}<ChevronRight className="h-4 w-4 shrink-0" aria-hidden="true" /></Link>)}{!matching.length && <p role="status" className="py-8 text-sm text-muted-foreground">{search ? "No matching entries. Try another search." : category?.id === "high-salary" ? "Nothing yet. This category is reserved for future compensation evidence." : "No entries yet. Add the first story in this category."}</p>}</div>}
         {category && <p className="mt-6 text-xs text-muted-foreground leading-6">Percentages are your recorded progress notes. Notion document contents have not been imported. Open an entry to add the story and supporting material.</p>}
-        {!category && <section className="mt-12 border-t border-border pt-8"><h2 className="text-lg font-semibold">Recommenders & supporting context</h2><p className="mt-2 text-sm text-muted-foreground">Original profiles and relationship notes in Notion.</p><ul className="grid sm:grid-cols-2 gap-3 mt-5">{recommenderResources.map(resource => <li key={resource.url}><a href={resource.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm underline underline-offset-4">{resource.label}<ArrowUpRight className="h-3 w-3" aria-hidden="true" /></a></li>)}</ul></section>}
       </>}
       {category && <Link to={entryId ? `/extraordinaire/${category.id}` : "/extraordinaire"} className="inline-flex items-center gap-2 mt-10 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft className="h-4 w-4" aria-hidden="true" />{entryId ? `Back to ${category.title}` : "All categories"}</Link>}
     </>}

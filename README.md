@@ -89,10 +89,14 @@ file-upload service.
 
 Baseline records live in `src/data/extraordinaire.ts`. The supplied Notion titles,
 percentages, and page IDs have been transcribed; page contents and attachments
-have not been imported. Category assignments follow the supplied grouping and
-can be changed in the editor. Percentages are the owner's recorded progress,
-not verified evidence status. Expert opinions are separate records in each
-relevant category; recommender profile links appear on the archive overview.
+have not been imported. The curated baseline contains 22 entries matching the latest requested list,
+with High Salary left empty. Summaries distinguish published sources, existing
+portfolio claims, and details still needing confirmation. Public artifacts are
+linked at their original hosts; private Notion attachments are not copied.
+Category assignments can be changed in the editor. Percentages are the owner's recorded progress,
+not verified evidence status. The overview introduces the shared narrative across product building, civic
+analytics, and entrepreneurship. Removed baseline entries are hidden even when
+present in old browser drafts, but retained in JSON exports to avoid data loss.
 
 The route and its subpages request no indexing through page metadata and a
 Vercel response header. This is not access control: the page and bundled baseline
