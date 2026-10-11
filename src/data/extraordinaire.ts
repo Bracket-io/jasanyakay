@@ -617,4 +617,43 @@ export const evidenceEntries: EvidenceEntry[] = [...selectedEntries.map(entry =>
       "url": "https://doi.org/10.5281/zenodo.17180078"
     }
   ]
+}, {
+  "id": "springer-snapp",
+  "category": "judging",
+  "title": "Journal peer review — Discover Sustainability",
+  "organization": "Springer Nature · SNAPP",
+  "year": "September–October 2026",
+  "status": "Collecting evidence",
+  "kind": "Achievement",
+  "summary": "Completed three journal peer-review assignments for Discover Sustainability through Springer Nature’s SNAPP system: one on September 16, 2026 and two on October 9, 2026. These cover two distinct manuscripts, including a subsequent review of a revised submission.",
+  "sourceNote": "Completion dates and counts are transcribed from the reviewer-dashboard text supplied by the account holder. The authenticated dashboard and reports have not been independently accessed. ORCID consent is enabled for two assignments; this is not confirmation that public review credits have been posted.",
+  "artifactNeeded": "A redacted completion certificate or editor acknowledgement confirming the journal, reviewer identity, three completed assignments, and dates. Retain invitation emails and full reports privately.",
+  "sections": [
+    {
+      "title": "Completed assignments",
+      "body": "16 September 2026 — Manuscript A, version 2.0.\n9 October 2026 — Manuscript A, version 3.1 (revised submission).\n9 October 2026 — Manuscript B, version 1.0.\n\nThree completed review assignments across two manuscripts. Unpublished titles, author identities, and review contents are omitted."
+    }
+  ],
+  "evidenceContext": [
+    {
+      "text": "Discover Sustainability is a Springer Nature open-access journal covering sustainability research. Its official page lists indexing in Scopus, the Emerging Sources Citation Index, and DOAJ (checked October 11, 2026). This establishes journal context; the completion records establish the individual reviewer activity.",
+      "label": "Springer Nature · Journal and indexing",
+      "url": "https://link.springer.com/journal/43621"
+    },
+    {
+      "text": "Springer Nature provides guidance for peer reviewers. The supplied dashboard records completed journal review assignments; it does not establish editorial-board membership.",
+      "label": "Springer Nature · Peer-review guidance",
+      "url": "https://www.springernature.com/gp/authors/campaigns/how-to-peer-review"
+    }
+  ],
+  "documents": [
+    {
+      "label": "Official journal · Discover Sustainability",
+      "url": "https://link.springer.com/journal/43621"
+    },
+    {
+      "label": "Reviewer dashboard · Sign-in required",
+      "url": "https://reviewer.springernature.com/dashboard/reviews?filter=completed"
+    }
+  ]
 }];

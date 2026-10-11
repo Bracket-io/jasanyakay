@@ -89,7 +89,7 @@ file-upload service.
 
 Baseline records live in `src/data/extraordinaire.ts`. The supplied Notion titles,
 percentages, and page IDs have been transcribed; page contents and attachments
-have not been imported. The curated baseline contains 23 entries matching the latest requested list,
+have not been imported. The curated baseline contains 24 entries matching the latest requested list,
 with High Salary left empty. Summaries distinguish published sources, existing
 portfolio claims, and details still needing confirmation. Public artifacts are
 linked at their original hosts; private Notion attachments are not copied.
@@ -104,3 +104,8 @@ present in old browser drafts, but retained in JSON exports to avoid data loss.
 The route and its subpages request no indexing through page metadata and a
 Vercel response header. This is not access control: the page and bundled baseline
 records are public. Keep sensitive originals in private storage.
+
+Springer SNAPP journal reviewing is recorded separately from PREreview under
+Judging: three completed assignments across two manuscripts, based on supplied
+dashboard text. Unpublished titles, authors, private report URLs, and ORCID
+consent-action links are excluded from the public bundle.
