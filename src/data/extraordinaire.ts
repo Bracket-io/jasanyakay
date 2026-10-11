@@ -186,10 +186,18 @@ const entryDetails: Record<string, Partial<EvidenceEntry>> = {
     ]
   },
   "business-intelligence-group": {
-    "summary": "My archive lists Business Intelligence Group under judging. This record will bring together the appointment, the work evaluated, and confirmation of completed reviews.",
+    "summary": "Business Intelligence Group publicly lists me on its judging panel, with an individual profile identifying my product and data background and affiliation with Bracket Inc. The organiser-hosted profile provides direct evidence of my judge listing.",
     "narrative": "Adds the evaluator perspective to my experience as a builder: how I assess ideas and provide reasoned feedback.",
-    "artifactNeeded": "Invitation or appointment, dated judging rubric, and organiser confirmation of completed evaluations.",
-    "sourceNote": "User-provided archive entry; supporting Notion contents have not been reviewed."
+    "artifactNeeded": "Appointment email, the specific award cycle and judging rubric, and confirmation of completed evaluations to document the scope of my service.",
+    "sourceNote": "Verified against the official BIG profile for Oluwakayode Jasanya. The page establishes a named judge listing and includes an Awards Judged section; it does not state how many submissions I evaluated.",
+    "organization": "Business Intelligence Group",
+    "status": "Collecting evidence",
+    "documents": [
+      {
+        "label": "Key artifact · Official BIG judge profile",
+        "url": "https://www.bintelligence.com/judge/oluwakayode-jasanya"
+      }
+    ]
   },
   "hbcu-lab": {
     "summary": "My archive lists HBCUvc Lab Fund under judging. This record will bring together the appointment, the work evaluated, and confirmation of completed reviews.",
@@ -394,8 +402,13 @@ const evidenceResearch: Record<string, NonNullable<EvidenceEntry["evidenceContex
   ],
   "business-intelligence-group": [
     {
-      "text": "The organiser states that judging committees are assembled for relevant experience and expertise from its panel. This explains the selection approach, but my specific award, year, appointment, and completed reviews still require confirmation.",
-      "label": "Business Intelligence Group · Judging philosophy",
+      "text": "BIG publishes a dedicated judge profile naming Oluwakayode Jasanya and Bracket Inc. This is organiser-issued evidence of a judge listing, rather than a self-authored claim. The page does not quantify completed evaluations.",
+      "label": "BIG · Named judge profile",
+      "url": "https://www.bintelligence.com/judge/oluwakayode-jasanya"
+    },
+    {
+      "text": "BIG states that it assembles judging committees based on relevant experience and expertise. This describes its general selection approach; the appointment email and evaluation records can establish the particular work I was selected to judge.",
+      "label": "BIG · Judging philosophy",
       "url": "https://www.bintelligence.com/judges"
     }
   ],
