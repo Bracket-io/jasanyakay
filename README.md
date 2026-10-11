@@ -89,14 +89,15 @@ file-upload service.
 
 Baseline records live in `src/data/extraordinaire.ts`. The supplied Notion titles,
 percentages, and page IDs have been transcribed; page contents and attachments
-have not been imported. The curated baseline contains 22 entries matching the latest requested list,
+have not been imported. The curated baseline contains 23 entries matching the latest requested list,
 with High Salary left empty. Summaries distinguish published sources, existing
 portfolio claims, and details still needing confirmation. Public artifacts are
 linked at their original hosts; private Notion attachments are not copied.
 Category assignments can be changed in the editor. Percentages are the owner's recorded progress,
 not verified evidence status. Each record includes programme context with direct source citations where the
 event can be identified. Programme-level facts are distinguished from evidence
-of personal participation. Publication titles and private emails remain needed
+of personal participation. The public ORCID record resolves three publication titles and supplies eight
+completed PREreview records, grouped under Judging. The ESG article title and private emails remain needed
 where the linked Notion content is inaccessible. Removed baseline entries are hidden even when
 present in old browser drafts, but retained in JSON exports to avoid data loss.
 

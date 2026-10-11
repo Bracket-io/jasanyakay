@@ -255,16 +255,54 @@ const entryDetails: Record<string, Partial<EvidenceEntry>> = {
     ]
   },
   "elsevier": {
-    "summary": "An Elsevier journal entry in my research archive. The exact paper title, journal, authorship, and publication status still need to be linked before its contribution can be summarised accurately.",
+    "summary": "A coauthored study using Monte Carlo simulations to examine energy consumption and emissions scenarios in Sub-Saharan Africa. It evaluates efficiency and renewable-energy policies as modelling scenarios, rather than claiming observed policy outcomes.",
     "narrative": "Provides space to explain what my research or writing contributes beyond the projects themselves.",
-    "artifactNeeded": "Exact title, author list, publication date and status, and DOI or manuscript link.",
-    "sourceNote": "User-provided archive entry; supporting Notion contents have not been reviewed."
+    "artifactNeeded": "Accepted manuscript, acceptance email, and author-contribution statement explaining my specific research role.",
+    "sourceNote": "ORCID lists this work through both Scopus–Elsevier and Web of Science, with the same DOI. These are two source records for one publication. The publisher identifies Sustainable Futures, volume 10, article 100936.",
+    "title": "Evaluating the impact of policy interventions on CO₂ emissions in Sub-Saharan Africa",
+    "organization": "Sustainable Futures · Elsevier",
+    "year": "2025",
+    "documents": [
+      {
+        "label": "Publisher · Article and abstract",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2666188825005015"
+      },
+      {
+        "label": "DOI · 10.1016/j.sftr.2025.100936",
+        "url": "https://doi.org/10.1016/j.sftr.2025.100936"
+      },
+      {
+        "label": "ORCID · Public research record",
+        "url": "https://orcid.org/0009-0005-5732-799X"
+      }
+    ]
   },
   "blockchain": {
-    "summary": "A blockchain research entry in my archive, connecting the research strand of my work with digital systems. The exact paper and my contribution still need to be confirmed.",
+    "summary": "A coauthored paper exploring blockchain-based identity management and financial-data security. It proposes a prototype using distributed records and encryption to protect transactions and user information.",
     "narrative": "Provides space to explain what my research or writing contributes beyond the projects themselves.",
-    "artifactNeeded": "Exact title, author list, publication date and status, and DOI or manuscript link.",
-    "sourceNote": "User-provided archive entry; supporting Notion contents have not been reviewed."
+    "artifactNeeded": "Acceptance correspondence, editorial-review record, and my author-contribution statement.",
+    "sourceNote": "ORCID lists a journal article dated November 2, 2025. The NIPES article page names me among five authors and supplies a DOI and PDF. ORCID names the venue as a special-issue preprint platform; editorial status should be supported by the acceptance record.",
+    "title": "Efficiency of Blockchain Technology on Financial Security: Beyond Online Transaction",
+    "organization": "NIPES JSTR · Special issue",
+    "year": "2025",
+    "documents": [
+      {
+        "label": "Publisher · Article and author list",
+        "url": "https://journals.nipes.org/index.php/jstrissue/article/view/2285"
+      },
+      {
+        "label": "Manuscript · Publisher PDF",
+        "url": "https://journals.nipes.org/index.php/jstrissue/article/download/2285/1408/5458"
+      },
+      {
+        "label": "DOI · 10.37933/nipes/7.4.2025.SI159",
+        "url": "https://doi.org/10.37933/nipes/7.4.2025.SI159"
+      },
+      {
+        "label": "ORCID · Public research record",
+        "url": "https://orcid.org/0009-0005-5732-799X"
+      }
+    ]
   },
   "esg": {
     "summary": "An ESG writing entry in my archive. The article’s specific argument, publication venue, and relationship to my work will become clearer once the source is attached.",
@@ -273,10 +311,23 @@ const entryDetails: Record<string, Partial<EvidenceEntry>> = {
     "sourceNote": "User-provided archive entry; supporting Notion contents have not been reviewed."
   },
   "ssrn": {
-    "summary": "An SSRN paper entry in my archive. The manuscript will establish its research question, findings, and my contribution; the repository listing alone should not be treated as confirmation of journal publication.",
+    "summary": "A working-paper record on surveillance, community engagement, and illegal dumping in Baltimore. The title links the research record to my civic analytics work; the manuscript is needed to summarise the methods and findings accurately.",
     "narrative": "Provides space to explain what my research or writing contributes beyond the projects themselves.",
-    "artifactNeeded": "Exact title, author list, publication date and status, and DOI or manuscript link.",
-    "sourceNote": "User-provided archive entry; supporting Notion contents have not been reviewed."
+    "artifactNeeded": "Full manuscript, authorship details, version history, and any subsequent acceptance correspondence.",
+    "sourceNote": "My public ORCID record lists this as a working paper dated January 14, 2026 and links SSRN abstract 6016134. The SSRN page could not be inspected, so manuscript contents and publication beyond the working-paper record are not verified.",
+    "title": "Eyes on Baltimore: Leveraging Surveillance and Community Engagement to Reduce Illegal Dumping",
+    "organization": "SSRN · Working paper",
+    "year": "2026",
+    "documents": [
+      {
+        "label": "Working paper · SSRN record",
+        "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6016134"
+      },
+      {
+        "label": "ORCID · Public research record",
+        "url": "https://orcid.org/0009-0005-5732-799X"
+      }
+    ]
   },
   "nsf-host": {
     "summary": "The University of Maryland reported on the February 2024 Black Founders in I-Corps event and identified me as its emcee. This is a public record of my involvement in the regional entrepreneurship community.",
@@ -436,10 +487,36 @@ const evidenceResearch: Record<string, NonNullable<EvidenceEntry["evidenceContex
       "label": "Portfolio · Existing résumé",
       "url": "https://www.kayjasanya.com/resume"
     }
+  ],
+  "elsevier": [
+    {
+      "text": "The publisher identifies a 2025 article in Sustainable Futures, volume 10. Its abstract describes 10,000 simulations of emissions under different policy assumptions. This supports the research topic and published venue; it does not establish real-world implementation or my individual share of the work.",
+      "label": "Elsevier · Published article",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2666188825005015"
+    },
+    {
+      "text": "Scopus–Elsevier and Web of Science supplied ORCID records with the same DOI. They corroborate the bibliographic identity of one work, rather than two publications.",
+      "label": "ORCID · Work records and source attribution",
+      "url": "https://pub.orcid.org/v3.0/0009-0005-5732-799X/works"
+    }
+  ],
+  "blockchain": [
+    {
+      "text": "The NIPES publisher page names Oluwakayode Jasanya as a coauthor, dates the article November 2, 2025, and identifies the Landmark University conference special issue. The DOI and linked full text are primary bibliographic artifacts; no impact factor or journal ranking is asserted.",
+      "label": "NIPES · Publication record",
+      "url": "https://journals.nipes.org/index.php/jstrissue/article/view/2285"
+    }
+  ],
+  "ssrn": [
+    {
+      "text": "ORCID identifies a working paper and provides an SSRN link. The source is the record owner, not a publisher deposit. This supports identification of the work but is not proof of journal peer review or acceptance.",
+      "label": "ORCID · Public work metadata",
+      "url": "https://pub.orcid.org/v3.0/0009-0005-5732-799X/works"
+    }
   ]
 };
 
-export const evidenceEntries: EvidenceEntry[] = selectedEntries.map(entry => {
+export const evidenceEntries: EvidenceEntry[] = [...selectedEntries.map(entry => {
   const details = entryDetails[entry.id];
   return {
     ...entry,
@@ -447,4 +524,97 @@ export const evidenceEntries: EvidenceEntry[] = selectedEntries.map(entry => {
     evidenceContext: evidenceResearch[entry.id] ?? [],
     documents: [...(details?.documents ?? []), ...entry.documents],
   };
-});
+}), {
+  "id": "prereview",
+  "category": "judging",
+  "title": "Peer review — PREreview",
+  "organization": "PREreview",
+  "year": "September–October 2025",
+  "status": "Documented",
+  "kind": "Achievement",
+  "summary": "Eight completed structured open preprint reviews are recorded in ORCID, covering seven distinct paper titles in finance, technology adoption, AI, insurance, and sustainable entrepreneurship. Two dated review records concern the same behavioural-finance paper.",
+  "sourceNote": "PREreview supplied these records to ORCID. The public review pages name Oluwakayode Jasanya and expose the completed assessments; each record has a Zenodo DOI. These are open preprint reviews, not claimed appointments as a journal referee.",
+  "artifactNeeded": "Any invitation or review-request correspondence that explains how I was asked to review. The public records already document completed review activity.",
+  "evidenceContext": [
+    {
+      "text": "ORCID records reviewer role, completion dates, PREreview as the convening organisation and deposit source, and eight distinct review DOIs. It documents activity completed from September 22 to October 17, 2025.",
+      "label": "ORCID · Peer-review records",
+      "url": "https://pub.orcid.org/v3.0/0009-0005-5732-799X/peer-reviews"
+    },
+    {
+      "text": "The public structured reviews assess research objectives, methods, conclusions, presentation, and readiness for wider attention. These artifacts show the evaluation performed, while any claim about selection as a reviewer requires separate appointment evidence.",
+      "label": "PREreview · Example completed assessment",
+      "url": "https://prereview.org/reviews/17379656"
+    }
+  ],
+  "documents": [
+    {
+      "label": "ORCID · Public record",
+      "url": "https://orcid.org/0009-0005-5732-799X"
+    },
+    {
+      "label": "2025-10-17 · A Comprehensive Survey of Cryptocurrency Forecasting: Methods, Trends, and Challenges",
+      "url": "https://prereview.org/reviews/17379656"
+    },
+    {
+      "label": "Review DOI · 10.5281/zenodo.17379656",
+      "url": "https://doi.org/10.5281/zenodo.17379656"
+    },
+    {
+      "label": "2025-10-17 · Key Actors in the Epistemic Community of the Unified Theory of Acceptance and Use of Technology and Their Impact on Sustainable Development Goals",
+      "url": "https://prereview.org/reviews/17379729"
+    },
+    {
+      "label": "Review DOI · 10.5281/zenodo.17379729",
+      "url": "https://doi.org/10.5281/zenodo.17379729"
+    },
+    {
+      "label": "2025-10-06 · Strengthening Consumer Protection Through Enhanced Risk Governance in Financial Services",
+      "url": "https://prereview.org/reviews/17276320"
+    },
+    {
+      "label": "Review DOI · 10.5281/zenodo.17276320",
+      "url": "https://doi.org/10.5281/zenodo.17276320"
+    },
+    {
+      "label": "2025-09-26 · Psychological Biases in Investment Decisions: A Behavioral Finance Approach",
+      "url": "https://prereview.org/reviews/17205327"
+    },
+    {
+      "label": "Review DOI · 10.5281/zenodo.17205327",
+      "url": "https://doi.org/10.5281/zenodo.17205327"
+    },
+    {
+      "label": "2025-09-26 · Preferences and Willingness of Farmers to Participate and Pay for Crop Insurance: Evidence from a Choice Experiment",
+      "url": "https://prereview.org/reviews/17204688"
+    },
+    {
+      "label": "Review DOI · 10.5281/zenodo.17204688",
+      "url": "https://doi.org/10.5281/zenodo.17204688"
+    },
+    {
+      "label": "2025-09-26 · Model for the Adoption of AI Tools in the Software Development Life Cycle: A Framework for Prompt Optimization in LLMs",
+      "url": "https://prereview.org/reviews/17205376"
+    },
+    {
+      "label": "Review DOI · 10.5281/zenodo.17205376",
+      "url": "https://doi.org/10.5281/zenodo.17205376"
+    },
+    {
+      "label": "2025-09-22 · Psychological Biases in Investment Decisions: A Behavioral Finance Approach",
+      "url": "https://prereview.org/reviews/17180033"
+    },
+    {
+      "label": "Review DOI · 10.5281/zenodo.17180033",
+      "url": "https://doi.org/10.5281/zenodo.17180033"
+    },
+    {
+      "label": "2025-09-22 · Sustainable Entrepreneurship in the Western Balkan Countries: Key Constraints",
+      "url": "https://prereview.org/reviews/17180078"
+    },
+    {
+      "label": "Review DOI · 10.5281/zenodo.17180078",
+      "url": "https://doi.org/10.5281/zenodo.17180078"
+    }
+  ]
+}];
