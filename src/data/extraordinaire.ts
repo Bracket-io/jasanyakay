@@ -669,4 +669,52 @@ export const evidenceEntries: EvidenceEntry[] = [...selectedEntries.map(entry =>
       "url": "https://reviewer.springernature.com/dashboard/reviews?filter=completed"
     }
   ]
+}, {
+  "id": "morgan-uif-media",
+  "category": "media",
+  "title": "Morgan State — University Innovation Fellows announcement",
+  "organization": "Morgan State University",
+  "year": "2017",
+  "status": "Documented",
+  "kind": "Achievement",
+  "summary": "Morgan State’s April 14, 2017 news announcement names me among four students selected as University Innovation Fellows. It identifies my engineering background and places the selection within an international cohort.",
+  "sourceNote": "Institutional news coverage published by Morgan State University. This is the same announcement linked in Membership, presented here as media coverage rather than a separate achievement.",
+  "artifactNeeded": "A dated copy of the announcement for the evidence file.",
+  "evidenceContext": [
+    {
+      "text": "The university names Oluwakayode Jasanya and describes the programme’s innovation and entrepreneurship focus. This provides published recognition tied to an identifiable institution and date.",
+      "label": "Morgan State · Original announcement",
+      "url": "https://www.morgan.edu/news/four-morgan-state-students-named-as-university-innovation-fellows"
+    }
+  ],
+  "documents": [
+    {
+      "label": "Key artifact · Morgan State news announcement",
+      "url": "https://www.morgan.edu/news/four-morgan-state-students-named-as-university-innovation-fellows"
+    }
+  ]
+}, {
+  "id": "hopkins-connect-media",
+  "category": "media",
+  "title": "Johns Hopkins — Hopkins Connect guest mentor profile",
+  "organization": "Johns Hopkins University · OneHop",
+  "year": "2025",
+  "status": "Documented",
+  "kind": "Achievement",
+  "summary": "The October 23, 2025 Hopkins Connect office-hours listing names me as a guest mentor and product and innovation strategist. My published biography highlights Bracket, product and venture experience, and civic work in Baltimore.",
+  "sourceNote": "A university-hosted event listing and guest biography, rather than independent news reporting. The page verifies that I was advertised as a guest mentor; it does not by itself establish attendance or the event’s outcomes.",
+  "artifactNeeded": "Event invitation, organiser confirmation of participation, or event photographs to supplement the published listing.",
+  "evidenceContext": [
+    {
+      "text": "OneHop lists Oluwakayode (Kay) Jasanya among the guest mentors for a student-facing event. The biography describes my work across technology, education, financial inclusion, and civic projects, providing public institutional context for my professional role.",
+      "label": "Johns Hopkins OneHop · Event listing and biography",
+      "url": "https://onehop.jhu.edu/hub/main/events/79689"
+    }
+  ],
+  "documents": [
+    {
+      "label": "Key artifact · Hopkins Connect event and guest profile",
+      "url": "https://onehop.jhu.edu/hub/main/events/79689"
+    }
+  ]
 }];
