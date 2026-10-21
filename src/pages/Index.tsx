@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
+import { buildingProjects } from "@/data/buildingProjects";
 import { bookmarks } from "@/data/bookmarks";
 import {
   selectedWork,
@@ -17,6 +18,8 @@ const education = [
   "Morgan State University — MBA",
   "Morgan State University — B.S. Electrical Engineering",
 ];
+
+const axiom = buildingProjects.find((project) => project.name === "Axiom");
 
 const Index = () => {
   return (
@@ -89,6 +92,26 @@ const Index = () => {
         </div>
 
         <div className="space-y-12">
+          {axiom && (
+            <article className="border-b border-border pb-12">
+              <p className="text-xs tracking-widest uppercase text-muted-foreground mb-3">
+                {axiom.description}
+              </p>
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight mb-3">
+                {axiom.name}
+              </h3>
+              {axiom.url && (
+                <a
+                  href={axiom.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-bold hover:underline underline-offset-4"
+                >
+                  Explore Axiom &rarr;
+                </a>
+              )}
+            </article>
+          )}
           {selectedWork.map((project) => (
             <article
               key={project.slug}

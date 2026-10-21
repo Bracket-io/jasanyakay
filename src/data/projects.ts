@@ -313,7 +313,7 @@ export const projects: Project[] = [
     collaborated: [],
 
     externalLink:
-      "https://huggingface.co/spaces/jaskay/ede-african-nlp",
+      "https://ede-kay-jasanyas-projects.vercel.app/?kind=word&q=kind",
   },
 
   {
