@@ -14,7 +14,7 @@ export const buildingGroups: { title: string; projects: BuildingProject[] }[] = 
       {
         name: "Axiom",
         description: "Presentation, service planning, and connected church workflows.",
-        url: "https://axiomworship.vercel.app/",
+        url: "https://useaxiom.org/",
         status: "BUILDING",
         icon: "A",
       },

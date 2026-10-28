@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { siteLinks } from "@/data/projects";
 import { Download, ExternalLink } from "lucide-react";
 
-const resumeEmail = "iamjasanyakay@gmail.com";
+const resumeEmail = siteLinks.email;
 
 const Resume = () => {
   return (

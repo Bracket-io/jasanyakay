@@ -822,7 +822,7 @@ export const capabilityGroups = [
 ========================================================= */
 
 export const siteLinks = {
-  email: "edoyakproductions@gmail.com",
+  email: "iamjasanyakay@gmail.com",
   linkedin: "https://www.linkedin.com/in/jaskay/",
   github: "https://github.com/JasKay",
 };

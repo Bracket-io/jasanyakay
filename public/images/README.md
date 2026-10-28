@@ -1,6 +1,8 @@
-Axiom product images were copied from the owner's public product website on 28 October 2026 for use in this portfolio.
+Axiom product images were captured from the owner’s public product website on 28 October 2026 for use in this portfolio.
 
-- axiom-studio.png: https://axiomworship.vercel.app/studio-preview.png?v=0.4.35
-- axiom-leader.png: https://axiomworship.vercel.app/leader-preview.png
+Current product website: https://useaxiom.org/
 
-The Axiom feature and product page describe the publicly presented capabilities at https://axiomworship.vercel.app/. Adoption, revenue, and personal discovery results have not been inferred from those capabilities.
+- axiom-studio.png: Axiom Pro presentation editor
+- axiom-leader.png: AxiomLeader planning workspace
+
+These are product screenshots, not claims about adoption, revenue, or discovery outcomes.
