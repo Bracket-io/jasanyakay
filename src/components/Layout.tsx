@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Header } from "./Header";
+import { ContactBlock } from "./ContactBlock";
 import { Linkedin, Twitter, BookOpen, PenLine } from "lucide-react";
 
 interface LayoutProps {
@@ -8,22 +9,29 @@ interface LayoutProps {
 }
 
 export const Layout = ({ children }: LayoutProps) => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      document.getElementById(hash.slice(1))?.scrollIntoView();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
 
   return (
     <div className="min-h-screen flex flex-col">
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <Header />
-      <main className="flex-1 max-w-[900px] w-full mx-auto px-6 py-16">
+      <main id="main-content" tabIndex={-1} className="flex-1 max-w-[1280px] w-full mx-auto px-6 py-10 sm:py-14">
         {children}
       </main>
 
-      <footer className="border-t border-border">
-        <div className="max-w-[900px] mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">© 2026 Kay Jasanya</p>
+      <div className="max-w-[1280px] w-full mx-auto px-6"><ContactBlock /></div>
+
+      <footer className="site-footer border-t border-border">
+        <div className="max-w-[1280px] mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Kay Jasanya · Product, data & applied AI</p>
           <div className="flex items-center gap-4">
             <a
               href="https://www.linkedin.com/in/jaskay"

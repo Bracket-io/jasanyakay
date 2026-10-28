@@ -13,28 +13,28 @@ export const buildingGroups: { title: string; projects: BuildingProject[] }[] = 
     projects: [
       {
         name: "Axiom",
-        description: "Church Tech",
+        description: "Presentation, service planning, and connected church workflows.",
         url: "https://axiomworship.vercel.app/",
         status: "BUILDING",
         icon: "A",
       },
       {
         name: "Ede",
-        description: "Language",
+        description: "An experiment in African-language AI and NLP.",
         status: "EXPERIMENT",
         url: "https://ede-kay-jasanyas-projects.vercel.app/?kind=word&q=kind",
         icon: "E",
       },
       {
         name: "Gradezy",
-        description: "Ed Assessment",
+        description: "Tools for assessment review and workflow automation.",
         status: "BUILDING",
         url: "https://gradezy-website.vercel.app/",
         icon: "G",
       },
       {
         name: "OpsFlow",
-        description: "Ed Ops",
+        description: "Tools for education operations.",
         url: "https://opsflow-rosy.vercel.app/",
         status: "BUILDING",
         icon: "O",

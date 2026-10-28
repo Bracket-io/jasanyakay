@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { BuildCollection } from "@/components/BuildCollection";
 import { Layout } from "@/components/Layout";
 import { projects } from "@/data/projects";
-import { ArrowUpRight } from "lucide-react";
+import { AxiomFeature } from "@/components/AxiomFeature";
+import { WorkCard } from "@/components/WorkCard";
 
 const categories = [
   "All",
+  "Church Tech",
   ...Array.from(new Set(projects.map((p) => p.category).filter(Boolean))),
 ];
 
@@ -15,21 +17,22 @@ const Work = () => {
   const filtered =
     active === "All" ? projects : projects.filter((p) => p.category === active);
 
+  const axiomVisible = active === "All" || active === "Church Tech";
+  const visibleCount = filtered.length + (axiomVisible ? 1 : 0);
+
   return (
     <Layout>
-      <h1 className="text-3xl font-bold tracking-tight mb-2">
-        Selected Product Work
-      </h1>
-      <p className="text-muted-foreground mb-8 max-w-[600px] text-sm leading-relaxed">
-        Products and systems I've led across fintech, civic technology, applied
-        AI, and enterprise data — framed as problem, decision, and outcome.
-      </p>
+      <header className="page-intro"><p className="eyebrow">The selected portfolio</p><h1>A body of work.<br /><em>A way of thinking.</em></h1><p>From financial decisions to city services: the problems I chose, the trade-offs I made, and what happened next.</p></header>
 
+      <div className="work-page-sections"><a href="#case-studies">Selected projects <span>05</span></a><a href="#more-builds">More builds <span>06</span></a></div>
+      <section id="case-studies" aria-labelledby="case-studies-heading">
+      <h2 id="case-studies-heading" className="eyebrow mb-7">Selected projects & case studies</h2>
       <div className="flex flex-wrap gap-2 mb-12">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActive(cat!)}
+            aria-pressed={active === cat}
             className={`text-xs px-3 py-1.5 border transition-colors ${
               active === cat
                 ? "bg-foreground text-background border-foreground"
@@ -41,67 +44,16 @@ const Work = () => {
         ))}
       </div>
 
-      <div className="space-y-10">
-        {filtered.map((project) => {
-          const body = (
-            <>
-              <p className="text-xs text-muted-foreground mb-2">
-                {project.role} · {project.timeline} · {project.category}
-              </p>
-              <h2 className="text-base font-bold group-hover:underline mb-2 inline-flex items-center gap-1">
-                {project.title}
-                {project.externalLink && <ArrowUpRight className="w-3.5 h-3.5" />}
-              </h2>
-              <p className="text-sm text-muted-foreground mb-3 max-w-[640px] leading-relaxed">
-                {project.subtitle}
-              </p>
-              <dl className="space-y-2 text-sm max-w-[640px]">
-                <div>
-                  <dt className="text-xs uppercase tracking-widest text-muted-foreground">
-                    Problem
-                  </dt>
-                  <dd className="text-muted-foreground">{project.problem}</dd>
-                </div>
-                <div>
-                  <dt className="text-xs uppercase tracking-widest text-muted-foreground">
-                    Outcome
-                  </dt>
-                  <dd>{project.outcome[0]}</dd>
-                </div>
-              </dl>
-            </>
-          );
-
-          return project.externalLink ? (
-            <a
-              key={project.slug}
-              href={project.externalLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block group border-b border-border pb-10 last:border-0"
-            >
-              {body}
-            </a>
-          ) : (
-            <Link
-              key={project.slug}
-              to={`/project/${project.slug}`}
-              className="block group border-b border-border pb-10 last:border-0"
-            >
-              {body}
-            </Link>
-          );
-        })}
+      <p className="text-xs text-muted-foreground mb-5" role="status">{visibleCount} {visibleCount === 1 ? "project" : "projects"}{active !== "All" ? ` · ${active}` : ""}</p>
+      <h2 className="sr-only">Project case studies</h2>
+      {axiomVisible && <div className="mb-14"><AxiomFeature /></div>}
+      <div className="project-grid">
+        {filtered.map((project, index) => <WorkCard key={project.slug} project={project} index={index} />)}
       </div>
 
-      <section className="mt-20 border-t border-border pt-10">
-        <h2 className="text-lg font-bold tracking-tight mb-3">
-          Building something interesting? Let's talk.
-        </h2>
-        <Link to="/contact" className="text-sm underline hover:text-muted-foreground">
-          Get in touch
-        </Link>
+
       </section>
+      <BuildCollection />
     </Layout>
   );
 };

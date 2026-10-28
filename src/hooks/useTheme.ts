@@ -2,15 +2,13 @@ import { useState, useEffect } from "react";
 
 type Theme = "light" | "dark" | "auto";
 
-const getSystemTheme = (): "light" | "dark" => {
-  const hour = new Date().getHours();
-  return hour >= 18 || hour < 6 ? "dark" : "light";
-};
+const getSystemTheme = (): "light" | "dark" =>
+  window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 
 export const useTheme = () => {
   const [theme, setTheme] = useState<Theme>(() => {
     const stored = localStorage.getItem("theme") as Theme | null;
-    return stored || "auto";
+    return stored === "light" || stored === "dark" || stored === "auto" ? stored : "light";
   });
 
   useEffect(() => {
@@ -19,14 +17,12 @@ export const useTheme = () => {
     document.documentElement.classList.toggle("dark", resolved === "dark");
   }, [theme]);
 
-  // Re-check auto theme every minute
   useEffect(() => {
     if (theme !== "auto") return;
-    const interval = setInterval(() => {
-      const resolved = getSystemTheme();
-      document.documentElement.classList.toggle("dark", resolved === "dark");
-    }, 60000);
-    return () => clearInterval(interval);
+    const preference = window.matchMedia("(prefers-color-scheme: dark)");
+    const update = () => document.documentElement.classList.toggle("dark", preference.matches);
+    preference.addEventListener("change", update);
+    return () => preference.removeEventListener("change", update);
   }, [theme]);
 
   const toggleTheme = () => {

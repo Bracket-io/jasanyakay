@@ -15,9 +15,9 @@ const NotFound = () => {
         <Link to="/work" className="underline hover:text-muted-foreground">
           Selected work
         </Link>
-        <Link to="/contact" className="underline hover:text-muted-foreground">
+        <a href="#contact" className="underline hover:text-muted-foreground">
           Contact
-        </Link>
+        </a>
       </div>
     </Layout>
   );

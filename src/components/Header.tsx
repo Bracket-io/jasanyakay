@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@/hooks/useTheme";
-import { siteLinks } from "@/data/projects";
 import { Sun, Moon, Monitor, Menu, X } from "lucide-react";
 
 export const Header = () => {
@@ -20,7 +19,6 @@ export const Header = () => {
 
   const navLinks = [
     { to: "/work", label: "Work" },
-    { to: "/building", label: "Building" },
     { to: "/about", label: "About" },
   ];
 
@@ -28,24 +26,25 @@ export const Header = () => {
     to === "/"
       ? pathname === "/"
       : pathname === to ||
-        (to === "/work" && pathname.startsWith("/project"));
+        (to === "/work" && (pathname.startsWith("/project") || pathname.startsWith("/case-studies")));
 
   return (
-    <header className="w-full border-b border-border">
-      <div className="max-w-[900px] mx-auto px-6 py-5 flex items-center justify-between">
+    <header className="site-header w-full">
+      <div className="max-w-[1280px] mx-auto px-6 py-7 flex items-center justify-between">
         <Link
           to="/"
-          className="text-sm font-bold tracking-tight hover:underline"
+          className="site-wordmark" aria-label="Kay Jasanya, home"
         >
-          Kay Jasanya
+          <span>Kay Jasanya<span className="wordmark-period">.</span></span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav aria-label="Main navigation" className="hidden md:flex items-center gap-7">
           {navLinks.map((l) => (
             <Link
               key={l.to}
               to={l.to}
+              aria-current={isActive(l.to) ? "page" : undefined}
               className={`text-sm transition-colors ${
                 isActive(l.to)
                   ? "text-foreground"
@@ -67,9 +66,11 @@ export const Header = () => {
             Résumé
           </Link>
 
+          <a href="#contact" className="header-contact">Let’s talk <span aria-hidden="true">↗</span></a>
+
           <button
             onClick={toggleTheme}
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            className="theme-button text-muted-foreground hover:text-foreground transition-colors"
             title={`Theme: ${theme}`}
             aria-label="Toggle theme"
           >
@@ -81,7 +82,7 @@ export const Header = () => {
         <div className="flex items-center gap-4 md:hidden">
           <button
             onClick={toggleTheme}
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            className="theme-button text-muted-foreground hover:text-foreground transition-colors"
             title={`Theme: ${theme}`}
             aria-label="Toggle theme"
           >
@@ -90,9 +91,10 @@ export const Header = () => {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-foreground"
+            className="text-foreground p-2"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileOpen ? (
               <X className="w-5 h-5" />
@@ -105,8 +107,8 @@ export const Header = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <nav className="md:hidden border-t border-border">
-          <div className="max-w-[900px] mx-auto px-6 py-4 flex flex-col gap-4">
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="md:hidden border-t border-border">
+          <div className="max-w-[1280px] mx-auto px-6 py-4 flex flex-col gap-4">
             {navLinks.map((l) => (
               <Link
                 key={l.to}
@@ -133,6 +135,7 @@ export const Header = () => {
             >
               Résumé
             </Link>
+            <a href="#contact" onClick={() => setMobileOpen(false)} className="text-sm py-2">Let’s talk ↗</a>
           </div>
         </nav>
       )}

@@ -2,6 +2,8 @@ import { Layout } from "@/components/Layout";
 import { siteLinks } from "@/data/projects";
 import { Download, ExternalLink } from "lucide-react";
 
+const resumeEmail = "iamjasanyakay@gmail.com";
+
 const Resume = () => {
   return (
     <Layout>
@@ -47,10 +49,10 @@ const Resume = () => {
             <span>·</span>
 
             <a
-              href={`mailto:${siteLinks.email}`}
+              href={`mailto:${resumeEmail}`}
               className="hover:text-foreground transition-colors"
             >
-              {siteLinks.email}
+              {resumeEmail}
             </a>
 
             <span>·</span>
@@ -62,15 +64,6 @@ const Resume = () => {
               className="hover:text-foreground transition-colors"
             >
               /in/jaskay
-            </a>
-
-            <span>·</span>
-
-            <a
-              href="/"
-              className="hover:text-foreground transition-colors"
-            >
-              Portfolio
             </a>
 
             <span>·</span>

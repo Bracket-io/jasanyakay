@@ -69,7 +69,7 @@ const tools = [
 const About = () => {
   return (
     <Layout>
-      <h1 className="text-3xl font-bold tracking-tight mb-8">About</h1>
+      <header className="page-intro"><p className="eyebrow">The person behind the products</p><h1>Curiosity is<br /><em>the common thread.</em></h1><p>Engineer by training. Product thinker by practice. A builder who likes understanding why.</p></header>
 
       <div className="space-y-6 text-sm leading-relaxed max-w-[600px] mb-16">
         <p>
