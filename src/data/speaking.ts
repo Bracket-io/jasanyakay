@@ -50,6 +50,22 @@ export const speakingEngagements = [
 
 export const mentoringEngagements = [
   {
+    title: "Technovation Girls",
+    organization: "Technology & entrepreneurship",
+    detail: "Mentor",
+    description: "Supporting girls as they develop technology-based solutions to community problems, from exploring an idea to communicating it in a pitch.",
+    link: "https://technovationchallenge.org/get-involved/mentors/",
+    linkLabel: "About Technovation mentoring",
+  },
+  {
+    title: "iCouldBe",
+    organization: "Youth e-mentoring",
+    detail: "Mentor",
+    description: "Online mentoring that helps high school students explore education and career possibilities, build confidence, and think through their next steps.",
+    link: "https://www.icouldbe.org/",
+    linkLabel: "About iCouldBe",
+  },
+  {
     title: "Hopkins Connect",
     organization: "Johns Hopkins University",
     detail: "Guest mentor · October 2025 office hours",
