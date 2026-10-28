@@ -1,0 +1,76 @@
+export const speakingLinks = {
+  nsf: "https://ideafactory.umd.edu/if-news/nsf-i-corps-hub-mid-atlantic-region-partners-host-black-founders-in-i-corps-event",
+  jesusAlivePhotos: "https://www.instagram.com/p/DecWZKFCIUl/?img_index=1",
+  instagram: "https://www.instagram.com/p/Co5_2ritj4m/?img_index=2",
+  podcast: "https://creators.spotify.com/pod/profile/educatorstalk/episodes/Academic-Excellence-is-for-you-NOT-geniuses-e1vvjr6",
+  coppin: "https://jaskay.my.canva.site/nexusseries1",
+  conference: "https://www.fatsoma.com/e/4x8xvv3l/jesus-alive-conference-2026",
+  mentoring: "https://jaskay.netlify.app/mentoring",
+  hopkins: "https://onehop.jhu.edu/hub/main/events/79689",
+};
+
+export const speakingEngagements = [
+  {
+    title: "Jesus Alive Conference",
+    host: "The Tab Centre & HQ · London",
+    date: "10 October 2026",
+    role: "Speaker",
+    description: "A speaking engagement at a student-focused gathering bringing together university communities across the UK for a day of faith and fellowship.",
+    link: speakingLinks.conference,
+    linkLabel: "Event details",
+  },
+  {
+    title: "LinkedIn: Getting Started",
+    host: "Oasis @ Coppin State University",
+    date: "21 November 2024",
+    role: "Workshop speaker",
+    description: "A practical session for Coppin State students on getting started with LinkedIn and building a professional presence. The original presentation is available to explore.",
+    link: speakingLinks.coppin,
+    linkLabel: "View the presentation",
+  },
+  {
+    title: "Black Founders in I-Corps",
+    host: "NSF I-Corps Hub, Mid-Atlantic · Morgan State University",
+    date: "5 February 2024",
+    role: "Emcee",
+    description: "Hosted the second annual gathering celebrating Black founders in Maryland’s I-Corps community, bringing entrepreneurs and regional innovation partners into the same room.",
+    link: speakingLinks.nsf,
+    linkLabel: "Read the event report",
+  },
+  {
+    title: "Level Up: Career-readiness workshops",
+    host: "Morgan State University · The Oasis community",
+    date: "2023",
+    role: "Workshop speaker",
+    description: "Student conversations around LinkedIn, résumés, internships, and scholarships—making the next step in a career feel more accessible and actionable.",
+    link: speakingLinks.instagram,
+    linkLabel: "See moments from the event",
+  },
+];
+
+export const mentoringEngagements = [
+  {
+    title: "Hopkins Connect",
+    organization: "Johns Hopkins University",
+    detail: "Guest mentor · October 2025 office hours",
+    description: "A student-facing session for career conversations, mentor connections, and introductions through OneHop.",
+    link: speakingLinks.hopkins,
+    linkLabel: "View the guest mentor listing",
+  },
+  {
+    title: "SproutHacks",
+    organization: "Hackathon mentoring",
+    detail: "Mentor · 2025",
+    description: "Mentoring student builders in a hackathon setting, alongside my wider work supporting students and emerging technologists.",
+    link: speakingLinks.mentoring,
+    linkLabel: "From the mentoring archive",
+  },
+  {
+    title: "BisonHacks",
+    organization: "Howard University",
+    detail: "Hackathon mentor",
+    description: "Part of an ongoing commitment to helping students explore ideas and find their footing in technology and innovation.",
+    link: speakingLinks.mentoring,
+    linkLabel: "From the mentoring archive",
+  },
+];

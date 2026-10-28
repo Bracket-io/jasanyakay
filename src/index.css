@@ -336,3 +336,69 @@
 .axiom-planning-detail { border-top: 1px solid hsl(var(--border)); border-bottom: 1px solid hsl(var(--border)); }
 .axiom-planning-detail > summary { display:flex; justify-content:space-between; cursor:pointer; padding:24px 0; list-style:none; font-size:12px; }
 .axiom-planning-detail[open] > summary > span { transform:rotate(45deg); }
+
+@layer components {
+  .speaking-intro { @apply grid lg:grid-cols-[1.5fr_1fr] gap-10 lg:gap-16 items-center pt-3 pb-12 sm:pb-16; }
+  .speaking-intro h1 { @apply my-7; font-size: clamp(3.2rem,5.8vw,5.4rem); font-weight: 400; line-height: 1.02; letter-spacing: -.025em; }
+  .speaking-intro h1 em { @apply text-primary; }
+  .speaking-intro > div > p:last-of-type { @apply text-sm leading-7 text-muted-foreground max-w-[430px]; }
+  .speaking-intro-actions { @apply flex flex-wrap items-center gap-x-7 gap-y-3 mt-7; }
+  .speaking-portrait { @apply max-w-[450px] w-full lg:ml-auto; }
+  .speaking-portrait img { @apply w-full aspect-[4/4.3] object-cover; object-position: 52% 40%; }
+  .speaking-portrait figcaption { @apply flex flex-wrap justify-between gap-3 text-[9px] text-muted-foreground mt-4; }
+  .speaking-section-nav { @apply flex flex-wrap gap-x-9 gap-y-4 border-y border-border py-5 mb-16 sm:mb-20; }
+  .speaking-section-nav > a { @apply flex gap-4 text-[11px] hover:text-primary; }
+  .speaking-section-nav > a > span { @apply text-[9px] text-muted-foreground; }
+  .speaking-engagements .section-title-line { @apply border-t-0 pt-0 mb-6; }
+  .speaking-event { @apply grid md:grid-cols-[150px_1fr_150px] lg:grid-cols-[180px_1fr_210px] gap-5 md:gap-9 border-b border-border py-8 sm:py-10; }
+  .speaking-event-date { @apply flex flex-wrap md:flex-col gap-x-5 gap-y-3 text-[10px] text-muted-foreground; }
+  .speaking-event-date > span:first-child { @apply text-[9px]; }
+  .speaking-role { @apply md:mt-3 text-primary; }
+  .speaking-event-host { @apply text-[9px] uppercase tracking-[0.1em] text-muted-foreground mb-3; }
+  .speaking-event h3 { font-family: var(--serif); font-size: clamp(1.8rem,3vw,2.5rem); line-height: 1.08; letter-spacing: -.015em; font-weight: 400; }
+  .speaking-event h3 a:hover { @apply text-primary; }
+  .speaking-event-description { @apply text-xs text-muted-foreground leading-6 max-w-[540px] mt-4 mb-3; }
+  .speaking-event-arrow { @apply hidden md:flex justify-end text-muted-foreground; }
+  .speaking-slide-link { @apply self-center block max-w-[250px]; }
+  .speaking-slide-link img { @apply w-full h-auto border border-border; }
+  .speaking-podcast { @apply grid md:grid-cols-[.8fr_1.2fr] gap-8 md:gap-14 lg:gap-20 items-center bg-secondary p-6 sm:p-9 lg:p-12 my-16 sm:my-24; }
+  .podcast-cover { @apply max-w-[340px] w-full mx-auto; }
+  .podcast-cover img { @apply block w-full h-auto; }
+  .podcast-copy h2 { @apply mt-6 mb-5; font-family: var(--serif); font-size: clamp(2.7rem,4.4vw,4.2rem); font-weight: 400; line-height: 1.02; letter-spacing: -.02em; }
+  .podcast-copy h2 em { @apply text-primary; }
+  .podcast-copy > p:not(.eyebrow):not(.podcast-meta):not(.podcast-original-title) { @apply text-xs leading-6 text-muted-foreground max-w-[390px]; }
+  .podcast-meta { @apply text-[10px] text-muted-foreground my-5; }
+  .podcast-original-title { @apply text-[9px] leading-5 text-muted-foreground mt-5; }
+  .speaking-mentoring { @apply pb-16 sm:pb-24; }
+  .mentoring-intro { @apply grid md:grid-cols-[1.2fr_1fr] gap-8 md:gap-16 mb-12; }
+  .mentoring-intro h2 { font-family: var(--serif); font-size: clamp(2.8rem,4.5vw,4.2rem); font-weight: 400; line-height: 1.05; letter-spacing: -.02em; }
+  .mentoring-intro h2 em { @apply text-primary; }
+  .mentoring-intro > div > p { @apply text-xs leading-7 text-muted-foreground max-w-[420px] mb-3; }
+  .mentoring-records { @apply grid md:grid-cols-3 gap-8 lg:gap-12; }
+  .mentoring-records article { @apply flex flex-col border-t border-border pt-6; }
+  .mentoring-records .eyebrow { @apply text-[9px] text-muted-foreground; }
+  .mentoring-records h3 { font-family: var(--serif); font-size: 35px; font-weight: 400; margin: 22px 0 10px; line-height: 1.1; }
+  .mentoring-detail { @apply text-[10px] text-primary mb-5; }
+  .mentoring-records article > p:not(.eyebrow):not(.mentoring-detail) { @apply text-xs leading-6 text-muted-foreground mb-5; }
+  .mentoring-records .text-link { @apply mt-auto; }
+  .speaking-invitation { @apply flex flex-col md:flex-row md:items-end gap-8 md:gap-14 justify-between border-t border-border pt-10 pb-14; }
+  .speaking-invitation h2 { font-family: var(--serif); font-size: clamp(2.5rem,4vw,3.7rem); font-weight: 400; line-height: 1.05; letter-spacing: -.02em; margin: 24px 0; }
+  .speaking-invitation h2 em { @apply text-primary; }
+  .speaking-invitation > div > p:last-child { @apply text-xs leading-6 text-muted-foreground max-w-[470px]; }
+  .speaking-invitation > a { @apply shrink-0 self-start md:self-end; }
+}
+@media (max-width: 639px) {
+  .speaking-intro h1 { font-size: clamp(2.8rem,11vw,4rem); }
+  .speaking-portrait { max-width: 100%; }
+  .speaking-portrait img { aspect-ratio: 1.1; object-position: 50% 35%; }
+  .speaking-podcast .primary-link { gap: 15px; }
+}
+
+@layer components {
+  .speaking-event-gallery { @apply mt-12 sm:mt-16; }
+  .speaking-event-gallery .section-title-line { @apply mb-6; }
+  .speaking-gallery-grid { @apply grid sm:grid-cols-2 gap-5; }
+  .speaking-gallery-grid a { @apply block; }
+  .speaking-gallery-grid img { @apply block w-full h-auto; }
+  .speaking-event-gallery figcaption { @apply text-[9px] leading-5 text-muted-foreground mt-4; }
+}
