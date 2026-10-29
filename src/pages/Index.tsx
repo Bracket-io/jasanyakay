@@ -33,5 +33,10 @@ export default function Index() {
 
     <aside className="collection-home-link"><div><p className="eyebrow">There’s more in the collection</p><h2>Tools, experiments,<br /><em>and things taking shape.</em></h2></div><Link to="/work#more-builds" className="text-link">Explore all builds <ArrowUpRight size={16} aria-hidden="true" /></Link></aside>
 
+    <section className="research-home" aria-labelledby="research-home-heading">
+      <p className="eyebrow">Research / Beyond the product</p>
+      <div><h2 id="research-home-heading">Better questions.<br /><em>Stronger foundations.</em></h2><div><p>My research explores how policy, technology, and public systems shape people’s lives—from carbon emissions in Sub-Saharan Africa to community engagement in Baltimore.</p><Link to="/research" className="text-link">Explore my research <ArrowUpRight size={15} aria-hidden="true" /></Link></div></div>
+    </section>
+
   </Layout>;
 }

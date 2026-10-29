@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import Tutoring from "./pages/Tutoring";
 import Resume from "./pages/Resume";
 import Speaking from "./pages/Speaking";
+import Research from "./pages/Research";
 import Extraordinaire from "./pages/Extraordinaire";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/tutoring" element={<Tutoring />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/speaking" element={<Speaking />} />
+          <Route path="/research" element={<Research />} />
           <Route path="/building" element={<Navigate to="/work#more-builds" replace />} />
           <Route path="/extraordinaire" element={<Extraordinaire />} />
           <Route path="/extraordinaire/:categoryId" element={<Extraordinaire />} />

@@ -402,3 +402,29 @@
   .speaking-gallery-grid img { @apply block w-full h-auto; }
   .speaking-event-gallery figcaption { @apply text-[9px] leading-5 text-muted-foreground mt-4; }
 }
+
+@layer components {
+  .research-home { @apply border-t border-border pt-10 pb-16 mt-10; }
+  .research-home > div { @apply grid md:grid-cols-2 gap-7 md:gap-16 mt-7; }
+  .research-home h2, .research-review h2 { font-family: var(--serif); font-size: clamp(2.8rem,4.5vw,4.2rem); line-height: 1.05; font-weight: 400; letter-spacing: -.02em; }
+  .research-home em, .research-intro em, .research-review em { @apply text-primary; }
+  .research-home > div > div > p { @apply text-sm leading-7 text-muted-foreground max-w-[450px] mb-6; }
+  .research-intro { @apply pt-3 pb-12 sm:pb-16; }
+  .research-intro h1 { font-size: clamp(3rem,6.5vw,6rem); line-height: 1.02; font-weight: 400; letter-spacing: -.025em; margin: 28px 0 36px; }
+  .research-intro-bottom { @apply flex flex-col lg:flex-row lg:items-end justify-between gap-7; }
+  .research-intro-bottom p { @apply text-sm leading-7 text-muted-foreground max-w-[520px]; }
+  .research-intro-bottom a { @apply text-[10px]; }
+  .research-work { @apply grid md:grid-cols-[180px_1fr] gap-6 md:gap-12 border-b border-border py-9 sm:py-12; }
+  .research-work-meta { @apply flex flex-wrap md:flex-col gap-4 text-[10px] text-muted-foreground; }
+  .research-work-meta span:last-child { @apply text-primary; }
+  .research-work h3 { font-family: var(--serif); font-size: clamp(1.9rem,3.2vw,2.8rem); line-height: 1.12; font-weight: 400; max-width: 850px; margin: 18px 0; }
+  .research-work h3 a:hover { @apply text-primary; }
+  .research-description { @apply text-sm leading-7 max-w-[640px] text-muted-foreground mb-5; }
+  .research-authors { @apply text-[11px] leading-6 text-muted-foreground max-w-[640px] mb-6; }
+  .research-doi { @apply text-[10px] leading-5 text-muted-foreground mt-4 break-all; }
+  .research-review { @apply grid md:grid-cols-2 gap-10 md:gap-16 bg-secondary p-6 sm:p-10 lg:p-14 my-16 sm:my-24; }
+  .research-review h2 { @apply mt-6; }
+  .research-review h3 { font-family: var(--serif); font-size: 30px; line-height: 1.15; margin: 24px 0 18px; }
+  .research-review > div > p:not(.eyebrow) { @apply text-xs leading-7 text-muted-foreground max-w-[440px] mb-5; }
+  .research-review .research-review-record { @apply text-[10px] text-primary; }
+}
