@@ -1,3 +1,5 @@
+import { lazy, Suspense } from "react";
+import { Seo } from "./components/Seo";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,17 +19,18 @@ import Tutoring from "./pages/Tutoring";
 import Resume from "./pages/Resume";
 import Speaking from "./pages/Speaking";
 import Research from "./pages/Research";
-import Extraordinaire from "./pages/Extraordinaire";
+const Extraordinaire = lazy(() => import("./pages/Extraordinaire"));
+const evidencePage = <Suspense fallback={<p role="status" className="p-6">Loading records...</p>}><Extraordinaire /></Suspense>;
 
 const queryClient = new QueryClient();
 
-const App = () => (
+export const AppContent = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
 
-      <BrowserRouter>
+      <Seo />
         <Routes>
           {/* Main pages */}
           <Route path="/" element={<Index />} />
@@ -44,9 +47,9 @@ const App = () => (
           <Route path="/speaking" element={<Speaking />} />
           <Route path="/research" element={<Research />} />
           <Route path="/building" element={<Navigate to="/work#more-builds" replace />} />
-          <Route path="/extraordinaire" element={<Extraordinaire />} />
-          <Route path="/extraordinaire/:categoryId" element={<Extraordinaire />} />
-          <Route path="/extraordinaire/:categoryId/:entryId" element={<Extraordinaire />} />
+          <Route path="/extraordinaire" element={evidencePage} />
+          <Route path="/extraordinaire/:categoryId" element={evidencePage} />
+          <Route path="/extraordinaire/:categoryId/:entryId" element={evidencePage} />
 
           {/* Case studies */}
           <Route path="/case-studies" element={<Navigate to="/work#case-studies" replace />} />
@@ -59,9 +62,11 @@ const App = () => (
           {/* 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+
     </TooltipProvider>
   </QueryClientProvider>
 );
+
+const App = () => <BrowserRouter><AppContent /></BrowserRouter>;
 
 export default App;

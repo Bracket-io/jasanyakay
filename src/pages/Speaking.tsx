@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { ArrowDown, ArrowUpRight, Play } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { siteLinks } from "@/data/projects";
@@ -7,7 +6,7 @@ import { speakingEngagements, mentoringEngagements, speakingLinks } from "@/data
 const invitation = `mailto:${siteLinks.email}?subject=${encodeURIComponent("Speaking invitation")}&body=${encodeURIComponent("Hello Kay,\n\nEvent or organisation:\nProposed date:\nAudience:\nTopic or format:\nLocation or online:\n\nA little more about the invitation:\n")}`;
 
 export default function Speaking() {
-  useEffect(()=>{const previous=document.title;document.title="Speaking & Mentoring | Kay Jasanya";return()=>{document.title=previous;};},[]);
+
   return <Layout>
     <header className="speaking-intro"><div><p className="eyebrow">Speaking & mentoring</p><h1>A conversation can<br /><em>change the trajectory.</em></h1><p>I speak, host, and mentor at the intersection of learning, careers, and entrepreneurship. I care about making ideas useful—and helping people see what could come next.</p><div className="speaking-intro-actions"><a href={invitation} className="primary-link">Invite me to speak <ArrowUpRight size={15} aria-hidden="true" /></a><a href="#mentoring" className="text-link">The mentoring side <ArrowDown size={14} aria-hidden="true" /></a></div></div><figure className="speaking-portrait"><img src="/images/speaking/level-up.jpeg" alt="Kay speaking with a microphone to students at the Level Up event at Morgan State University" width="1080" height="1080" fetchPriority="high" /><figcaption><span>Level Up · Morgan State University</span><span>2023</span></figcaption></figure></header>
     <nav className="speaking-section-nav" aria-label="Speaking page sections"><a href="#engagements">On stage <span>{String(speakingEngagements.length).padStart(2, "0")}</span></a><a href="#in-conversation">In conversation <span>01</span></a><a href="#mentoring">Mentoring <span>{String(mentoringEngagements.length).padStart(2, "0")}</span></a></nav>

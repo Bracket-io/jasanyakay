@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Layout } from "@/components/Layout";
 
@@ -28,11 +27,6 @@ const works = [
 ];
 
 export default function Research() {
-  useEffect(() => {
-    const previous = document.title;
-    document.title = "Research | Kay Jasanya";
-    return () => { document.title = previous; };
-  }, []);
 
   return <Layout>
     <header className="research-intro">

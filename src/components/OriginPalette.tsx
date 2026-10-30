@@ -16,9 +16,15 @@ function Flag({ country }: { country: string }) {
 }
 
 export function OriginPalette() {
-  const [selected, setSelected] = useState<Palette>(() => {
-    try { const saved = localStorage.getItem("home-palette"); return places.some(place => place.id === saved) ? saved as Palette : "editorial"; } catch { return "editorial"; }
-  });
+  const [selected, setSelected] = useState<Palette>("editorial");
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("home-palette");
+      if (places.some(place => place.id === saved)) setSelected(saved as Palette);
+    } catch { /* The default palette works without storage. */ }
+    setLoaded(true);
+  }, []);
   const [hovered, setHovered] = useState<Palette | null>(null);
   const [focused, setFocused] = useState<Palette | null>(null);
   const active = hovered ?? focused ?? selected;
@@ -27,7 +33,7 @@ export function OriginPalette() {
     document.documentElement.dataset.homePalette = active;
     return () => { delete document.documentElement.dataset.homePalette; };
   }, [active]);
-  useEffect(() => { try { localStorage.setItem("home-palette", selected); } catch { /* The palette still works without storage. */ } }, [selected]);
+  useEffect(() => { if (!loaded) return; try { localStorage.setItem("home-palette", selected); } catch { /* The palette still works without storage. */ } }, [selected, loaded]);
 
   return <div className="origin-palette" aria-label="Three cities that shaped me">
     <div className="origin-places" role="group" aria-label="Preview or choose a homepage colour palette">{places.map(place=><button key={place.id} type="button" onPointerEnter={event=>{if(event.pointerType!=="touch")setHovered(place.id);}} onPointerLeave={()=>setHovered(null)} onFocus={()=>setFocused(place.id)} onBlur={()=>setFocused(null)} onClick={()=>setSelected(place.id)} aria-pressed={selected===place.id} aria-label={`${place.lead} ${place.city}. Choose ${place.country} colours.`} data-preview={active===place.id ? "true" : undefined}><span>{place.lead}</span><strong>{place.city}</strong><Flag country={place.id} /></button>)}</div>

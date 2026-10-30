@@ -6,16 +6,23 @@ const getSystemTheme = (): "light" | "dark" =>
   window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    const stored = localStorage.getItem("theme") as Theme | null;
-    return stored === "light" || stored === "dark" || stored === "auto" ? stored : "light";
-  });
+  const [theme, setTheme] = useState<Theme>("light");
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
+    try {
+      const stored = localStorage.getItem("theme");
+      if (stored === "light" || stored === "dark" || stored === "auto") setTheme(stored);
+    } catch { /* Theme switching also works without browser storage. */ }
+    setLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!loaded) return;
+    try { localStorage.setItem("theme", theme); } catch { /* Storage is optional. */ }
     const resolved = theme === "auto" ? getSystemTheme() : theme;
     document.documentElement.classList.toggle("dark", resolved === "dark");
-  }, [theme]);
+  }, [theme, loaded]);
 
   useEffect(() => {
     if (theme !== "auto") return;
@@ -23,7 +30,7 @@ export const useTheme = () => {
     const update = () => document.documentElement.classList.toggle("dark", preference.matches);
     preference.addEventListener("change", update);
     return () => preference.removeEventListener("change", update);
-  }, [theme]);
+  }, [theme, loaded]);
 
   const toggleTheme = () => {
     setTheme((prev) => {

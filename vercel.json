@@ -2,13 +2,131 @@
   "headers": [
     {
       "source": "/extraordinaire/:path*",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/portfolio",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/experience",
+      "destination": "/resume",
+      "permanent": true
+    },
+    {
+      "source": "/thinking",
+      "destination": "/thoughts",
+      "permanent": true
+    },
+    {
+      "source": "/building",
+      "destination": "/work#more-builds",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies",
+      "destination": "/work#case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/axiom",
+      "destination": "/project/axiom",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/bracket",
+      "destination": "/project/bracket",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/ede",
+      "destination": "/project/ede",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/gradezy",
+      "destination": "/project/gradezy",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/citiwatch",
+      "destination": "/project/citiwatch",
+      "permanent": true
     }
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/work",
+      "destination": "/work/index.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/resume",
+      "destination": "/resume/index.html"
+    },
+    {
+      "source": "/speaking",
+      "destination": "/speaking/index.html"
+    },
+    {
+      "source": "/research",
+      "destination": "/research/index.html"
+    },
+    {
+      "source": "/thoughts",
+      "destination": "/thoughts/index.html"
+    },
+    {
+      "source": "/bookmarks",
+      "destination": "/bookmarks/index.html"
+    },
+    {
+      "source": "/tutoring",
+      "destination": "/tutoring/index.html"
+    },
+    {
+      "source": "/project/axiom",
+      "destination": "/project/axiom/index.html"
+    },
+    {
+      "source": "/project/bracket",
+      "destination": "/project/bracket/index.html"
+    },
+    {
+      "source": "/project/ede",
+      "destination": "/project/ede/index.html"
+    },
+    {
+      "source": "/project/gradezy",
+      "destination": "/project/gradezy/index.html"
+    },
+    {
+      "source": "/project/citiwatch",
+      "destination": "/project/citiwatch/index.html"
+    },
+    {
+      "source": "/extraordinaire",
+      "destination": "/extraordinaire/index.html"
+    },
+    {
+      "source": "/extraordinaire/:path+",
+      "destination": "/extraordinaire/index.html"
     }
   ]
 }
