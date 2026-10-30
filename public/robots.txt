@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jasanyakay-kay-jasanyas-projects.vercel.app/sitemap.xml
+Sitemap: https://www.kayjasanya.com/sitemap.xml

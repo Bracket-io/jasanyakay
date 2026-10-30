@@ -1,7 +1,7 @@
 import { projects, siteLinks } from "@/data/projects";
 import { caseNarratives } from "@/data/caseNarratives";
 
-export const SITE_URL = (import.meta.env.VITE_SITE_URL || "https://jasanyakay-kay-jasanyas-projects.vercel.app").replace(/\/$/, "");
+export const SITE_URL = (import.meta.env.VITE_SITE_URL || "https://www.kayjasanya.com").replace(/\/$/, "");
 export const SHARE_IMAGE = SITE_URL + "/images/social-card.png";
 export const pageMetadata: Record<string, { title: string; description: string }> = {
   "/": { title: "Kay Jasanya | Senior Product Manager, Data & AI", description: "Kay Jasanya is a Senior Product Manager and hands-on builder in London. Explore product strategy, data, applied AI, Axiom, and selected case studies." },
